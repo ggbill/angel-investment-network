@@ -1,0 +1,21 @@
+{
+	"name": "uk-map",
+	"version": "1.0.0",
+	"description": "Map of the United Kingdom",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/VictorCazanave/svg-maps/tree/master/packages/united-kingdom"
+	},
+	"keywords": [
+		"svg",
+		"map",
+        "United Kingdom",
+        "UK"
+	],
+	"author": "Bill Hamilton wohamilton@gmail.com",
+	"publishConfig": {
+		"access": "public"
+	},
+	"license": "CC-BY-NC-4.0"
+}

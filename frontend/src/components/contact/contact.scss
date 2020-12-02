@@ -1,0 +1,61 @@
+.contact-page {
+    .flex-wrapper{
+        display: flex;
+        flex-direction: row;
+
+        .contact-details{
+            flex: 1;
+            margin-right: 12px;
+
+            .intro-wrapper{
+                margin-bottom: 24px;
+            }
+
+            .address-wrapper{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 24px;
+
+                .title{
+                    font-weight: 600;
+                }
+
+                a{
+                    color: unset;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .contact-form{
+            flex: 1;
+            margin-bottom: 12px;
+            .MuiTextField-root{
+                display: flex;
+                flex: 1;   
+                margin-bottom: 18px;
+            }
+
+            .small-print{
+                font-size: 0.8em;
+            }
+
+            button.submit{
+                background-color: green;
+                width: 100%;
+                margin-top: 12px;
+            }
+
+
+        }
+    }
+}
+
+
+@media only screen and (max-width: 850px) {
+    .contact-page {
+        .flex-wrapper{
+            flex-direction: column;
+        }
+    }
+}

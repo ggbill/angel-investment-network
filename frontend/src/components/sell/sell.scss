@@ -1,0 +1,33 @@
+.sell-page{
+    .current-step-section {
+        padding-top: 48px;
+    }
+
+    .intro-section {
+        display: flex;
+        flex-direction: column;
+        // padding: 48px 0 0 0;
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .buy-page {
+        .button-wrapper {
+            flex-direction: column;
+            justify-content: unset;
+
+            .back {
+                order: 2;
+            }
+
+            .next {
+                order: 1;
+            }
+        }
+    }
+}

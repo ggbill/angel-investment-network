@@ -1,0 +1,96 @@
+.menu-bar {
+    .MuiAppBar-root {
+        position: fixed;
+        box-shadow: none;
+    }
+
+    .MuiAppBar-colorPrimary {
+        flex-grow: 1;
+        // background-color: #087e8b;
+        color: #84a07c;
+    }
+
+    .MuiToolbar-root {
+        justify-content: space-between;
+    }
+
+    .link-button {
+        color: white;
+        font-family: "Poppins", "Helvetica", sans-serif;
+        margin: 0 6px;
+        &:hover {
+            background-color: transparent;
+            color: #e2e2e2;
+            text-decoration: underline;
+        }
+    }
+
+    button.menu {
+        margin-right: 12px;
+
+        &.buyer {
+            border: solid 1px #007688;
+        }
+
+        &.seller {
+            border: solid 1px #918e00;
+        }
+    }
+
+    .logo-wrapper {
+        .logo-link {
+            opacity: 0;
+
+            &.show-logo {
+                opacity: 1;
+                animation-name: logoFadeIn;
+                animation-iteration-count: 1;
+                animation-timing-function: ease-in;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        a {
+            display: flex;
+            img {
+                width: 50px;
+            }
+        }
+    }
+
+    .hamburger-menu {
+        display: none;
+        color: white;
+        justify-content: flex-end;
+        &:hover {
+            background-color: transparent;
+            color: #e2e2e2;
+        }
+
+        .MuiButton-base {
+            .MuiButton-label {
+                width: 24px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .menu-bar {
+        .hamburger-menu {
+            display: flex;
+        }
+
+        .menu-items {
+            display: none;
+        }
+
+        .logo-wrapper {
+            svg {
+                height: 40px;
+                width: 40px;
+            }
+        }
+    }
+}

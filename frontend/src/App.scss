@@ -1,0 +1,165 @@
+.content {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.full-height-content {
+    min-height: calc(100vh - 210px); /* will cover the 100% of viewport minus (header + footer) */
+    overflow: hidden;
+    display: block;
+    margin-top: 64px;
+}
+
+.buyer {
+    background-color: #0093a8 !important;
+}
+
+.seller {
+    background-color: #b7b500 !important;
+}
+
+.header-section {
+    background-color:#3f3b5b;
+    color: white;
+    padding: 48px 0;
+    margin-bottom: 48px;
+
+    .title-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            // max-width: 670px;
+            font-size: 3em;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .sub-title {
+            font-size: 1.3em;
+        }
+    }
+}
+
+.love-button{
+    color: white;
+    border-radius: 5px;
+    font-family: "Poppins", "Helvetica", sans-serif;
+    min-width: 135px;
+    padding: 12px 6px;
+    font-weight: 500;
+    // margin: 0 0 0 12px;
+    border: none;
+
+    &.menu {
+        font-size: 0.8em;
+        opacity: 0;
+        position: fixed;
+
+        &.show-cta {
+            position: static;
+            opacity: 1;
+            animation-name: ctaFadeIn;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        &.visible{
+            position: static;
+            opacity: 1; 
+        }
+    }
+
+    &.menu:hover {
+        text-decoration: underline;
+    }
+}
+
+.love-button:hover{
+    cursor: pointer;
+}
+
+.love-button:disabled{
+    background-color: gray !important;
+    border: none;
+    cursor: unset;
+}
+
+
+
+
+
+@keyframes ctaFadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        position: static;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes logoFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .full-height-content {
+        min-height: calc(100vh - 87px); /* will cover the 100% of viewport minus (header + footer) */
+        margin-top: 56px;
+    }
+
+    .header-section{
+        .title-wrapper{
+            .title{
+                font-size: 3em;
+            }
+
+            .sub-title{
+                font-size: 1.2em;
+            }
+        }   
+    }
+
+    .love-button{
+        margin: 0 0 6px 0;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 6px;
+        font-size: 1em;
+    }
+
+    .title-wrapper {
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 1.1em;
+        }
+    
+        .step-counter {
+            font-size: 1.2em;
+            margin-top: 6px;
+        }
+    }
+}
