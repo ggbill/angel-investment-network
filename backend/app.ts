@@ -6,6 +6,8 @@ import requestLoggerMiddleware from './request.logger.middleware';
 const path = require('path');
 const shrinkRay = require('shrink-ray-current');
 
+import leadRouter from './routes/lead';
+
 const app = express();
 
 // compress responses
@@ -14,6 +16,8 @@ app.use(shrinkRay());
 app.use(cors());
 app.use(bodyparser.json());
 app.use(requestLoggerMiddleware);
+
+app.use('/leads', leadRouter);
 
 if (process.env.NODE_ENV === 'production') {
 

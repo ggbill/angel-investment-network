@@ -12,7 +12,12 @@
     .button-wrapper {
         display: flex;
         justify-content: flex-end;
+
+        .next{
+            margin-left: 12px;
+        }
     }
+
 }
 
 @media only screen and (max-width: 600px) {

@@ -6,6 +6,7 @@ import BasicDetailInputs from '../shared/BasicDetailInputs'
 import BusinessType from '../shared/BusinessType'
 import Timescales from '../shared/Timescales'
 import CallBooking from '../shared/CallBooking'
+import useFetch from "../../hooks/useFetch"
 
 interface BasicDetails {
     name: string,
@@ -54,6 +55,8 @@ const Sell = () => {
         { id: 2, label: '12 months +', description: "Easly like Sunday morning.", imageUrl: "", isSelected: false }
     ])
 
+    const leadApi = useFetch("leads");
+
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
     }
@@ -61,6 +64,52 @@ const Sell = () => {
     const decreaseStepNumber = () => {
         setStepNumber(stepNumber - 1)
     }
+
+    const commitDataToDb = () => {
+
+        let tempAum, tempClients, tempAdvisers, tempTimescale;
+
+        assetsUnderManagement.forEach(element => {
+            if (element.isSelected) {
+                tempAum = element.label
+            }
+        });
+        advisers.forEach(element => {
+            if (element.isSelected) {
+                tempAdvisers = element.label
+            }
+        });
+        clients.forEach(element => {
+            if (element.isSelected) {
+                tempClients = element.label
+            }
+        });
+        timescale.forEach(element => {
+            if (element.isSelected) {
+                tempTimescale = element.label
+            }
+        });
+
+        leadApi.post({
+            type: "Seller",
+            name: basicDetails.name,
+            companyName: basicDetails.companyName,
+            phone: basicDetails.telephone,
+            email: basicDetails.email,
+            clientLocationList: selectedLocations,
+            isDontMind: isClientsNationwide,
+            specificLocationDetails: specificLocationRequirements,
+            aum: tempAum,
+            clients: tempClients,
+            advisers: tempAdvisers,
+            timescale: tempTimescale,
+        }).then(data => {
+            console.log(data)
+        }).catch((err: Error) => {
+            console.log(err)
+        })
+    }
+
     return (
         <div className="sell-page">
             <MenuBar page="sell" />
@@ -143,8 +192,10 @@ const Sell = () => {
                             color="#B7B500"
                             decreaseStepNumber={decreaseStepNumber}
                             customerJourney="seller"
+                            commitDataToDb={commitDataToDb}
                         />
                     }
+    
 
                 </section>
             </div>

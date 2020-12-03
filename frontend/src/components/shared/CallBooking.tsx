@@ -11,6 +11,7 @@ interface InputProps {
     email: string,
     increaseStepNumber: () => void,
     decreaseStepNumber: () => void,
+    commitDataToDb: () => void,
     color: string,
     customerJourney: string
 }
@@ -20,10 +21,11 @@ interface InputProps {
 const CallBooking = (props: InputProps) => {
 
     const listenToCalendlyEvent = (event) => {
-        console.log(event.data)
+        // console.log(event.data)
 
         if (event.data.event === "calendly.event_scheduled") {
             props.increaseStepNumber()
+            props.commitDataToDb()
         }
     }
 

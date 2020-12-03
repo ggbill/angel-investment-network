@@ -1,15 +1,12 @@
 import './buy.scss'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import MenuBar from '../shared/MenuBar'
 import ClientLocation from '../shared/ClientLocation'
 import BasicDetailInputs from '../shared/BasicDetailInputs'
 import BusinessType from '../shared/BusinessType'
 import Timescales from '../shared/Timescales'
 import CallBooking from '../shared/CallBooking'
-// import Tractor from '../../images/tractor.png'
-// import Car from '../../images/convertible-car.png'
-// import Motorbike from '../../images/motorbike.png'
-import { Link } from 'react-router-dom'
+import useFetch from "../../hooks/useFetch"
 
 interface BasicDetails {
     name: string,
@@ -58,6 +55,8 @@ const Buy = () => {
         { id: 2, label: '12 months +', description: "Easly like Sunday morning.", imageUrl: "", isSelected: false }
     ])
 
+    const leadApi = useFetch("leads");
+
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
         window.scrollTo({
@@ -71,6 +70,51 @@ const Buy = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
+        })
+    }
+
+    const commitDataToDb = () => {
+
+        let tempAum, tempClients, tempAdvisers, tempTimescale;
+
+        assetsUnderManagement.forEach(element => {
+            if (element.isSelected) {
+                tempAum = element.label
+            }
+        });
+        advisers.forEach(element => {
+            if (element.isSelected) {
+                tempAdvisers = element.label
+            }
+        });
+        clients.forEach(element => {
+            if (element.isSelected) {
+                tempClients = element.label
+            }
+        });
+        timescale.forEach(element => {
+            if (element.isSelected) {
+                tempTimescale = element.label
+            }
+        });
+
+        leadApi.post({
+            type: "Buyer",
+            name: basicDetails.name,
+            companyName: basicDetails.companyName,
+            phone: basicDetails.telephone,
+            email: basicDetails.email,
+            clientLocationList: selectedLocations,
+            isDontMind: isDontMind,
+            specificLocationDetails: specificLocationRequirements,
+            aum: tempAum,
+            clients: tempClients,
+            advisers: tempAdvisers,
+            timescale: tempTimescale,
+        }).then(data => {
+            console.log(data)
+        }).catch((err: Error) => {
+            console.log(err)
         })
     }
 
@@ -154,33 +198,12 @@ const Buy = () => {
                             email={basicDetails.email}
                             increaseStepNumber={increaseStepNumber}
                             decreaseStepNumber={decreaseStepNumber}
+                            commitDataToDb={commitDataToDb}
                             color="#0093a8"
                             customerJourney="buyer"
                         />
                     }
-
                 </section>
-                {/* <div className="button-wrapper">
-                    {stepNumber !== 1 && stepNumber !== 6 &&
-                        <button className="love-button buyer back" onClick={decreaseStepNumber}>Back</button>
-                    }
-
-                    {stepNumber < 5 &&
-                        // <button className="love-button buyer submit" >Submit</button> :
-                        <button className="love-button buyer next" onClick={increaseStepNumber}>Next</button>
-                    }
-
-                    {stepNumber === 6 &&
-                        // <button className="love-button buyer submit" >Submit</button> :
-                        <Link to={'/'}>
-                            <button className="love-button buyer next" >Back to Homepage</button>
-                        </Link>
-
-                    }
-                </div> */}
-
-
-
             </div>
 
         </div>
