@@ -7,7 +7,12 @@ import KeithImage from '../../images/snowy-keith.jpg'
 import DebbieImage from '../../images/debbie.jpg'
 import NormanImage from '../../images/norman.jpg'
 import { ReactComponent as LinkedInLogo } from '../../images/linkedin.svg'
+import CookieConsentPopup from '../shared/CookieConsentPopup'
+
+
 const About = () => {
+
+
     return (
         <div className="about-page">
             <MenuBar page="about" />
@@ -162,6 +167,8 @@ const About = () => {
 
                 </section>
             </div>
+
+            <CookieConsentPopup />
         </div>
     )
 }

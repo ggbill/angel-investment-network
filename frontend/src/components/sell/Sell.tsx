@@ -56,6 +56,7 @@ const Sell = () => {
     ])
 
     const leadApi = useFetch("leads");
+    const emailApi = useFetch("emails");
 
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
@@ -104,7 +105,24 @@ const Sell = () => {
             advisers: tempAdvisers,
             timescale: tempTimescale,
         }).then(data => {
-            console.log(data)
+            emailApi.post({
+                type: "SELLER-JOURNEY",
+                name: basicDetails.name,
+                companyName: basicDetails.companyName,
+                phone: basicDetails.telephone,
+                email: basicDetails.email,
+                clientLocationList: selectedLocations,
+                isDontMind: isClientsNationwide,
+                specificLocationDetails: specificLocationRequirements,
+                aum: tempAum,
+                clients: tempClients,
+                advisers: tempAdvisers,
+                timescale: tempTimescale,
+            }).then(data => {
+                console.log(data)
+            }).catch((err: Error) => {
+                console.log(err)
+            })
         }).catch((err: Error) => {
             console.log(err)
         })

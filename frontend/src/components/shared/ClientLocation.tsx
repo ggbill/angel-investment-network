@@ -62,7 +62,7 @@ const ClientLocation = (props: InputProps) => {
     };
 
     const handleChange = (event) => {
-        props.setSpecificLocationRequirements(event.targe);
+        props.setSpecificLocationRequirements(event.target.value);
     };
 
     return (

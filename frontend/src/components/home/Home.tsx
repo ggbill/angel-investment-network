@@ -8,7 +8,8 @@ import TestimonialCard from '../shared/TestimonialCard';
 import keithImage from '../../images/keith.jpg';
 import tickImage from '../../images/tick.png';
 import MenuBar from '../shared/MenuBar';
-// import Logo from '../../images/tmb-logo.png'
+import CookieConsentPopup from '../shared/CookieConsentPopup';
+
 
 const Home = () => {
     return (
@@ -16,9 +17,6 @@ const Home = () => {
             <MenuBar page="home" />
             <section className="header-section">
                 <div className="content">
-                    {/* <div className="hero-image">
-                        <img alt="" src={Logo} />
-                    </div> */}
                     <div className="home-title-wrapper">
                         <span className="title">We help advisers fall in business love </span><div className="heart-wrapper">❤️</div>
                     </div>
@@ -124,7 +122,7 @@ const Home = () => {
                 </div>
             </section>
 
-
+            <CookieConsentPopup />
 
         </div>
     )

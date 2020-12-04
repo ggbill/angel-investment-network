@@ -1,0 +1,79 @@
+.cookie-consent {
+    align-items: center !important;
+    padding: 8px;
+    .cookie-content {
+        margin: 0 12px !important;
+
+        .cookie-content-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            img {
+                width: 100px;
+            }
+            span {
+                margin-left: 12px;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .button-wrapper {
+        .accept-button {
+            color: white !important;
+            border-radius: 5px !important;
+            font-family: "Poppins", "Helvetica", sans-serif !important;
+            min-width: 135px !important;
+            padding: 12px 6px !important;
+            font-weight: 500 !important;
+            border: none !important;
+            background: green !important;
+        }
+
+        .decline-button {
+            color: red !important;
+            border-radius: 5px !important;
+            font-family: "Poppins", "Helvetica", sans-serif !important;
+            min-width: 135px !important;
+            padding: 12px 6px !important;
+            font-weight: 600 !important;
+            border: none;
+            background: none !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .cookie-consent {
+        flex-direction: column;
+        padding: 0;
+        .cookie-content {
+
+            flex: unset !important;
+            .cookie-content-wrapper {
+
+                flex-direction: column;
+                text-align: center;
+
+                span {
+                    margin-left: 0;
+                    font-size: 1em;
+                }
+            }
+        }
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            
+            .accept-button {
+                margin: 24px 0 6px !important;
+                order: 1;
+            }
+
+            .decline-button {
+                margin: 0 !important;
+                order: 2;
+            }
+        }
+    }
+}

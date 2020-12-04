@@ -7,6 +7,7 @@ const path = require('path');
 const shrinkRay = require('shrink-ray-current');
 
 import leadRouter from './routes/lead';
+import emailRouter from './routes/email';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(bodyparser.json());
 app.use(requestLoggerMiddleware);
 
 app.use('/leads', leadRouter);
+app.use('/emails', emailRouter);
 
 if (process.env.NODE_ENV === 'production') {
 
