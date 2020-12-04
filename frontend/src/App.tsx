@@ -12,6 +12,7 @@ import About from './components/about/About'
 import Blog from './components/blog/Blog'
 import Contact from './components/contact/Contact'
 import ReactGA from'react-ga'
+import ScrollToTop from './components/shared/scrollToTop'
 
 const history = createBrowserHistory();
 ReactGA.initialize('UA-171582169-2');
@@ -25,6 +26,7 @@ function App() {
     return (
         <HttpsRedirect>
             <Router history={history}>
+                <ScrollToTop />
                 <div className="full-height-content">
                     <Switch>
                         <Route
