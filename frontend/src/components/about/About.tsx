@@ -107,7 +107,7 @@ const About = () => {
                                     <p>Keith has worked as part of a team to complete over 50 acquisition and integration projects, and has had strategic responsibility for planning and implementation of integration activity and processes.</p>
                                     <p>Keith has displayed a track record of building and leading teams to achieve agreed targets and budgets.</p>
                                 </div>
-                                <a href="https://www.linkedin.com/in/discoverfg/" target="_blank"><LinkedInLogo /></a>
+                                <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a>
                             </div>
                         </div>
                         <div className="matchmaker-wrapper">
@@ -119,7 +119,7 @@ const About = () => {
                                     <p>Debbie has spent her entire career in retail financial services with the last 10 years at senior management and board level. </p>
                                     <p>She has been responsible for leading organisation-wide change programmes to deliver financial benefit through IT development and method improvement. Having spent the last 15 years working with consolidators in the financial services industry, Debbie is well placed to support IFAs through this process whilst maintaining client focus and business continuity throughout.</p>
                                 </div>
-                                <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank"><LinkedInLogo /></a>
+                                <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer"><LinkedInLogo /></a>
                             </div>
                         </div>
                         <div className="matchmaker-wrapper">
@@ -130,7 +130,7 @@ const About = () => {
                                 <div className="description-wrapper">
                                     <p>Having spent two decades as a senior fundraiser in a variety of organisations in the arts and culture sector, Norman made a career change some years ago. Transferring his communication and commercial skills to work in the IFA consolidation market, he was part of a small team that enjoyed notable success completing 50+ IFA acquisition deals over a five-year period.</p>
                                 </div>
-                                <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank"><LinkedInLogo /></a>
+                                <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer"><LinkedInLogo /></a>
                             </div>
                         </div>
                     </div>

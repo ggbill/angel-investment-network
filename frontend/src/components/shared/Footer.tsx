@@ -20,14 +20,14 @@ const Footer = (props: InputProps) => {
             </div>
             <div className="middle-content">
                 <span>The Marriage Bureau is a brand that is wholly owned and operated by</span>
-                <a target="_blank" href='https://www.wealthholdings.co.uk'>Wealth Holdings.</a>
+                <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings.</a>
 
             </div>
             <div className="right-content">
                 <div className="social-wrapper">
-                    <a href='#' target="_blank"><img className="social-icon" alt="" src={facebookImage} /></a>
-                    <a href='#' target="_blank"><img className="social-icon" alt="" src={instagramImage} /></a>
-                    <a href='#' target="_blank"><img className="social-icon" alt="" src={linkedInImage} /></a>
+                    <a href='https://www.facebook.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={facebookImage} /></a>
+                    <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={instagramImage} /></a>
+                    <a href='https://www.linkedin.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={linkedInImage} /></a>
                 </div>
             </div>
         </section>

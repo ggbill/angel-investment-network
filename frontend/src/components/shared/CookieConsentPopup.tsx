@@ -27,11 +27,11 @@ const CookieConsentPopup = () => {
             //     alert("Accept was triggered by clicking the Accept button");
             // }}
             onDecline={() => {
-                window.location.href = "https://www.google.co.uk";
+                window.location.href = "https://www.youtube.com/watch?v=UQU4sIn96M4&ab_channel=MyMotownTunes0815007";
             }}
         >
             <div className="cookie-content-wrapper">
-                <img src={CookieGif} />
+                <img src={CookieGif} alt="cookie-gif" />
                 <span>This website uses cookies (delicious) to enhance the user experience...</span>
             </div>
 

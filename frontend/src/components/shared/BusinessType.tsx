@@ -1,6 +1,6 @@
 import './businessType.scss'
-import React, { useState, useEffect } from 'react'
-import { Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core'
+import React, { useState } from 'react'
+import { Card, CardActionArea, CardContent } from '@material-ui/core'
 import { ReactComponent as MoneyBag1 } from '../../images/money-bag-x1.svg';
 import { ReactComponent as MoneyBag2 } from '../../images/money-bag-x2.svg';
 import { ReactComponent as MoneyBag3 } from '../../images/money-bag-x3.svg';
@@ -38,19 +38,19 @@ interface BusinessTypeSelection {
 
 const BusinessType = (props: InputProps) => {
 
-    const [assetsUnderManagement, setAssetsUnderManagement] = useState<BusinessTypeSelection[]>([...props.assetsUnderManagement])
-    const [advisers, setAdvisers] = useState<BusinessTypeSelection[]>([...props.advisers])
-    const [clients, setClients] = useState<BusinessTypeSelection[]>([...props.clients])
+    const [assetsUnderManagement] = useState<BusinessTypeSelection[]>([...props.assetsUnderManagement])
+    const [advisers] = useState<BusinessTypeSelection[]>([...props.advisers])
+    const [clients] = useState<BusinessTypeSelection[]>([...props.clients])
 
     const manageClick = (selectionType: string, selection: BusinessTypeSelection) => {
 
         let tempSelectionList;
 
-        if (selectionType == "aum") {
+        if (selectionType === "aum") {
             tempSelectionList = [...assetsUnderManagement]
-        } else if (selectionType == "advisers") {
+        } else if (selectionType === "advisers") {
             tempSelectionList = [...advisers]
-        } else if (selectionType == "clients") {
+        } else if (selectionType === "clients") {
             tempSelectionList = [...clients]
         }
 
@@ -62,11 +62,11 @@ const BusinessType = (props: InputProps) => {
             }
         });
 
-        if (selectionType == "aum") {
+        if (selectionType === "aum") {
             props.setAssetsUnderManagement(tempSelectionList)
-        } else if (selectionType == "advisers") {
+        } else if (selectionType === "advisers") {
             props.setAdvisers(tempSelectionList)
-        } else if (selectionType == "clients") {
+        } else if (selectionType === "clients") {
             props.setClients(tempSelectionList)
         }
     }

@@ -1,7 +1,6 @@
 import './timescales.scss'
 import React, { useState } from 'react'
-
-import { Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core'
+import { Card, CardActionArea, CardContent } from '@material-ui/core'
 import { ReactComponent as Motorbike } from '../../images/motorbike.svg';
 import { ReactComponent as Car } from '../../images/convertible-car.svg';
 import { ReactComponent as Tractor } from '../../images/tractor.svg';
@@ -27,7 +26,7 @@ interface BusinessTypeSelection {
 
 const Timescales = (props: InputProps) => {
 
-    const [timescale, setTimescale] = useState<BusinessTypeSelection[]>([...props.timescale])
+    const [timescale] = useState<BusinessTypeSelection[]>([...props.timescale])
 
     const manageClick = (selection: BusinessTypeSelection) => {
 

@@ -21,7 +21,7 @@ const ConfirmationDialog = (props: InputProps) => {
         >
             <DialogTitle id="form-dialog-title">
                 {/* <span className="emoji">🎉</span> */}
-                <img src={PartyGif} />
+                <img src={PartyGif} alt="party-gif" />
                 <span className="title">{props.title}</span>
             </DialogTitle>
             <DialogContent>

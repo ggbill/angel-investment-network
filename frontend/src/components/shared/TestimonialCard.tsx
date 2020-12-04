@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import './testimonialCard.scss'
-import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@material-ui/core'
+import { Card, CardMedia, CardContent} from '@material-ui/core'
 
 
 interface InputProps {

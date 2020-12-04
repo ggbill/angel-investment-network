@@ -1,5 +1,5 @@
 import './sell.scss'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import MenuBar from '../shared/MenuBar'
 import UkMap from '../shared/ClientLocation'
 import BasicDetailInputs from '../shared/BasicDetailInputs'

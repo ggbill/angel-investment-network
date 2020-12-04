@@ -1,5 +1,5 @@
 import './clientLocation.scss'
-import React, { useState } from 'react'
+import React from 'react'
 import UnitedKingdom from "../../united-kingdom"
 import { CheckboxSVGMap } from "react-svg-map"
 import "react-svg-map/lib/index.css"

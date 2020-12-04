@@ -1,5 +1,5 @@
 import './callBooking.scss'
-import React, { useState } from 'react'
+import React from 'react'
 import { CalendlyEventListener } from 'react-calendly'
 import { Link } from 'react-router-dom'
 
@@ -49,6 +49,7 @@ const CallBooking = (props: InputProps) => {
                 >
                     <div className="iframe-wrapper">
                         <iframe
+                            title="calendly-iframe"
                             frameBorder="0"
                             height="100%"
                             src={`https://calendly.com/adviser-love/15min?primary_color=${props.color.substring(1)}&embed_domain=http://localhost:3000&embed_type=Inline&name=${encodeURI(props.name)}&email=${encodeURI(props.email)}`}

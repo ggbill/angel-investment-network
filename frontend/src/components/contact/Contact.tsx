@@ -148,7 +148,6 @@ const Contact = () => {
 
 
     useEffect(() => {
-        console.log(headerSongList)
         randomlySelectHeaderSong()
         // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, []);
@@ -166,7 +165,9 @@ const Contact = () => {
                         </div>
                         <span className="sub-title">
                             <span>🎸</span>
-                            {headerSongList[headerSongNumber] && <a href={headerSongList[headerSongNumber].videoLink} target="_blank">Click me...</a>}
+                            {headerSongList[headerSongNumber] && <a href={headerSongList[headerSongNumber].videoLink} target="_blank" rel="noreferrer">
+                                Click me...
+                            </a>}
                             <span>🎸</span>
                             <span className="small-print">(full disclosure headphones might be sensible.)</span>
                         </span>
@@ -277,7 +278,7 @@ const Contact = () => {
 
                                 <span className="small-print">
                                     By submitting this form you consent to us emailing you occasionally about our products and services.
-                                    You can unsubscribe from emails at any time, and we will never pass your email onto third parties. <a href='#'>Privacy Policy</a>
+                                    You can unsubscribe from emails at any time, and we will never pass your email onto third parties. <a href='https://www.google.com'>Privacy Policy</a>
                                 </span>
                                 <button className="love-button submit" onClick={sendEmail} disabled={!checkAllValuesComplete()}>Send</button>
                             </CardContent>

@@ -11,8 +11,15 @@ import Sell from './components/sell/Sell'
 import About from './components/about/About'
 import Blog from './components/blog/Blog'
 import Contact from './components/contact/Contact'
+import ReactGA from'react-ga'
 
 const history = createBrowserHistory();
+ReactGA.initialize('UA-171582169-2');
+
+history.listen((location) => {
+    ReactGA.set({ page: location.pathname + location.search })
+    ReactGA.pageview(location.pathname + location.search)
+});
 
 function App() {
     return (

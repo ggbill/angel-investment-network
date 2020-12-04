@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Toolbar, Button, Drawer, MenuItem } from '@material-ui/core'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./menuBar.scss"
 import LinkButton from './LinkButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -13,15 +13,15 @@ interface InputProps {
 
 const MenuBar = (props: InputProps) => {
 
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-    const [isShowLogo, setIsShowLogo] = useState(false)
+    // const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    // const [isShowLogo, setIsShowLogo] = useState(false)
     const [isShowCta, setIsShowCta] = useState(false)
-    const [isHomePage, setIsHomePage] = useState(false)
+    // const [isHomePage, setIsHomePage] = useState(false)
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
     const [backgroundColor, setBackgroundColor] = useState("")
 
 
-    let location = useLocation();
+    // let location = useLocation();
 
     const toggleDrawer = (open: boolean) => event => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -33,11 +33,11 @@ const MenuBar = (props: InputProps) => {
 
     const handleScroll = () => {
         // console.log(window.pageYOffset)
-        if (window.pageYOffset > 135) {
-            setIsShowLogo(true)
-        } else {
-            setIsShowLogo(false)
-        }
+        // if (window.pageYOffset > 135) {
+        //     setIsShowLogo(true)
+        // } else {
+        //     setIsShowLogo(false)
+        // }
 
         if (window.pageYOffset > 440) {
             setIsShowCta(true)
@@ -58,7 +58,7 @@ const MenuBar = (props: InputProps) => {
     }
 
     const handleClose = () => {
-        setAnchorEl(null);
+        // setAnchorEl(null);
         setIsDrawerOpen(false);
     };
 
@@ -69,6 +69,7 @@ const MenuBar = (props: InputProps) => {
         return () => {
             window.removeEventListener('scroll', () => handleScroll);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, []);
 
     return (
