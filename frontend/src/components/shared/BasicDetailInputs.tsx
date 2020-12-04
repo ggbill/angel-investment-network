@@ -150,6 +150,18 @@ const BasicDetailInputs = (props: InputProps) => {
                     helperText={validationObject[1].helperText}
                 />
                 <TextField
+                    id="email"
+                    name="email"
+                    label="Email Address"
+                    InputProps={validationObject[3].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
+                    variant="outlined"
+                    value={props.basicDetails.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={!validationObject[3].isValid}
+                    helperText={validationObject[3].helperText}
+                />
+                <TextField
                     id="telephone"
                     name="telephone"
                     className="margin-right"
@@ -161,18 +173,6 @@ const BasicDetailInputs = (props: InputProps) => {
                     onBlur={handleBlur}
                     error={!validationObject[2].isValid}
                     helperText={validationObject[2].helperText}
-                />
-                <TextField
-                    id="email"
-                    name="email"
-                    label="Email Address"
-                    InputProps={validationObject[3].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
-                    variant="outlined"
-                    value={props.basicDetails.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={!validationObject[3].isValid}
-                    helperText={validationObject[3].helperText}
                 />
             </div>
             <div className="button-wrapper">
