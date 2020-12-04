@@ -51,40 +51,67 @@ const BasicDetailInputs = (props: InputProps) => {
     const classes = useStyles();
 
     const handleChange = (event) => {
+        const { name, value } = event.target
+        props.setBasicDetails({ ...props.basicDetails, [name]: value })
+    }
+
+    const handleBlur = (event) => {
 
         const { name, value } = event.target
 
         if (value) {
             let tempValidationObject = [...validationObject]
-            tempValidationObject.forEach(element => {
-                if (name === element.name) {
-                    element.isValid = true
-                    element.helperText = ""
+
+            if (name === "email") {
+                if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value)) {
+                    tempValidationObject.forEach(element => {
+                        if (name === element.name) {
+                            element.isValid = true
+                            element.helperText = ""
+                        }
+                    });
+                } else {
+                    tempValidationObject.forEach(element => {
+                        if (name === element.name) {
+                            element.isValid = false
+                            element.helperText = "That don't look like any email address I've ever seen..."
+                        }
+                    });
                 }
-            });
+            } else {
+                tempValidationObject.forEach(element => {
+                    if (name === element.name) {
+                        element.isValid = true
+                        element.helperText = ""
+                    }
+                });
+            }
             setValidationObject(tempValidationObject)
         } else {
             let tempValidationObject = [...validationObject]
             tempValidationObject.forEach(element => {
                 if (name === element.name) {
                     element.isValid = false
-                    element.helperText = "Please fill this in!"
+                    element.helperText = "Please fill me in!"
                 }
             });
             setValidationObject(tempValidationObject)
         }
 
         props.setBasicDetails({ ...props.basicDetails, [name]: value })
+
     }
+
+
 
     const checkValuesComplete = (): boolean => {
         if (props.basicDetails.name === "" ||
-        props.basicDetails.companyName === "" ||
-        props.basicDetails.email === "" ||
-        props.basicDetails.telephone === ""){
-            return(false)
-        }else{
-            return(true)
+            props.basicDetails.companyName === "" ||
+            props.basicDetails.email === "" ||
+            props.basicDetails.telephone === "") {
+            return (false)
+        } else {
+            return (true)
         }
     }
 
@@ -92,8 +119,8 @@ const BasicDetailInputs = (props: InputProps) => {
     return (
         <section className="basic-details-section">
             <div className="title-wrapper">
-                <span className="title">The basics.</span>
                 <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
+                <span className="title">The basics.</span>
             </div>
 
             <div className="input-wrapper">
@@ -106,6 +133,7 @@ const BasicDetailInputs = (props: InputProps) => {
                     variant="outlined"
                     value={props.basicDetails.name}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     error={!validationObject[0].isValid}
                     helperText={validationObject[0].helperText}
                 />
@@ -117,6 +145,7 @@ const BasicDetailInputs = (props: InputProps) => {
                     variant="outlined"
                     value={props.basicDetails.companyName}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     error={!validationObject[1].isValid}
                     helperText={validationObject[1].helperText}
                 />
@@ -129,6 +158,7 @@ const BasicDetailInputs = (props: InputProps) => {
                     variant="outlined"
                     value={props.basicDetails.telephone}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     error={!validationObject[2].isValid}
                     helperText={validationObject[2].helperText}
                 />
@@ -140,6 +170,7 @@ const BasicDetailInputs = (props: InputProps) => {
                     variant="outlined"
                     value={props.basicDetails.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     error={!validationObject[3].isValid}
                     helperText={validationObject[3].helperText}
                 />

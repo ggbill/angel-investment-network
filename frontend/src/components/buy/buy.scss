@@ -28,10 +28,12 @@
 
             .back {
                 order: 2;
+                height: 45px;
             }
 
             .next {
-                order: 1;
+                margin-left: 0;
+                height: 45px;
             }
         }
     }

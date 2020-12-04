@@ -33,8 +33,8 @@ const CallBooking = (props: InputProps) => {
         <section className="call-booking-section">
             {props.currentStepNumber === 5 &&
                 <div className="title-wrapper">
-                    <span className="title">When would you like us to call you for an introductory chat?</span>
                     <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
+                    <span className="title">When would you like us to call you for an introductory chat?</span>
                 </div>
             }
 

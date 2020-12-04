@@ -19,9 +19,8 @@ const Footer = (props: InputProps) => {
                 </Link>
             </div>
             <div className="middle-content">
-                <span>The Marriage Bureau is a brand that is wholly owned and operated by</span>
+                <span>The Marriage Bureau is a brand that is wholly owned and operated by:</span>
                 <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings.</a>
-
             </div>
             <div className="right-content">
                 <div className="social-wrapper">

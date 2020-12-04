@@ -79,7 +79,7 @@ const MenuBar = (props: InputProps) => {
                     <Toolbar>
                         <div className="logo-wrapper">
                             <Link to={'/'}>
-                                <img alt="" src={Logo} />
+                                <img alt="tmb-logo" src={Logo} />
                             </Link>
                         </div>
                         <div className="menu-items">
@@ -124,27 +124,24 @@ const MenuBar = (props: InputProps) => {
                         <CloseIcon />
                     </Button>
                 </div>
-                <Link to='/season-list' style={{ textDecoration: 'none', color: 'black' }}>
-                    <MenuItem onClick={handleClose}>Seasons</MenuItem>
+                <Link to='/about' style={{ textDecoration: 'none', color: 'black' }}>
+                    <MenuItem onClick={handleClose}>About</MenuItem>
                 </Link>
-                <Link to='/player-list' style={{ textDecoration: 'none', color: 'black' }}>
-                    <MenuItem onClick={handleClose}>Players</MenuItem>
+                <Link to='/contact' style={{ textDecoration: 'none', color: 'black' }}>
+                    <MenuItem onClick={handleClose}>Get In Touch</MenuItem>
                 </Link>
-            </Drawer>
-            {/*
-            <Menu
-                id="logout-menu"
-                anchorEl={anchorEl}
-                getContentAnchorEl={null}
-                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                transformOrigin={{ vertical: "top", horizontal: "center" }}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-            >
-                <MenuItem onClick={logOut}>Log Out</MenuItem>
-            </Menu> */}
+                <Link to='/buy'>
+                    <MenuItem onClick={handleClose}><button className={'love-button buyer menu visible'}>BUY A BUSINESS</button></MenuItem>
+                </Link>
+                <Link to='/sell'>
+                    <MenuItem onClick={handleClose}><button className={'love-button seller menu visible'}>SELL MY BUSINESS</button></MenuItem>
+                </Link>
+                <Link to={'/'}>
+                <MenuItem onClick={handleClose} className="logo-menu-item"><img alt="tmb-logo" src={Logo} /></MenuItem>
+                    
+                </Link>
 
+            </Drawer>
         </>
     )
 }

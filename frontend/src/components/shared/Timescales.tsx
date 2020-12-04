@@ -62,8 +62,8 @@ const Timescales = (props: InputProps) => {
     return (
         <section className="timescales-section">
             <div className="title-wrapper">
+            <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
                 <span className="title">What timescales are you working to?</span>
-                <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
             </div>
 
             <div className="option-wrapper">

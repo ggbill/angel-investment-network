@@ -182,7 +182,7 @@ const Contact = () => {
                             <span className="intro">If you have any questions or comments there are lots of ways to get in touch. Either fill out the simple contact form, otherwise our contact details are below!</span>
                         </div>
                         <div className="address-wrapper">
-                            <span className="title">🏠 Address</span>
+                            <span className="title"><span className="emoji">🏠</span>Address</span>
                             <span>The Marriage Bureau</span>
                             <span>Brickbarns Business Centre,</span>
                             <span>Egdon,</span>
@@ -190,11 +190,11 @@ const Contact = () => {
                             <span>WR7 4QR</span>
                         </div>
                         <div className="address-wrapper">
-                            <span className="title">☎️ Telephone</span>
+                            <span className="title"><span className="emoji">☎️</span>Telephone</span>
                             <span>0800 368 8618</span>
                         </div>
                         <div className="address-wrapper">
-                            <span className="title">📧 Email</span>
+                            <span className="title"><span className="emoji">📧</span>Email</span>
                             <a href='mailto:tmb@business.love'>tmb@business.love</a>
                         </div>
                     </div>

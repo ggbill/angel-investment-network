@@ -22,7 +22,7 @@ const CookieConsentPopup = () => {
             containerClasses="cookie-consent"
             contentClasses="cookie-content"
             buttonWrapperClasses="button-wrapper"
-            expires={5}
+            expires={1}
             // onAccept={() => {
             //     alert("Accept was triggered by clicking the Accept button");
             // }}

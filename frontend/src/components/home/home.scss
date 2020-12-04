@@ -190,9 +190,13 @@
     
                 .home-title-wrapper {
                     font-size: 3em;
-                    line-height: 55px;
+                    line-height: 45px;
                     text-align: center;
                     margin-right: 10px;
+
+                    .heart-wrapper{
+                        margin-top:4px
+                    }
                 }
             }
 

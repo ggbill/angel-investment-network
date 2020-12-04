@@ -77,6 +77,51 @@
     }
 }
 
+.menu-drawer{
+    
+    .MuiDrawer-paper{
+        padding-bottom: 24px;
+        background-color:#3f3b5b;
+        a{
+            text-decoration: none;
+        }
+
+        .MuiListItem-root{
+            font-family: "Poppins", "Helvetica", sans-serif;
+            font-weight: 600;
+            font-size: 1.3em;
+            color: white;
+
+            &.logo-menu-item{
+                display: flex;
+                justify-content: center;
+                margin-top: 24px;
+            }
+
+            button{
+                margin: 0;
+                width: 100%; 
+            }
+
+            img{
+                width: 50px;
+                height: 45px;
+            }
+        }
+
+        .close-icon-container{
+            height: 56px;
+            display: flex;
+            justify-content: flex-end;
+
+            .MuiButton-label{
+                color: white;
+            }
+            
+        }
+    }
+}
+
 @media only screen and (max-width: 750px) {
     .menu-bar {
         .hamburger-menu {

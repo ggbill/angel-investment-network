@@ -68,12 +68,11 @@ const ClientLocation = (props: InputProps) => {
     return (
         <section className="uk-map-section">
             <div className="title-wrapper">
+            <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
                 {props.customerJourney === "buyer" ?
                     <span className="title">Where would you like your new clients to be located?</span> :
                     <span className="title">Where are the majority of your clients located?</span>
                 }
-
-                <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
             </div>
 
             <div className="map-wrapper">

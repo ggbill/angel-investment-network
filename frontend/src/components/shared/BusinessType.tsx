@@ -99,12 +99,11 @@ const BusinessType = (props: InputProps) => {
     return (
         <section className="business-type-section">
             <div className="title-wrapper">
+            <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
                 {props.customerJourney === "buyer" ?
                     <span className="title">What type of business are you looking for?</span> :
                     <span className="title">Tell us a little bit about your business...</span>
                 }
-
-                <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
             </div>
             <div className="selection-wrapper">
                 <span className="selection-title">Assets under management (AUM)</span>

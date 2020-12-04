@@ -53,6 +53,16 @@
 
                 .title{
                     font-weight: 600;
+                    margin-bottom: 6px;
+                    display: flex;
+                    align-items: center;
+                    
+
+                    .emoji{
+                        display: flex;
+                        font-size: 1.3em;
+                        margin-right: 12px;
+                    }
                 }
 
                 a{
