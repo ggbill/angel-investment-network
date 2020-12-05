@@ -1,82 +1,91 @@
 .business-type-section {
-    .title-wrapper{
+    .title-wrapper {
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;
-        .title{
+        .title {
             font-size: 2em;
             font-weight: bold;
         }
-    
-        .step-counter{
+
+        .step-counter {
             font-size: 1.3em;
             // font-weight: bold;
         }
     }
 
-    .selection-title{
+    .selection-title {
         font-size: 1.1em;
         font-weight: 600;
+        margin-bottom: 12px;
     }
-    .option-wrapper{
+    .option-wrapper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 125px;
+        margin: 12px 0 125px;
 
-        .MuiCard-root{
+        &:last-child{
+            margin: 12px 0 48px; 
+        }
+
+        .MuiCard-root {
             flex: 1;
             text-align: center;
 
-            svg{
-                width: 100%;
-                height: 60px;
-                padding: 12px 0;
+            .MuiCardContent-root {
+                font-family: "Poppins", "Helvetica", sans-serif;
+                font-size: 1.2em;
+                font-weight: 600;
+
+                svg {
+                    width: 100%;
+                    height: 60px;
+                    padding: 12px 0;
+                }
+
+                
+
+                &:not(:last-child) {
+                    margin-right: 6px;
+                }
             }
 
-            &.selected{
-                
+            &.selected {
                 font-weight: bold;
                 color: white;
 
-                // &.buyer{
-                //     background-color: #0093A8;
-                // }
-
-                // &.seller{
-                //     background-color: #B7B500;
-                // }
-
-                svg{
-                    fill: white
+                svg {
+                    fill: white;
                 }
             }
-            
-            &:not(:last-child){
-                margin-right: 6px;
-            }
-        }
-        
-        .MuiCardContent-root{
-            font-family: 'Poppins', 'Helvetica', sans-serif;
-            font-size: 1.2em;
-
         }
     }
 }
 
 @media only screen and (max-width: 850px) {
     .business-type-section {
-        .option-wrapper{
+        .option-wrapper {
             flex-direction: column;
-    
-            .MuiCard-root{                
-                &:not(:last-child){
+            margin: 12px 0 60px;
+
+            .MuiCard-root {
+                &:not(:last-child) {
                     margin-right: unset;
                     margin-bottom: 12px;
+                }
+
+                .MuiCardContent-root {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 6px;
+                    svg {
+                        width: 70px;
+                        height: 60px;
+                        padding: 12px 24px 12px 0;
+                    }
                 }
             }
         }
     }
-
 }
