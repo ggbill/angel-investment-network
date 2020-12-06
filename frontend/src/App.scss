@@ -124,7 +124,7 @@
 
 @media only screen and (max-width: 600px) {
     .full-height-content {
-        min-height: calc(100vh - 87px); /* will cover the 100% of viewport minus (header + footer) */
+        min-height: calc(100vh - 180px); /* will cover the 100% of viewport minus (header + footer) */
         margin-top: 56px;
     }
 

@@ -1,9 +1,42 @@
 .about-page {
     .header-section {
-        background-color: #bade94;
-        color: #222;
-        padding: 125px 0 250px;
-        margin: 0;
+        // background-color: #bade94;
+        // color: #222;
+        padding: 125px 0 175px;
+        // margin: 0;
+
+        a {
+            color: unset;
+            text-decoration: none;
+        }
+
+        .small-print {
+            font-size: 0.6em;
+        }
+
+        .title-wrapper {
+            .song-title-wrapper {
+                display: flex;
+                flex-direction: column;
+                // align-items: center;
+
+                .sub-title {
+                    margin: 0 0 6px 0;
+                }
+
+                .refresh-icon {
+                    margin-left: 24px;
+                    display: flex;
+                    .MuiSvgIcon-root {
+                        font-size: 2.3em;
+                    }
+                }
+
+                .refresh-icon:hover {
+                    cursor: pointer;
+                }
+            }
+        }
     }
     .shifted-up-content {
         position: relative;
@@ -61,19 +94,37 @@
         }
     }
 
-    .team-section {
+    .vows-section {
+        margin-bottom: 150px;
+        background-image: url("../../images/hearts-background.png");
+        background-repeat: no-repeat;
+        // background-size: 800px;
+        background-size: cover;
+        padding: 150px 0;
 
+        .MuiCard-root {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 12px;
+            .emoji-wrapper {
+                font-size: 2em;
+                margin-right: 12px;
+            }
+        }
+    }
+
+    .team-section {
         // background: url(../../images/arrow-background.jpg);
         // background-repeat: repeat;
         // background-size: 400px;
-
 
         margin-bottom: 150px;
         .matchmaker-wrapper {
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 48px;
 
             img {
                 width: 200px;
@@ -94,6 +145,15 @@
                     font-size: 1.2em;
                     font-weight: 600;
                     margin-bottom: 6px;
+                    display: flex;
+
+                    a {
+                        margin-left: 12px;
+
+                        svg {
+                            width: 20px;
+                        }
+                    }
                 }
 
                 .email {
@@ -113,25 +173,31 @@
                 .description-wrapper {
                     font-size: 0.85em;
                 }
-
-                svg {
-                    width: 25px;
-                }
             }
         }
     }
 
     .fees-section {
+        margin-bottom: 150px;
+        background-image: url("../../images/cupid-arrow-background.png");
+        background-repeat: repeat;
+        background-size: 250px;
+        padding: 150px 0;
+        font-weight: 600;
+
         .fees-wrapper {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            opacity: 1;
 
             > *:not(:last-child) {
                 margin-right: 12px;
             }
 
             .MuiCard-root {
+                display: flex;
+                justify-content: center;
                 flex: 1;
                 margin-bottom: 12px;
                 .MuiCardContent-root {
@@ -146,6 +212,29 @@
                         margin-bottom: 12px;
                     }
                 }
+            }
+        }
+    }
+
+    .wealth-holdings-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        a {
+            color: unset;
+        }
+
+        > * {
+            flex: 1;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            justify-content: center;
+            svg {
+                width: 350px;
+                height: 99px;
             }
         }
     }
@@ -188,7 +277,7 @@
                 }
 
                 img {
-                    margin-bottom: 12px;;
+                    margin-bottom: 12px;
                 }
             }
         }

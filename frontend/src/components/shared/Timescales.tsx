@@ -62,7 +62,7 @@ const Timescales = (props: InputProps) => {
     return (
         <section className="timescales-section">
             <div className="title-wrapper">
-            <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
+                <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
                 <span className="title">What timescales are you working to?</span>
             </div>
 
@@ -73,11 +73,17 @@ const Timescales = (props: InputProps) => {
                             <CardActionArea onClick={() => manageClick(timescale)}>
                                 {/* <CardMedia component="img" src={timescale.imageUrl} /> */}
                                 <CardContent>
-                                    {timescale.id === 0 && <Motorbike />}
-                                    {timescale.id === 1 && <Car />}
-                                    {timescale.id === 2 && <Tractor />}
-                                    <span className="title">{timescale.label}</span>
-                                    <span className="subtitle">{timescale.description}</span>
+                                    <div className="image-wrapper">
+                                        {timescale.id === 0 && <Motorbike />}
+                                        {timescale.id === 1 && <Car />}
+                                        {timescale.id === 2 && <Tractor />}
+                                    </div>
+
+                                    <div className="text-wrapper">
+                                        <span className="title">{timescale.label}</span>
+                                        <span className="subtitle">{timescale.description}</span>
+                                    </div>
+
                                 </CardContent>
                             </CardActionArea>
                         </Card>

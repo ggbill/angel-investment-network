@@ -152,6 +152,7 @@ const BasicDetailInputs = (props: InputProps) => {
                 <TextField
                     id="email"
                     name="email"
+                    className="margin-right"
                     label="Email Address"
                     InputProps={validationObject[3].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
@@ -164,7 +165,6 @@ const BasicDetailInputs = (props: InputProps) => {
                 <TextField
                     id="telephone"
                     name="telephone"
-                    className="margin-right"
                     label="Phone Number"
                     InputProps={validationObject[2].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"

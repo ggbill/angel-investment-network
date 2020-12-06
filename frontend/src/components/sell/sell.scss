@@ -3,6 +3,39 @@
         padding-top: 48px;
     }
 
+    a{
+        color: unset;
+        text-decoration: none;
+    }
+
+    .small-print{
+        font-size: 0.8em;
+    }
+
+    .title-wrapper{
+        .song-title-wrapper{
+            display: flex;
+            flex-direction: column;
+            // align-items: center;  
+
+            .sub-title{
+                margin: 0 0 6px 0;
+            }
+            
+            .refresh-icon{
+                margin-left: 24px;
+                display: flex;
+                .MuiSvgIcon-root{
+                    font-size: 2.3em;
+                }
+            }
+
+            .refresh-icon:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
     .intro-section {
         display: flex;
         flex-direction: column;

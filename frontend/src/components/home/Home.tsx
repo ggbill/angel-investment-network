@@ -18,7 +18,8 @@ const Home = () => {
             <section className="header-section">
                 <div className="content">
                     <div className="home-title-wrapper">
-                        <span className="title">We help advisers fall in business love </span><div className="heart-wrapper">❤️</div>
+                        {/* <span className="title">Helping Financial Advisers find their happily ever afters </span><div className="heart-wrapper">❤️</div> */}
+                        <span className="title">Where financial advisers come to fall in business love </span><div className="heart-wrapper">❤️</div>
                     </div>
                     <div className="button-wrapper">
                         <Link to='/buy'>
@@ -30,7 +31,7 @@ const Home = () => {
 
 
                     </div>
-                    <Link className="clickable-link" to={'/about'}> First things first - tell me how it works... </Link>
+                    {/* <Link className="clickable-link" to={'/about'}> First things first - tell me how it works... </Link> */}
                 </div>
             </section>
 
@@ -40,14 +41,15 @@ const Home = () => {
                 </div>
                 <div className="text-wrapper">
                     <h2>Meeting your perfect partner</h2>
-                    <p>If you’re an IFA keen to buy a business to grow your own, how do make sure you find the right one? If you’re wanting to sell, how do ensure that you make the right deal for you and your clients? And how do you meet in the first place?</p>
+                    <p>If you’re a Financial Adviser keen to buy a business to grow your own, how do make sure you find “The One”? And If you’re wanting to sell, how do ensure that you make the right deal for you and your clients? And how do you meet in the first place?</p>
                     <p>It’s a tough one.</p>
                     <p>There are plenty of “Introduction Agencies” out there. Brokers that’ll just give you a name, charge a fee and walk away. Job done.</p>
                     <p>But that’s not us. That’s not us at all.</p>
+                    <p>We take you on the whole journey: From a great first date to falling in Business Love.</p>
                 </div>
             </section>
 
-            <section className="testimonials-section content">
+            {/* <section className="testimonials-section content">
                 <div className="testimonials-wrapper">
                     <TestimonialCard
                         quote="We chose to partner with Wealth Holdings as they clearly have first-hand experience of building, selling and integrating IFA and Wealth Management businesses. Their approach is not just about numbers, it is about understanding the culture, personalities and structuring the right deal for all parties."
@@ -68,7 +70,7 @@ const Home = () => {
                         imageUrl={keithImage}
                     />
                 </div>
-            </section>
+            </section> */}
 
             <section className="what-we-do-section content">
                 <div className="text-wrapper">
@@ -76,12 +78,13 @@ const Home = () => {
                     <p>Successfully buying a business and integrating it with your own is a lot like getting married. It’s a big decision and you want to make sure it’s a good one. And when you’re selling, you want to make sure that you’re giving “your baby” away to the right person.</p>
                     <p>That’s why we don’t just make introductions. It doesn’t deliver value. </p>
                     <p>We build successful, long lasting and happy relationships, getting to know our clients inside out before bringing them together, creating the deals our clients want to “do”.</p>
-                    <p>Our highly experienced team of  Match Makers work with all our Buyers and Sellers to develop a deep and granular knowledge of their businesses, their requirements and their ambitions:</p>
+                    <p>Our highly experienced team of Match Makers work with all our Buyers and Sellers to develop a deep and granular knowledge of their businesses, their requirements and their ambitions:</p>
                     <table>
                         <tbody>
                             <tr>
                                 <td>
-                                    <img className="tick-image" alt="" src={tickImage} />
+                                    {/* <img className="tick-image" alt="" src={tickImage} /> */}
+                                    <div className="heart-wrapper">❤️</div>
                                 </td>
                                 <td>
                                     Guiding and advising Buyers through all stages of the cycle, from preparing to enter the market to post-deal integration.
@@ -89,7 +92,8 @@ const Home = () => {
                             </tr>
                             <tr>
                                 <td>
-                                    <img className="tick-image" alt="" src={tickImage} />
+                                    {/* <img className="tick-image" alt="" src={tickImage} /> */}
+                                    <div className="heart-wrapper">❤️</div>
                                 </td>
                                 <td>
                                     Taking a holistic approach to finding the perfect match, ensuring objectives and cultures are properly aligned.
@@ -97,7 +101,8 @@ const Home = () => {
                             </tr>
                             <tr>
                                 <td>
-                                    <img className="tick-image" alt="" src={tickImage} />
+                                    {/* <img className="tick-image" alt="" src={tickImage} /> */}
+                                    <div className="heart-wrapper">❤️</div>
                                 </td>
                                 <td>
                                     Making full use of our in-house expertise in research, business strategy, finance, investment management, operations and integration.
@@ -116,9 +121,9 @@ const Home = () => {
                     <img alt="" src={positiveThinking2Image} />
                 </div>
                 <div className="text-wrapper">
-                    <h2>Ensuring fair exchange</h2>
+                    <h2>A Heart That’s in the Right Place</h2>
                     <p>Whether you’re buying or selling a business, you can be sure of the delivery of fair exchange in all our transactions. Our business is built on trust, transparency and delivered value and we only charge for successful transactions based upon the level and complexity of the work we do. </p>
-                    <p>That’s why successful IFA firms partner with us to execute both their immediate and long term strategic requirements.</p>
+                    <p>That’s why successful financial adviser firms partner with us to execute both their immediate and long term strategic requirements.</p>
                 </div>
             </section>
 

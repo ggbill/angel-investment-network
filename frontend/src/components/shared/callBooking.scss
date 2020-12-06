@@ -19,11 +19,19 @@
     }
 }
 
+
 @media only screen and (max-width: 1040px) {
     .call-booking-section{
         .iframe-wrapper{
             height: 884px;
         }
     }
+}
 
+@media only screen and (max-width: 690px) {
+    .call-booking-section{
+        .iframe-wrapper{
+            height: 800px;
+        }
+    }
 }

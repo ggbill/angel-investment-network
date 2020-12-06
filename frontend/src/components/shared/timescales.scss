@@ -64,15 +64,22 @@
                     font-size: 1.2em;
                     text-align: center;
 
-                    .title {
-                        font-weight: bold;
-                        font-size: 1.2em;
-                        margin-bottom: 6px;
+                    .text-wrapper{
+                        display: flex;
+                        flex-direction: column;
+
+                        .title {
+                            font-weight: bold;
+                            font-size: 1.2em;
+                            margin-bottom: 6px;
+                        }
+    
+                        .subtitle {
+                            font-size: 1em;
+                        }
                     }
 
-                    .subtitle {
-                        font-size: 1em;
-                    }
+                    
                 }
             }
         }
@@ -83,12 +90,30 @@
     .timescales-section {
         .option-wrapper {
             flex-direction: column;
+            margin: 12px 0 60px;
 
             .MuiCard-root {
                 &:not(:last-child) {
-                    margin-right: 0;
-                    margin-bottom: 6px;
+                    margin-right: unset;
+                    margin-bottom: 12px;
                 }
+                .MuiCardActionArea-root {
+                    .MuiCardContent-root {
+                        flex-direction: row;
+                        align-items: center;
+                        padding: 0 6px;
+                        text-align: left;
+
+                        
+                        svg {
+                            width: 70px;
+                            height: 60px;
+                            padding: 12px 24px 12px 0;
+                        }
+                    }
+                }
+
+                
             }
         }
     }

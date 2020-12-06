@@ -7,20 +7,29 @@ import KeithImage from '../../images/snowy-keith.jpg'
 import DebbieImage from '../../images/debbie.jpg'
 import NormanImage from '../../images/norman.jpg'
 import { ReactComponent as LinkedInLogo } from '../../images/linkedin.svg'
+import { ReactComponent as WHLogo } from '../../images/wh-logo.svg'
 import CookieConsentPopup from '../shared/CookieConsentPopup'
 
 
 const About = () => {
-
-
     return (
         <div className="about-page">
             <MenuBar page="about" />
             <section className="header-section">
                 <div className="content">
                     <div className="title-wrapper">
-                        <span className="title">THE QUESTION ISN'T WHERE YOU'RE GOING, IT'S HOW YOU GET THERE</span>
-                        <span className="sub-title">Subtitle text</span>
+                        <div className="song-title-wrapper">
+                            <span className="title">It ain’t what you do it’s the way that you do it. That’s what gets results.</span>
+                            <span className="sub-title">
+                                <span>🎸</span>
+                                <a href="http://www.youtube.com/watch?v=H--_-gPX3Nw&t=1m11s" target="_blank" rel="noreferrer">
+                                    Click me...
+                                </a>
+                                <span>🎸</span>
+                                <span className="small-print">(full disclosure headphones might be sensible.)</span>
+                            </span>
+
+                        </div>
                     </div>
                 </div>
             </section>
@@ -28,36 +37,39 @@ const About = () => {
                 <section className="how-it-works-section content">
                     <Card>
                         <CardContent>
+                            <h2>We do things in our own way. Six simple steps to success. It works.</h2>
                             <div className="row margin-bottom">
                                 <div className="step-wrapper">
                                     <Logo />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>1.</span></div>
-                                        <span className="title">Do something</span>
+                                        <span className="title">Getting to know you</span>
                                     </div>
                                     <span>
-                                        Let us know what you like. Do you want to exclude cities, or sleep in luxury? Tell us your preferences in only a few clicks. This way we can arrange a fantastic experience for you.
-                                </span>
+                                        <p>We like to do our homework. We want to make you look as good as possible so we’ll be wanting to properly understand your business: Your objectives, culture and aspirations. We want to know how you do things and how you like things done. If you’re selling a business we’ll give you an indicative valuation as soon as we can. No one likes surprises.</p>
+                                        <p>And, it goes without saying, we’ll keep your data nice and secure in a bespoke data room.</p>
+                                    </span>
                                 </div>
                                 <div className="step-wrapper">
                                     <Logo />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>2.</span></div>
-                                        <span className="title">Do something</span>
+                                        <span className="title">Matchmaking</span>
                                     </div>
                                     <span>
-                                        Let us know what you like. Do you want to exclude cities, or sleep in luxury? Tell us your preferences in only a few clicks. This way we can arrange a fantastic experience for you.
-                                </span>
+                                        <p>Even if we say so ourselves, we’re great at this. We make sure we’ve got a good fit before we make any introductions. We want there to be fireworks when you meet. We look at location, company metrics, size, cultural fit. All of it. And when we think we’ve got you a match we’ll arrange a first date, chaperoning you all the way.</p>
+                                        <p>You’ll need to be patient though. We want to get this right. Magic doesn’t always happen over night.</p>
+                                    </span>
                                 </div>
                                 <div className="step-wrapper">
                                     <Logo />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>3.</span></div>
-                                        <span className="title">Do something</span>
+                                        <span className="title">Setting the date</span>
                                     </div>
                                     <span>
-                                        Let us know what you like. Do you want to exclude cities, or sleep in luxury? Tell us your preferences in only a few clicks. This way we can arrange a fantastic experience for you.
-                                </span>
+                                        <p>So, you’ve had a few dates and you’ve fallen in Business Love. You want to get together and there’s a deal to be done. No two deals are exactly alike, so we’ll guide and support you in reaching Heads of Terms on the correct deal structure in a timely fashion to make sure you optimise deal value.</p>
+                                    </span>
                                 </div>
                             </div>
                             <div className="row">
@@ -65,104 +77,153 @@ const About = () => {
                                     <Logo />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>4.</span></div>
-                                        <span className="title">Do something</span>
+                                        <span className="title">Making a plan</span>
                                     </div>
                                     <span>
-                                        Let us know what you like. Do you want to exclude cities, or sleep in luxury? Tell us your preferences in only a few clicks. This way we can arrange a fantastic experience for you.
-                                </span>
+                                        <p>We’ll translate the legals in your Sale and Purchase Agreement into a detailed road map to successfully assimilate the selling firm into the buying firm, ensuring minimal disruption for clients. For everyone. No one likes disruption. </p>
+                                    </span>
                                 </div>
                                 <div className="step-wrapper">
                                     <Logo />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>5.</span></div>
-                                        <span className="title">Do something</span>
+                                        <span className="title">Tying the knot</span>
                                     </div>
                                     <span>
-                                        Let us know what you like. Do you want to exclude cities, or sleep in luxury? Tell us your preferences in only a few clicks. This way we can arrange a fantastic experience for you.
-                                </span>
+                                        <p>When it’s time to do the legals we’ll work closely with a specialist legal team, holding your hand all way, to help reach a successful conclusion that meets the needs of all parties and puts a smile on everyones face. There won’t be a dry eye in the house. This is an emotional time.</p>
+                                    </span>
                                 </div>
                                 <div className="step-wrapper">
                                     <Logo />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>6.</span></div>
-                                        <span className="title">Do something</span>
+                                        <span className="title">Moving in together</span>
                                     </div>
                                     <span>
-                                        Let us know what you like. Do you want to exclude cities, or sleep in luxury? Tell us your preferences in only a few clicks. This way we can arrange a fantastic experience for you.
-                                </span>
+                                        <p>The path of true love never runs smooth so we’ll be by your side throughout the acquisition and integration process to ensure a successful outcome. Successful relationships are what we’re good at. So we won’t leave you to it until the job’s done.</p>
+                                    </span>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
                 </section>
+                <section className="vows-section">
+                    <div className="content">
+                        <div className="text-wrapper">
+                            <h2>Being serious for a minute... Let's make our vows</h2>
+                            <p>We take our clients really seriously, so we like to make a few promises from the outset:</p>
+                            <Card>
+                                <div className="emoji-wrapper">🤞🏻</div>
+                                <span>We work with both buyers and sellers and always make sure our advice is unconflicted.</span>
+                            </Card>
+                            <Card>
+                                <div className="emoji-wrapper">🤞🏻</div>
+                                <span>If we think it’s right, we’ll always make alternative suggestions that’ll be more beneficial in the short term.</span>
+                            </Card>
+                            <Card>
+                                <div className="emoji-wrapper">🤞🏻</div>
+                                <span>We’ll hold your hand all the way. We just won’t introduce you to some “Random Joe” and waltz away with a fee.</span>
+                            </Card>
+                            <Card>
+                                <div className="emoji-wrapper">🤞🏻</div>
+                                <span>We’ll work with you to maximise the value of your transaction and our fee structure is aligned to our success and performance.</span>
+                            </Card>
+                            <Card>
+                                <div className="emoji-wrapper">🤞🏻</div>
+                                <span>We’ll look after your data. All the information we collect will be stored securely in compliance with ISO27001 standards.</span>
+                            </Card>
+                            <Card>
+                                <div className="emoji-wrapper">🤞🏻</div>
+                                <span>We’ll introduce you to our friends. We’ve been doing this a long term and we’ve built a big network of professional relationships. If we think it’ll help, we’ll leverage those relationships to benefit you.</span>
+                            </Card>
+                        </div>
+                        {/* <div className="image-wrapper">
+                        <img alt="" src={positiveThinkingImage} />
+                    </div> */}
+                    </div>
+                </section>
                 <section className="team-section">
                     <div className="content">
-                        <h1>Introducing our matchmakers</h1>
+                        <h1>Introducing our MatchMakers</h1>
+                        <p>Our Match Makers love business. Romantics at heart, they’re seasoned industry professionals; people who, having owned, managed, sold and bought IFA businesses themselves, know what a good deal looks like.</p>
                         <div className="matchmaker-wrapper">
                             <img alt="" src={KeithImage} />
                             <div className="text-wrapper">
-                                <span className="name">Keith Brown</span>
-                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:keith@adviser.love">keith@adviser.love</a></span>
+                                <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:keith@themarriagebureau.co.uk">keith@themarriagebureau.co.uk</a></span>
                                 <div className="description-wrapper">
-                                    <p>Keith has worked as part of a team to complete over 50 acquisition and integration projects, and has had strategic responsibility for planning and implementation of integration activity and processes.</p>
-                                    <p>Keith has displayed a track record of building and leading teams to achieve agreed targets and budgets.</p>
+                                    <p><b>Favourite Love Song? Tougher than the rest (Bruce Springsteen)</b></p>
+                                    <p>Hi, I’m Keith and I run The Marriage Bureau. Call me soppy but, having completed over 50 successful acquisition and implementation projects, I love my team and I love what we do. Getting the right people in the same room is what we’re about. Helping find that spark, that special something that makes a deal what is our speciality and then ironing out the creases to create that Happily Ever After. I have no doubt our paths will cross. I’m looking forward to it. Who doesn’t love a good love story?</p>
                                 </div>
-                                <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a>
+
                             </div>
                         </div>
                         <div className="matchmaker-wrapper">
                             <img alt="" src={DebbieImage} />
                             <div className="text-wrapper">
-                                <span className="name">Debbie Dry</span>
-                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:debbie@adviser.love">debbie@adviser.love</a></span>
+                                <span className="name">Debbie Dry <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:debbie@themarriagebureau.co.uk">debbie@themarriagebureau.co.uk</a></span>
                                 <div className="description-wrapper">
-                                    <p>Debbie has spent her entire career in retail financial services with the last 10 years at senior management and board level. </p>
-                                    <p>She has been responsible for leading organisation-wide change programmes to deliver financial benefit through IT development and method improvement. Having spent the last 15 years working with consolidators in the financial services industry, Debbie is well placed to support IFAs through this process whilst maintaining client focus and business continuity throughout.</p>
+                                    <p><b>Favourite Love Song? My first, my last, my everything (Barry White)</b></p>
+                                    <p>Hi, I’m Debbie. Financial services is my thing. It’s the only job I’ve ever known so I hope I’m pretty well placed to support you through the sales and acquisition process. Having been responsible for leading organisation-wide change programmes in IT and operations, I’ll make sure we’ll maintain client focus and business continuity throughout. I’ve spent the last 15 years working with consolidators, the majority at senior leadership and board level, so you can be sure I know my onions. I can’t wait to chat!</p>
                                 </div>
-                                <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer"><LinkedInLogo /></a>
+
                             </div>
                         </div>
                         <div className="matchmaker-wrapper">
                             <img alt="" src={NormanImage} />
                             <div className="text-wrapper">
-                                <span className="name">Norman MacLeod</span>
-                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:norman@adviser.love">norman@adviser.love</a></span>
+                                <span className="name">Norman MacLeod <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:norman@themarriagebureau.co.uk">norman@themarriagebureau.co.uk</a></span>
                                 <div className="description-wrapper">
-                                    <p>Having spent two decades as a senior fundraiser in a variety of organisations in the arts and culture sector, Norman made a career change some years ago. Transferring his communication and commercial skills to work in the IFA consolidation market, he was part of a small team that enjoyed notable success completing 50+ IFA acquisition deals over a five-year period.</p>
+                                    <p><b>Favourite Love Song? You to me are everything</b></p>
+                                    <p>I’m Norman. Compared to my colleagues, I’m a relative newbie to financial services having cut my teeth as a senior fundraiser in the arts and culture sector. However, I’ve been here a while now and I’ve helped complete over 50 acquisition deals since making “the change”. I’m a communicator and chances are that it’ll be me you speak to first. I hope you’ll like it. I like to think I get people and I understand business so I’m looking forward to a good conversation.</p>
                                 </div>
-                                <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer"><LinkedInLogo /></a>
+
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="fees-section content">
-                    <h1>Fees</h1>
-                    <p>Having spent two decades as a senior fundraiser in a variety of organisations in the arts and culture sector, Norman made a career change some years ago. Transferring his communication and commercial skills to work in the IFA consolidation market, he was part of a small team that enjoyed notable success completing 50+ IFA acquisition deals over a five-year period.</p>
-                    <div className="fees-wrapper">
-                        <Card>
-                            <CardContent>
-                                <span className="title">4%</span>
-                                <span className="sub-title">On the first £1 million</span>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent>
-                                <span className="title">3%</span>
-                                <span className="sub-title">On the next £2 million</span>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent>
-                                <span className="title">2%</span>
-                                <span className="sub-title">On the next £2 million</span>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent>
-                                <span className="title">Negotiable</span>
-                                <span className="sub-title">On £5 million+</span>
-                            </CardContent>
-                        </Card>
+                <section className="fees-section">
+                    <div className="content">
+                        <h1>Because Love Comes at a Price</h1>
+                        <p>Look, we don’t do this for free. Weddings cost money. But we think that the expense becomes easier to swallow when everyone’s happy. That’s why our charges are based on success.</p>
+                        <p>We think that’s fair. Call us and we’ll talk you through it.</p>
+                        <div className="fees-wrapper">
+                            <Card>
+                                <CardContent>
+                                    <span className="title">4%</span>
+                                    <span className="sub-title">On the first £1 million</span>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent>
+                                    <span className="title">3%</span>
+                                    <span className="sub-title">On the next £2 million</span>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent>
+                                    <span className="title">2%</span>
+                                    <span className="sub-title">On the next £2 million</span>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent>
+                                    <span className="title">Negotiable</span>
+                                    <span className="sub-title">On £5 million+</span>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+                <section className="wealth-holdings-section content">
+                    <div className="text-wrapper">
+                        <h1>The Big Love God in the Sky</h1>
+                        <p>The Marriage Bureau is brought to you by <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer">Wealth Holdings</a>, the consultancy group delivering innovative business solutions to UK financial businesses including, among others, Simply Biz, the Uk’s largest support service provider.</p>
+                    </div>
+                    <div className="logo-wrapper">
+                        <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer"><WHLogo /></a>
                     </div>
 
                 </section>

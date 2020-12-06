@@ -195,7 +195,7 @@ const Contact = () => {
                         </div>
                         <div className="address-wrapper">
                             <span className="title"><span className="emoji">📧</span>Email</span>
-                            <a href='mailto:tmb@business.love'>tmb@business.love</a>
+                            <a href='mailto:hello@themarriagebureau.co.uk'>hello@themarriagebureau.co.uk</a>
                         </div>
                     </div>
                     <div className="contact-form">

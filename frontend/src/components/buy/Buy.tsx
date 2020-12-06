@@ -142,8 +142,17 @@ const Buy = () => {
             <section className="header-section buyer">
                 <div className="content">
                     <div className="title-wrapper">
-                        <span className="title">I'm Buyin'</span>
-                        <span className="sub-title">Some subtitle text</span>
+                        <div className="song-title-wrapper">
+                            <span className="title">I'm Buying...</span>
+                            <span className="sub-title">
+                                <span>🎸</span>
+                                <a href="https://www.youtube.com/watch?v=59Hj7bp38f8&ab_channel=guru006" target="_blank" rel="noreferrer">
+                                    Matchmaker, matchmaker, make me a match (Click me...)
+                                </a>
+                                <span>🎸</span>
+                            </span>
+                            <span className="small-print">(full disclosure headphones might be sensible.)</span>
+                        </div>
                     </div>
 
                 </div>

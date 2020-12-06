@@ -133,9 +133,18 @@ const Sell = () => {
             <MenuBar page="sell" />
             <section className="header-section seller">
                 <div className="content">
-                <div className="title-wrapper">
-                        <span className="title">I'm Sellin'</span>
-                        <span className="sub-title">Some subtitle text</span>
+                    <div className="title-wrapper">
+                        <div className="song-title-wrapper">
+                            <span className="title">I'm Buying...</span>
+                            <span className="sub-title">
+                                <span>🎸</span>
+                                <a href="http://www.youtube.com/watch?v=4L_yCwFD6Jo&t=1m22s" target="_blank" rel="noreferrer">
+                                    Time to say goodbye (Click me...)
+                                </a>
+                                <span>🎸</span>
+                            </span>
+                            <span className="small-print">(full disclosure headphones might be sensible.)</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -213,7 +222,7 @@ const Sell = () => {
                             commitDataToDb={commitDataToDb}
                         />
                     }
-    
+
 
                 </section>
             </div>
