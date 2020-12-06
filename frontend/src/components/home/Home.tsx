@@ -45,7 +45,7 @@ const Home = () => {
                     <p>It’s a tough one.</p>
                     <p>There are plenty of “Introduction Agencies” out there. Brokers that’ll just give you a name, charge a fee and walk away. Job done.</p>
                     <p>But that’s not us. That’s not us at all.</p>
-                    <p>We take you on the whole journey: From a great first date to falling in Business Love.</p>
+                    <p>We take you on the whole journey: From a great first date to a happily ever after.</p>
                 </div>
             </section>
 
@@ -74,11 +74,11 @@ const Home = () => {
 
             <section className="what-we-do-section content">
                 <div className="text-wrapper">
-                    <h2>Putting the M&A into business marriage</h2>
+                    <h2>Putting the M&A into business MArriage</h2>
                     <p>Successfully buying a business and integrating it with your own is a lot like getting married. It’s a big decision and you want to make sure it’s a good one. And when you’re selling, you want to make sure that you’re giving “your baby” away to the right person.</p>
                     <p>That’s why we don’t just make introductions. It doesn’t deliver value. </p>
                     <p>We build successful, long lasting and happy relationships, getting to know our clients inside out before bringing them together, creating the deals our clients want to “do”.</p>
-                    <p>Our highly experienced team of Match Makers work with all our Buyers and Sellers to develop a deep and granular knowledge of their businesses, their requirements and their ambitions:</p>
+                    <p>Our highly experienced team of MatchMakers work with all our Buyers and Sellers to develop a deep and granular knowledge of their businesses, their requirements and their ambitions:</p>
                     <table>
                         <tbody>
                             <tr>

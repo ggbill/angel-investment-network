@@ -2,10 +2,12 @@
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 12px;
+    z-index: 2;
+    position: relative;
 }
 
 .full-height-content {
-    min-height: calc(100vh - 207px); /* will cover the 100% of viewport minus (header + footer) */
+    min-height: calc(100vh - 159px); /* will cover the 100% of viewport minus (header + footer) */
     overflow: hidden;
     display: block;
     margin-top: 64px;
@@ -16,14 +18,13 @@
 }
 
 .seller {
-    background-color: #b7b500 !important;
+    background-color: #E94F37 !important;
 }
 
 .header-section {
     background-color:#3f3b5b;
     color: white;
-    padding: 48px 0;
-    margin-bottom: 48px;
+    padding: 75px 0;
 
     .title-wrapper {
         display: flex;

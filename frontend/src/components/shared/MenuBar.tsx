@@ -50,8 +50,7 @@ const MenuBar = (props: InputProps) => {
         if (props.page === "buy") {
             setBackgroundColor("#0093a8")
         } else if (props.page === "sell") {
-            // setBackgroundColor("#b7b500")
-            setBackgroundColor("#989815")
+            setBackgroundColor("#E94F37")
         } else {
             setBackgroundColor("#3f3b5b")
         }

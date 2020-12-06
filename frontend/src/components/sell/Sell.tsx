@@ -135,7 +135,7 @@ const Sell = () => {
                 <div className="content">
                     <div className="title-wrapper">
                         <div className="song-title-wrapper">
-                            <span className="title">I'm Buying...</span>
+                            <span className="title">I'm Selling...</span>
                             <span className="sub-title">
                                 <span>🎸</span>
                                 <a href="http://www.youtube.com/watch?v=4L_yCwFD6Jo&t=1m22s" target="_blank" rel="noreferrer">
@@ -152,7 +152,7 @@ const Sell = () => {
             <div className="content">
                 {stepNumber === 1 &&
                     <section className="intro-section">
-                        <span className="intro-text">Its time to build your profile. We are going to ask you a few simple questions, after which we will be able to book you in for a chat. The more you give, the more we've got.</span>
+                        <span className="intro-text">It's time to build your profile. We're going to ask you a few simple questions, after which we'll be able to book you in for a chat. The more you give, the more we've got.</span>
                     </section>
                 }
                 <section className="current-step-section">
@@ -163,7 +163,7 @@ const Sell = () => {
                             basicDetails={basicDetails}
                             setBasicDetails={setBasicDetails}
                             increaseStepNumber={increaseStepNumber}
-                            color="#B7B500"
+                            color="#E94F37"
                             customerJourney="seller"
                         />
                     }
@@ -177,7 +177,7 @@ const Sell = () => {
                             setSelectedLocations={setSelectedLocations}
                             setSpecificLocationRequirements={setSpecificLocationRequirements}
                             specificLocationRequirements={specificLocationRequirements}
-                            color="#B7B500"
+                            color="#E94F37"
                             customerJourney="seller"
                             increaseStepNumber={increaseStepNumber}
                             decreaseStepNumber={decreaseStepNumber}
@@ -216,7 +216,7 @@ const Sell = () => {
                             name={basicDetails.name}
                             email={basicDetails.email}
                             increaseStepNumber={increaseStepNumber}
-                            color="#B7B500"
+                            color="#E94F37"
                             decreaseStepNumber={decreaseStepNumber}
                             customerJourney="seller"
                             commitDataToDb={commitDataToDb}

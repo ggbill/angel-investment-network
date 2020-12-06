@@ -146,7 +146,7 @@ const Buy = () => {
                             <span className="title">I'm Buying...</span>
                             <span className="sub-title">
                                 <span>🎸</span>
-                                <a href="https://www.youtube.com/watch?v=59Hj7bp38f8&ab_channel=guru006" target="_blank" rel="noreferrer">
+                                <a href="http://www.youtube.com/watch?v=59Hj7bp38f8&t=0m19s" target="_blank" rel="noreferrer">
                                     Matchmaker, matchmaker, make me a match (Click me...)
                                 </a>
                                 <span>🎸</span>
@@ -160,7 +160,7 @@ const Buy = () => {
             <div className="content">
                 {stepNumber === 1 &&
                     <section className="intro-section">
-                        <span className="intro-text">Its time to build your profile. We are going to ask you a few simple questions, after which we will be able to book you in for a chat. The more you give, the more we've got.</span>
+                        <span className="intro-text">It's time to build your profile. We're going to ask you a few simple questions, after which we'll be able to book you in for a chat. The more you give, the more we've got.</span>
                     </section>
                 }
                 <section className="current-step-section">

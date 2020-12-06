@@ -142,7 +142,12 @@ const Contact = () => {
     };
 
     const randomlySelectHeaderSong = () => {
-        setHeaderSongNumber(Math.floor(Math.random() * headerSongList.length))
+        let newNumber = Math.floor(Math.random() * headerSongList.length)
+
+        if (newNumber == headerSongNumber){
+            newNumber = newNumber + 1
+        }
+        setHeaderSongNumber(newNumber)
     }
 
 
@@ -287,8 +292,8 @@ const Contact = () => {
                 </div>
             </section>
             <ConfirmationDialog
-                title="We have received your message (in a bottle or otherwise)."
-                content="Thanks for your message. We will get back to you as soon as possible. Can't wait that long? Why not give us a ring instead?"
+                title="We've received your message (in a bottle or otherwise)."
+                content="Thanks. We'll get back to you as soon as possible. Can't wait that long? Why not give us a ring instead?"
                 handleClose={handleConfirmationDialogClose}
                 isDialogOpen={isConfirmationDialogOpen}
 
