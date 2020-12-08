@@ -158,11 +158,11 @@ const Buy = () => {
                 </div>
             </section>
             <div className="content">
-                {stepNumber === 1 &&
+                {/* {stepNumber === 1 &&
                     <section className="intro-section">
                         <span className="intro-text">It's time to build your profile. We're going to ask you a few simple questions, after which we'll be able to book you in for a chat. The more you give, the more we've got.</span>
                     </section>
-                }
+                } */}
                 <section className="current-step-section">
                     {stepNumber === 1 &&
                         <BasicDetailInputs
