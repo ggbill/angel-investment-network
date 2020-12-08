@@ -104,6 +104,10 @@
                         padding: 0 6px;
                         text-align: left;
 
+                        .text-wrapper{
+                            max-width: 192px;
+                        }
+
                         
                         svg {
                             width: 70px;

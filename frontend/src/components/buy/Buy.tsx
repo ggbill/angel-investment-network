@@ -143,11 +143,11 @@ const Buy = () => {
                 <div className="content">
                     <div className="title-wrapper">
                         <div className="song-title-wrapper">
-                            <span className="title">I'm Buying...</span>
+                            <span className="title">I'm Buyin'...</span>
                             <span className="sub-title">
                                 <span>🎸</span>
                                 <a href="http://www.youtube.com/watch?v=59Hj7bp38f8&t=0m19s" target="_blank" rel="noreferrer">
-                                    Matchmaker, matchmaker, make me a match (Click me...)
+                                    Click me...
                                 </a>
                                 <span>🎸</span>
                             </span>

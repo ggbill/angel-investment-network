@@ -60,10 +60,18 @@ const Sell = () => {
 
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
     }
 
     const decreaseStepNumber = () => {
         setStepNumber(stepNumber - 1)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
     }
 
     const commitDataToDb = () => {
@@ -135,11 +143,11 @@ const Sell = () => {
                 <div className="content">
                     <div className="title-wrapper">
                         <div className="song-title-wrapper">
-                            <span className="title">I'm Selling...</span>
+                            <span className="title">I'm Sellin'...</span>
                             <span className="sub-title">
                                 <span>🎸</span>
                                 <a href="http://www.youtube.com/watch?v=4L_yCwFD6Jo&t=1m22s" target="_blank" rel="noreferrer">
-                                    Time to say goodbye (Click me...)
+                                    (Click me...)
                                 </a>
                                 <span>🎸</span>
                             </span>
@@ -150,11 +158,11 @@ const Sell = () => {
             </section>
 
             <div className="content">
-                {stepNumber === 1 &&
+                {/* {stepNumber === 1 &&
                     <section className="intro-section">
                         <span className="intro-text">It's time to build your profile. We're going to ask you a few simple questions, after which we'll be able to book you in for a chat. The more you give, the more we've got.</span>
                     </section>
-                }
+                } */}
                 <section className="current-step-section">
                     {stepNumber === 1 &&
                         <BasicDetailInputs

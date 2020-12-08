@@ -1,4 +1,8 @@
 .about-page {
+
+    h2{
+        margin: 0 0 36px 0;
+    }
     
     .header-section {
         // background-color: #bade94;
@@ -12,7 +16,7 @@
         }
 
         .small-print {
-            font-size: 0.6em;
+            font-size: 0.8em;
         }
 
         .title-wrapper {
@@ -134,68 +138,73 @@
     }
 
     .team-section {
-        padding-bottom: 27px;
-        margin: 75px 0 0 0;
+        margin: 75px 0;
 
         a {
             color: unset;
         }
         .intro{
-            margin-bottom: 48px;
+            margin-bottom: 36px;
         }
-        
-        .matchmaker-wrapper {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-bottom: 48px;;
-            
+        .matchmakers{
+            // margin-bottom: 48px;
 
-            img {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
+            >*:not(:last-child){
+                margin-bottom: 60px;
             }
-
-            .text-wrapper {
+            .matchmaker-wrapper {
                 display: flex;
-                flex-direction: column;
-                margin-left: 12px;
-
-                .name {
-                    font-size: 1.2em;
-                    font-weight: 600;
-                    margin-bottom: 6px;
+                flex-direction: row;
+                align-items: center;
+                
+                img {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                }
+    
+                .text-wrapper {
                     display: flex;
-
-                    a {
-                        margin-left: 12px;
-
-                        svg {
-                            width: 20px;
+                    flex-direction: column;
+                    margin-left: 12px;
+    
+                    .name {
+                        font-size: 1.2em;
+                        font-weight: 600;
+                        margin-bottom: 6px;
+                        display: flex;
+    
+                        a {
+                            margin-left: 12px;
+    
+                            svg {
+                                width: 20px;
+                            }
                         }
                     }
-                }
-
-                .email {
-                    display: flex;
-                    align-items: center;
-                    font-size: 0.85em;
-                    .email-icon {
-                        font-size: 1.5em;
-                        margin-right: 12px;
+    
+                    .email {
+                        display: flex;
+                        align-items: center;
+                        font-size: 0.85em;
+                        .email-icon {
+                            font-size: 1.5em;
+                            margin-right: 12px;
+                        }
+                        a {
+                            color: unset;
+                            text-decoration: none;
+                        }
                     }
-                    a {
-                        color: unset;
-                        text-decoration: none;
+    
+                    .description-wrapper {
+                        font-size: 0.85em;
                     }
-                }
-
-                .description-wrapper {
-                    font-size: 0.85em;
                 }
             }
         }
+        
+        
     }
 
     .fees-section {
@@ -204,6 +213,14 @@
         background-size: 250px;
         padding: 75px 0;
         font-weight: 600;
+
+        h2{
+            margin-bottom: 0;
+        }
+
+        .music-link-wrapper{
+            margin-bottom: 36px;
+        }
 
         a {
             color: unset;
@@ -246,6 +263,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-top: 75px;
+
 
         a {
             color: unset;
@@ -256,13 +275,13 @@
         }
 
         .text-wrapper{
-            margin-top: 75px;
+            // margin-top: 75px;
         }
 
         .logo-wrapper {
             display: flex;
             justify-content: center;
-            margin-top: 75px;
+            // margin-top: 75px;
             
             svg {
                 width: 350px;
@@ -290,9 +309,10 @@
             background-position: right -68% bottom 75%;
         }
         .how-it-works-section {
-            margin-bottom: 150px;
+            margin-bottom: 75px;
             .MuiCard-root {
                 .MuiCardContent-root {
+                    
                     .row {
                         flex-direction: column;
 
@@ -300,33 +320,66 @@
                             margin-bottom: 0;
                         }
 
-                        .step-wrapper {
+                        >*:not(:last-child){
                             margin-bottom: 48px;
+                        }
+
+                        .step-wrapper {
+                            padding: 0;
                         }
                     }
                 }
             }
         }
 
+        .vows-section{
+            .text-wrapper{
+                    h2{
+                        margin: 0 0 48px 0;
+                    }
+            }
+        }
+
         .team-section {
-            .matchmaker-wrapper {
-                flex-direction: column;
-                text-align: center;
-                margin-bottom: 60px;
-
-                .text-wrapper {
-                    align-items: center;
+            .matchmakers{
+                margin-bottom: 0;
+                >*:not(:last-child){
+                    margin-bottom: 60px;
                 }
-
-                img {
-                    margin-bottom: 12px;
+                .matchmaker-wrapper {
+                    flex-direction: column;
+                    text-align: center;
+                    
+                    
+    
+                    .text-wrapper {
+                        align-items: center;
+                        margin-left: 0;
+                    }
+    
+                    img {
+                        margin-bottom: 12px;
+                    }
                 }
             }
+            
         }
 
         .fees-section {
             .fees-wrapper {
                 flex-direction: column;
+            }
+        }
+
+        .wealth-holdings-section{
+            flex-direction: column;
+
+            .logo-wrapper{
+                margin-top: 24px;
+                svg{
+                    width: 230px;
+    height: 65px;
+                }
             }
         }
     }

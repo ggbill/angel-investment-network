@@ -7,7 +7,11 @@ export namespace EmailController {
     export async function SendEmail(emailConfig: any): Promise<any> {
         return new Promise((resolve: (result) => void, reject: (error: Error) => void) => {
 
-            validateHuman(emailConfig.reCAPTCHAToken).then((data) => {
+            // validateHuman(emailConfig.reCAPTCHAToken).then((data) => {
+
+            //ADD IF FALSE THEN DO SOMETHING ELSE SEND MESSAGE
+
+            console.log("TODO FIX RECAPTCHA")
 
 
                 let msg = {
@@ -164,14 +168,17 @@ export namespace EmailController {
                     console.error(error)
                 })
 
-            }).catch((error) => {
-                console.log(error)
-            })
+            // }).catch((error) => {
+            //     console.log(error)
+            // })
         });
     }
 
     async function validateHuman(token: string): Promise<boolean> {
         const secret = process.env.RECAPTCHA_SECRET_KEY
+        console.log(`secret: ${secret}`)
+        console.log(`token: ${token}`)
+        
         const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
             {
                 method: "POST"

@@ -11,6 +11,7 @@
                 font-size: 3.7em;
                 line-height: 60px;
                 font-weight: 800;
+                padding: 0 55px 0 0;
                 // margin-right: 70px;
     
                 .title {
@@ -86,8 +87,12 @@
         padding: 150px 12px 75px;
         .image-wrapper {
             margin-right: 48px;
-            img {
-                width: 300px;
+            // img {
+            //     width: 300px;
+            // }
+            svg {
+                width: 250px;
+                height: 250px;
             }
         }
         z-index: 2;
@@ -180,7 +185,7 @@
     .home-page {
         .header-section {
             text-align: center;
-            padding: 48px 12px 72px;
+            padding: 48px 12px;
 
             .content{
                 .hero-image {
@@ -195,7 +200,8 @@
                     line-height: 45px;
                     text-align: center;
                     margin-right: 10px;
-                    padding: 0 30px;
+                    padding: 0 20px 0 0;
+                    
 
                     .heart-wrapper{
                         margin-top:4px
@@ -215,7 +221,7 @@
             flex-direction: column;
             text-align: center;
             font-size: 0.9em;
-            padding: 150px 12px 75px;
+            padding: 48px 12px;
             .image-wrapper {
                 margin-right: 0;
                 img {
@@ -225,7 +231,7 @@
         }
 
         .testimonials-section {
-            padding: 75px 12px;
+            padding: 48px 12px;
             .testimonials-wrapper {
                 flex-direction: column;
                 align-items: center;
@@ -240,7 +246,7 @@
             flex-direction: column;
             text-align: center;
             font-size: 0.9em;
-            padding: 150px 12px 75px;
+            padding: 48px 12px;
             .image-wrapper {
                 order: 1;
                 margin-left: 0;
@@ -264,7 +270,7 @@
             flex-direction: column;
             text-align: center;
             font-size: 0.9em;
-            padding: 150px 12px 75px;
+            padding: 48px 12px;
             .image-wrapper {
                 margin-right: 0;
             }

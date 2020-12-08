@@ -25,6 +25,10 @@
         .iframe-wrapper{
             height: 884px;
         }
+
+        &.confirmation{
+            height: 568px;
+        }
     }
 }
 
@@ -32,6 +36,10 @@
     .call-booking-section{
         .iframe-wrapper{
             height: 800px;
+
+            &.confirmation{
+                height: 540px;
+            }
         }
     }
 }

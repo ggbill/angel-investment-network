@@ -10,7 +10,8 @@
     min-height: calc(100vh - 159px); /* will cover the 100% of viewport minus (header + footer) */
     overflow: hidden;
     display: block;
-    margin-top: 64px;
+    // margin-top: 64px;
+    margin-top: 100px;
 }
 
 .buyer {
@@ -124,15 +125,16 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .full-height-content {
-        min-height: calc(100vh - 180px); /* will cover the 100% of viewport minus (header + footer) */
-        margin-top: 56px;
-    }
+    // .full-height-content {
+    //     min-height: calc(100vh - 180px); /* will cover the 100% of viewport minus (header + footer) */
+    //     margin-top: 56px;
+    // }
 
     .header-section{
         .title-wrapper{
             .title{
-                font-size: 3em;
+                font-size: 2em;
+                margin-bottom: 12px;
             }
 
             .sub-title{
@@ -164,3 +166,12 @@
         }
     }
 }
+
+@media only screen and (max-width: 750px) {
+    .full-height-content {
+        min-height: calc(100vh - 180px); /* will cover the 100% of viewport minus (header + footer) */
+        margin-top: 70px;
+    }
+}
+
+

@@ -6,6 +6,8 @@ import LinkButton from './LinkButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import Logo from '../../images/tmb-logo.png'
+// import { ReactComponent as TMBLogo } from '../../images/mb-meet-icon.svg'
+import { ReactComponent as TMBLogo } from '../../images/marriage-bureau-logo.svg'
 
 interface InputProps {
     page: string
@@ -78,7 +80,8 @@ const MenuBar = (props: InputProps) => {
                     <Toolbar>
                         <div className="logo-wrapper">
                             <Link to={'/'}>
-                                <img alt="tmb-logo" src={Logo} />
+                                {/* <img alt="tmb-logo" src={Logo} /> */}
+                                <TMBLogo fill="white" />
                             </Link>
                         </div>
                         <div className="menu-items">

@@ -47,7 +47,7 @@ const CallBooking = (props: InputProps) => {
                     onEventTypeViewed={listenToCalendlyEvent}
                     onProfilePageViewed={listenToCalendlyEvent}
                 >
-                    <div className="iframe-wrapper">
+                    <div className={props.currentStepNumber === 6 ? "iframe-wrapper confirmation" : "iframe-wrapper"}>
                         <iframe
                             title="calendly-iframe"
                             frameBorder="0"

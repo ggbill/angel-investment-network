@@ -53,9 +53,14 @@
 
         a {
             display: flex;
-            img {
-                width: 50px;
-                height: 45px;
+            // img {
+            //     width: 50px;
+            //     height: 45px;
+            // }
+
+            svg{
+                width: 238px;
+                height: 100px;
             }
         }
     }
@@ -122,8 +127,12 @@
     }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 850px) {
     .menu-bar {
+        .MuiToolbar-root {
+            padding-left: 0;
+        }
+
         .hamburger-menu {
             display: flex;
         }
@@ -133,9 +142,12 @@
         }
 
         .logo-wrapper {
-            svg {
-                height: 40px;
-                width: 40px;
+
+            a {   
+                svg{
+                    width: 167px;
+                    height: 70px;
+                }
             }
         }
     }

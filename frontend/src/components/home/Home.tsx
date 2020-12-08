@@ -1,15 +1,11 @@
 import './home.scss'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import teamworkImage from '../../images/teamwork.png';
-import positiveThinkingImage from '../../images/positive-thinking.png';
-import positiveThinking2Image from '../../images/positive-thinking-2.png';
-import TestimonialCard from '../shared/TestimonialCard';
-import keithImage from '../../images/keith.jpg';
-import tickImage from '../../images/tick.png';
 import MenuBar from '../shared/MenuBar';
 import CookieConsentPopup from '../shared/CookieConsentPopup';
-
+import { ReactComponent as MeetIcon } from '../../images/mb-meet-icon.svg'
+import { ReactComponent as ManageIcon } from '../../images/mb-manage-icon.svg'
+import { ReactComponent as ExchangeIcon } from '../../images/mb-exchange-icon.svg'
 
 const Home = () => {
     return (
@@ -37,7 +33,9 @@ const Home = () => {
 
             <section className="intro-section content">
                 <div className="image-wrapper">
-                    <img alt="" src={teamworkImage} />
+                    {/* <img alt="" src={teamworkImage} /> */}
+                    <MeetIcon fill=" #E94F37" />
+
                 </div>
                 <div className="text-wrapper">
                     <h2>Meeting your perfect partner</h2>
@@ -74,7 +72,7 @@ const Home = () => {
 
             <section className="what-we-do-section content">
                 <div className="text-wrapper">
-                    <h2>Putting the M&A into business MArriage</h2>
+                    <h2>Putting the M&A into business <u>ma</u>rriage</h2>
                     <p>Successfully buying a business and integrating it with your own is a lot like getting married. It’s a big decision and you want to make sure it’s a good one. And when you’re selling, you want to make sure that you’re giving “your baby” away to the right person.</p>
                     <p>That’s why we don’t just make introductions. It doesn’t deliver value. </p>
                     <p>We build successful, long lasting and happy relationships, getting to know our clients inside out before bringing them together, creating the deals our clients want to “do”.</p>
@@ -112,13 +110,15 @@ const Home = () => {
                     </table>
                 </div>
                 <div className="image-wrapper">
-                    <img alt="" src={positiveThinkingImage} />
+                    {/* <img alt="" src={positiveThinkingImage} /> */}
+                    <ManageIcon fill="#3f3b5b" />
                 </div>
             </section>
 
             <section className="fair-exchange-section content">
                 <div className="image-wrapper">
-                    <img alt="" src={positiveThinking2Image} />
+                    {/* <img alt="" src={positiveThinking2Image} /> */}
+                    <ExchangeIcon fill="#0093a8" />
                 </div>
                 <div className="text-wrapper">
                     <h2>A Heart That’s in the Right Place</h2>

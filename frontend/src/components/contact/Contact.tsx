@@ -89,7 +89,7 @@ const Contact = () => {
             let tempValidationObject = [...validationObject]
 
             if (name === "email") {
-                if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value)) {
+                if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)) {
                     tempValidationObject.forEach(element => {
                         if (name === element.name) {
                             element.isValid = true
@@ -144,8 +144,8 @@ const Contact = () => {
     const randomlySelectHeaderSong = () => {
         let newNumber = Math.floor(Math.random() * headerSongList.length)
 
-        if (newNumber == headerSongNumber){
-            newNumber = newNumber + 1
+        if (newNumber === headerSongNumber) {
+            newNumber = 0
         }
         setHeaderSongNumber(newNumber)
     }
@@ -164,18 +164,24 @@ const Contact = () => {
             <section className="header-section">
                 <div className="content">
                     <div className="title-wrapper">
-                        <div className="song-title-wrapper">
+                        <div className="song-title-wrapper">                         
                             {headerSongList[headerSongNumber] && <span className="title">{headerSongList[headerSongNumber].title}</span>}
-                            <div className="refresh-icon" onClick={randomlySelectHeaderSong} title="Give me another one!"><AutorenewIcon /></div>
+                            <div className="refresh-icon" onClick={randomlySelectHeaderSong} title="Give me another one!"><AutorenewIcon /></div>                           
                         </div>
                         <span className="sub-title">
+                            <div>
                             <span>🎸</span>
-                            {headerSongList[headerSongNumber] && <a href={headerSongList[headerSongNumber].videoLink} target="_blank" rel="noreferrer">
-                                Click me...
-                            </a>}
-                            <span>🎸</span>
-                            <span className="small-print">(full disclosure headphones might be sensible.)</span>
-                        </span>
+                                {headerSongList[headerSongNumber] && <a href={headerSongList[headerSongNumber].videoLink} target="_blank" rel="noreferrer">
+                                    Click me...
+                                </a>}
+                                <span>🎸</span>
+                            </div>
+                                
+                                
+                                <span className="small-print">(full disclosure headphones might be sensible.)</span>
+                            </span>
+
+                        
                     </div>
                 </div>
             </section>

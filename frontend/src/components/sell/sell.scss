@@ -59,6 +59,10 @@
         display: flex;
         justify-content: flex-end;
 
+        a{
+            display: flex;
+        }
+
         .next{
             margin-left: 12px;
         }
@@ -87,7 +91,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .buy-page {
+    .sell-page {
         .header-section:after {
             background-size: 80%;
             background-position: right -100% bottom 80%;
@@ -102,8 +106,10 @@
             }
 
             .next {
+                margin-left: 0;
                 order: 1;
                 height: 50px;
+                flex: 1;
             }
         }
     }

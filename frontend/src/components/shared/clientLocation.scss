@@ -48,7 +48,7 @@
                 pointer-events: none;
 
                 .svg-map__location {
-                    fill:#989815;
+                    fill: #E94F37;
                 }
             }
         }
@@ -112,18 +112,19 @@
                 }
     
                 .selected-location-wrapper {
+                    min-height: 25px;
                     // display: flex;
                     // flex-direction: column;
                     // &.desktop {
                     //     display: block;
                     // }
     
-                    &.desktop {
+                    .desktop {
                         display: none;
                     }
-                    &.mobile {
+                    .mobile {
                         display: block;
-                        min-height: 25px;
+                        // min-height: 25px;
                     }
     
                     .selected-location {

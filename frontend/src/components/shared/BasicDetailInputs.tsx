@@ -63,7 +63,7 @@ const BasicDetailInputs = (props: InputProps) => {
             let tempValidationObject = [...validationObject]
 
             if (name === "email") {
-                if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value)) {
+                if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)) {
                     tempValidationObject.forEach(element => {
                         if (name === element.name) {
                             element.isValid = true
@@ -122,6 +122,11 @@ const BasicDetailInputs = (props: InputProps) => {
                 <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
                 <span className="title">The basics.</span>
             </div>
+
+            <div className="intro-text">
+                <span>It's time to build your profile. We're going to ask you a few simple questions, after which we'll be able to book you in for a chat. The more you give, the more we've got.</span>
+            </div>
+
 
             <div className="input-wrapper">
                 <TextField

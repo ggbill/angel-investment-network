@@ -2,7 +2,9 @@ import './about.scss'
 import React from 'react'
 import MenuBar from '../shared/MenuBar'
 import { Card, CardContent } from '@material-ui/core'
-import { ReactComponent as Logo } from '../../images/tmb-logo.svg'
+import { ReactComponent as MeetIcon } from '../../images/mb-meet-icon.svg'
+import { ReactComponent as ManageIcon } from '../../images/mb-manage-icon.svg'
+import { ReactComponent as ExchangeIcon } from '../../images/mb-exchange-icon.svg'
 import KeithImage from '../../images/snowy-keith.jpg'
 import DebbieImage from '../../images/debbie.jpg'
 import NormanImage from '../../images/norman.jpg'
@@ -26,8 +28,8 @@ const About = () => {
                                     Click me...
                                 </a>
                                 <span>🎸</span>
-                                <span className="small-print">(full disclosure headphones might be sensible.)</span>
                             </span>
+                            <span className="small-print">(full disclosure headphones might be sensible.)</span>
 
                         </div>
                     </div>
@@ -40,7 +42,7 @@ const About = () => {
                             <h2>We do things our own way. Six simple steps to success. It works.</h2>
                             <div className="row margin-bottom">
                                 <div className="step-wrapper">
-                                    <Logo fill="red" />
+                                    <MeetIcon fill="red" />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>1.</span></div>
                                         <span className="title">Getting to know you</span>
@@ -51,7 +53,7 @@ const About = () => {
                                     </span>
                                 </div>
                                 <div className="step-wrapper">
-                                    <Logo fill="blue" />
+                                    <ManageIcon fill="blue" />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>2.</span></div>
                                         <span className="title">MatchMaking</span>
@@ -62,7 +64,7 @@ const About = () => {
                                     </span>
                                 </div>
                                 <div className="step-wrapper">
-                                    <Logo fill="pink" />
+                                    <ExchangeIcon fill="pink" />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>3.</span></div>
                                         <span className="title">Setting the date</span>
@@ -74,7 +76,7 @@ const About = () => {
                             </div>
                             <div className="row">
                                 <div className="step-wrapper">
-                                    <Logo fill="green" />
+                                    <ExchangeIcon fill="green" />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>4.</span></div>
                                         <span className="title">Making a plan</span>
@@ -84,7 +86,7 @@ const About = () => {
                                     </span>
                                 </div>
                                 <div className="step-wrapper">
-                                    <Logo fill="orange" />
+                                    <MeetIcon fill="orange" />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>5.</span></div>
                                         <span className="title">Tying the knot</span>
@@ -94,7 +96,7 @@ const About = () => {
                                     </span>
                                 </div>
                                 <div className="step-wrapper">
-                                    <Logo fill="purple" />
+                                    <ManageIcon fill="purple" />
                                     <div className="title-wrapper">
                                         <div className="step-number"><span>6.</span></div>
                                         <span className="title">Moving in together</span>
@@ -144,57 +146,63 @@ const About = () => {
                 </section>
                 <section className="team-section">
                     <div className="content">
-                        <h1>Introducing our MatchMakers</h1>
+                        <h2>Introducing our MatchMakers</h2>
                         <p className="intro">Romantics at heart, our MatchMakers are seasoned industry professionals; people who, having owned, managed, sold and bought IFA businesses themselves, know what a good deal looks like.</p>
-                        <div className="matchmaker-wrapper">
-                            <img alt="" src={KeithImage} />
-                            <div className="text-wrapper">
-                                <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                        <div className="matchmakers">
+                            <div className="matchmaker-wrapper">
+                                <img alt="" src={KeithImage} />
+                                <div className="text-wrapper">
+                                    <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
 
-                                <div className="description-wrapper">
-                                    <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=_91hNV6vuBY&ab_channel=BruceSpringsteenVEVO" target="_blank" rel="noreferrer">Tougher than the rest (Bruce Springsteen)</a></b></p>
-                                    <p>Hi, I’m Keith and I run The Marriage Bureau. Call me soppy but, having completed over 50 successful acquisition and implementation projects, I love my team and I love what we do. Getting the right people in the same room is what we’re about. Helping find that spark, that special something that makes a deal what is our speciality and then ironing out the creases to create that Happily Ever After. I have no doubt our paths will cross. I’m looking forward to it. Who doesn’t love a good love story?</p>
+                                    <div className="description-wrapper">
+                                        <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=_91hNV6vuBY&ab_channel=BruceSpringsteenVEVO" target="_blank" rel="noreferrer">Tougher than the rest (Bruce Springsteen)</a></b></p>
+                                        <p>Hi, I’m Keith and I run The Marriage Bureau. Call me soppy but, having completed over 50 successful acquisition and implementation projects, I love my team and I love what we do. Getting the right people in the same room is what we’re about. Helping find that spark, that special something that makes a deal what is our speciality and then ironing out the creases to create that Happily Ever After. I have no doubt our paths will cross. I’m looking forward to it. Who doesn’t love a good love story?</p>
+                                    </div>
+                                    <span className="email"><span className="email-icon">📧</span> <a href="mailto:keith@themarriagebureau.co.uk">keith@themarriagebureau.co.uk</a></span>
+
                                 </div>
-                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:keith@themarriagebureau.co.uk">keith@themarriagebureau.co.uk</a></span>
+                            </div>
+                            <div className="matchmaker-wrapper">
+                                <img alt="" src={DebbieImage} />
+                                <div className="text-wrapper">
+                                    <span className="name">Debbie Dry <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
 
+                                    <div className="description-wrapper">
+                                        <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=tB54XUhA9_w&ab_channel=TheSoulJukebox" target="_blank" rel="noreferrer">My first, my last, my everything (Barry White)</a></b></p>
+                                        <p>Hi, I’m Debbie. Financial services is my thing. It’s the only job I’ve ever known so I hope I’m pretty well placed to support you through the sales and acquisition process. Having been responsible for leading organisation-wide change programmes in IT and operations, I’ll make sure we’ll maintain client focus and business continuity throughout. I’ve spent the last 15 years working with consolidators, the majority at senior leadership and board level, so you can be sure I know my onions. I can’t wait to chat!</p>
+                                    </div>
+                                    <span className="email"><span className="email-icon">📧</span> <a href="mailto:debbie@themarriagebureau.co.uk">debbie@themarriagebureau.co.uk</a></span>
+
+                                </div>
+                            </div>
+                            <div className="matchmaker-wrapper">
+                                <img alt="" src={NormanImage} />
+                                <div className="text-wrapper">
+                                    <span className="name">Norman MacLeod <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+
+                                    <div className="description-wrapper">
+                                        <p><b>Favourite Love Song?<a href="https://www.youtube.com/watch?v=yT1iDKkZNYU&ab_channel=SuperChannel" target="_blank" rel="noreferrer">You to me are everything (The Real Thing)</a></b></p>
+                                        <p>I’m Norman. Compared to my colleagues, I’m a relative newbie to financial services having cut my teeth as a senior fundraiser in the arts and culture sector. However, I’ve been here a while now and I’ve helped complete over 50 acquisition deals since making “the change”. I’m a communicator and chances are that it’ll be me you speak to first. I hope you’ll like it. I like to think I get people and I understand business so I’m looking forward to a good conversation.</p>
+                                    </div>
+                                    <span className="email"><span className="email-icon">📧</span> <a href="mailto:norman@themarriagebureau.co.uk">norman@themarriagebureau.co.uk</a></span>
+
+                                </div>
                             </div>
                         </div>
-                        <div className="matchmaker-wrapper">
-                            <img alt="" src={DebbieImage} />
-                            <div className="text-wrapper">
-                                <span className="name">Debbie Dry <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
 
-                                <div className="description-wrapper">
-                                    <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=tB54XUhA9_w&ab_channel=TheSoulJukebox" target="_blank" rel="noreferrer">My first, my last, my everything (Barry White)</a></b></p>
-                                    <p>Hi, I’m Debbie. Financial services is my thing. It’s the only job I’ve ever known so I hope I’m pretty well placed to support you through the sales and acquisition process. Having been responsible for leading organisation-wide change programmes in IT and operations, I’ll make sure we’ll maintain client focus and business continuity throughout. I’ve spent the last 15 years working with consolidators, the majority at senior leadership and board level, so you can be sure I know my onions. I can’t wait to chat!</p>
-                                </div>
-                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:debbie@themarriagebureau.co.uk">debbie@themarriagebureau.co.uk</a></span>
-
-                            </div>
-                        </div>
-                        <div className="matchmaker-wrapper">
-                            <img alt="" src={NormanImage} />
-                            <div className="text-wrapper">
-                                <span className="name">Norman MacLeod <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
-
-                                <div className="description-wrapper">
-                                    <p><b>Favourite Love Song?<a href="https://www.youtube.com/watch?v=yT1iDKkZNYU&ab_channel=SuperChannel" target="_blank" rel="noreferrer">You to me are everything (The Real Thing)</a></b></p>
-                                    <p>I’m Norman. Compared to my colleagues, I’m a relative newbie to financial services having cut my teeth as a senior fundraiser in the arts and culture sector. However, I’ve been here a while now and I’ve helped complete over 50 acquisition deals since making “the change”. I’m a communicator and chances are that it’ll be me you speak to first. I hope you’ll like it. I like to think I get people and I understand business so I’m looking forward to a good conversation.</p>
-                                </div>
-                                <span className="email"><span className="email-icon">📧</span> <a href="mailto:norman@themarriagebureau.co.uk">norman@themarriagebureau.co.uk</a></span>
-
-                            </div>
-                        </div>
                     </div>
                 </section>
                 <section className="fees-section">
                     <div className="content">
-                        <h1>Because Love Comes at a Price</h1>
-                        <span>🎸</span>
-                        <a href="http://www.youtube.com/watch?v=_Dat9CRV800&t=1m52s" target="_blank" rel="noreferrer">
-                            Click me...
+                        <h2>Because Love Comes at a Price</h2>
+                        <div className="music-link-wrapper">
+                            <span>🎸</span>
+                            <a href="http://www.youtube.com/watch?v=_Dat9CRV800&t=1m52s" target="_blank" rel="noreferrer">
+                                Click me...
                                 </a>
-                        <span>🎸</span>
+                            <span>🎸</span>
+                        </div>
+
                         <p>Look, we don’t do this for free. Weddings cost money. But we think that the expense becomes easier to swallow when everyone’s happy. That’s why our charges are based on success.</p>
                         <p>We think that’s fair. Call us and we’ll talk you through it.</p>
                         <div className="fees-wrapper">
@@ -227,7 +235,7 @@ const About = () => {
                 </section>
                 <section className="wealth-holdings-section content">
                     <div className="text-wrapper">
-                        <h1>The Big Love God in the sky</h1>
+                        <h2>The Big Love God in the sky</h2>
                         <p>The Marriage Bureau is brought to you by <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer">Wealth Holdings</a>, the consultancy group delivering innovative business solutions to UK financial businesses including, among others, Simply Biz, the Uk’s largest support service provider.</p>
                     </div>
                     <div className="logo-wrapper">

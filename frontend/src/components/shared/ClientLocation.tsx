@@ -68,7 +68,7 @@ const ClientLocation = (props: InputProps) => {
     return (
         <section className="uk-map-section">
             <div className="title-wrapper">
-            <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
+                <span className="step-counter">(Step {props.currentStepNumber} / {props.totalSteps - 1}) </span>
                 {props.customerJourney === "buyer" ?
                     <span className="title">Where would you like your new clients to be located?</span> :
                     <span className="title">Where are the majority of your clients located?</span>
@@ -89,32 +89,34 @@ const ClientLocation = (props: InputProps) => {
                             checkedIcon={<CheckBoxIcon fontSize="large" />} />}
                         label={props.customerJourney === "buyer" ? "Don't mind." : "Nationwide."}
                     />
-                    {!props.isDontMind &&
-                        <>
-                            <div className="selected-location-wrapper desktop">
-                                {props.selectedLocations.map((location: string, i: number) => {
-                                    return (
-                                        <span key={i} className="selected-location">- {location}</span>
-                                    )
-                                })}
-                            </div>
-
-                            <div className="selected-location-wrapper mobile">
-                                {props.selectedLocations.map((location: string, i: number) => {
-                                    if (i < props.selectedLocations.length - 1) {
+                    <div className="selected-location-wrapper">
+                        {!props.isDontMind &&
+                            <>
+                                <div className="desktop">
+                                    {props.selectedLocations.map((location: string, i: number) => {
                                         return (
-                                            <span key={i} className="selected-location">{location}, </span>
+                                            <span key={i} className="selected-location">- {location}</span>
                                         )
-                                    } else {
-                                        return (
-                                            <span key={i} className="selected-location">{location}.</span>
-                                        )
-                                    }
+                                    })}
+                                </div>
 
-                                })}
-                            </div>
-                        </>
-                    }
+                                <div className="mobile">
+                                    {props.selectedLocations.map((location: string, i: number) => {
+                                        if (i < props.selectedLocations.length - 1) {
+                                            return (
+                                                <span key={i} className="selected-location">{location}, </span>
+                                            )
+                                        } else {
+                                            return (
+                                                <span key={i} className="selected-location">{location}.</span>
+                                            )
+                                        }
+
+                                    })}
+                                </div>
+                            </>
+                        }
+                    </div>
                 </div>
             </div>
 
