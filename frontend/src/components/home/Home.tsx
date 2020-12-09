@@ -39,11 +39,11 @@ const Home = () => {
                 </div>
                 <div className="text-wrapper">
                     <h2>Meeting your perfect partner</h2>
-                    <p>If you’re a Financial Adviser keen to buy a business to grow your own, how do make sure you find “The One”? And If you’re wanting to sell, how do ensure that you make the right deal for you and your clients? And how do you meet in the first place?</p>
+                    <p>If you’re a Financial Adviser keen to buy a business to grow your own, how do make sure you find “The One”? And if you’re wanting to sell, how do ensure that you make the right deal for you and your clients? And how do you meet in the first place?</p>
                     <p>It’s a tough one.</p>
                     <p>There are plenty of “Introduction Agencies” out there. Brokers that’ll just give you a name, charge a fee and walk away. Job done.</p>
                     <p>But that’s not us. That’s not us at all.</p>
-                    <p>We take you on the whole journey: From a great first date to a happily ever after.</p>
+                    <p>We take you on the whole journey: from a great first date to a happily ever after.</p>
                 </div>
             </section>
 
@@ -75,8 +75,8 @@ const Home = () => {
                     <h2>Putting the M&A into business <u>ma</u>rriage</h2>
                     <p>Successfully buying a business and integrating it with your own is a lot like getting married. It’s a big decision and you want to make sure it’s a good one. And when you’re selling, you want to make sure that you’re giving “your baby” away to the right person.</p>
                     <p>That’s why we don’t just make introductions. It doesn’t deliver value. </p>
-                    <p>We build successful, long lasting and happy relationships, getting to know our clients inside out before bringing them together, creating the deals our clients want to “do”.</p>
-                    <p>Our highly experienced team of MatchMakers work with all our Buyers and Sellers to develop a deep and granular knowledge of their businesses, their requirements and their ambitions:</p>
+                    <p>We build successful, long lasting and happy relationships, getting to know our clients inside out before bringing them together, creating the deals our clients want to do.</p>
+                    <p>Our highly experienced team of MatchMakers work with all our Buyers and Sellers to develop a deep and granular knowledge of their businesses, their requirements and their ambitions.</p>
                     <table>
                         <tbody>
                             <tr>
@@ -121,7 +121,7 @@ const Home = () => {
                     <ExchangeIcon fill="#0093a8" />
                 </div>
                 <div className="text-wrapper">
-                    <h2>A Heart That’s in the Right Place</h2>
+                    <h2>A heart that’s in the right place</h2>
                     <p>Whether you’re buying or selling a business, you can be sure of the delivery of fair exchange in all our transactions. Our business is built on trust, transparency and delivered value and we only charge for successful transactions based upon the level and complexity of the work we do. </p>
                     <p>That’s why successful financial adviser firms partner with us to execute both their immediate and long term strategic requirements.</p>
                 </div>

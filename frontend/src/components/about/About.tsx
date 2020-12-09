@@ -47,10 +47,10 @@ const About = () => {
                                         <div className="step-number"><span>1.</span></div>
                                         <span className="title">Getting to know you</span>
                                     </div>
-                                    <span>
-                                        <p>We like to do our homework. We want to make you look as good as possible so we’ll be wanting to properly understand your business: Your objectives, culture and aspirations. We want to know how you do things and how you like things done. If you’re selling a business we’ll give you an indicative valuation as soon as we can. No one likes surprises.</p>
+                                    <div className="body-wrapper">
+                                        <p>We like to do our homework. We want to make you look as good as possible so we’ll be wanting to properly understand your business: your objectives, culture and aspirations. We want to know how you do things and how you like things done. If you’re selling a business we’ll give you an realistic valuation as soon as we can. No one likes surprises.</p>
                                         <p>And, it goes without saying, we’ll keep your data nice and secure in a bespoke data room.</p>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div className="step-wrapper">
                                     <ManageIcon fill="blue" />
@@ -58,10 +58,10 @@ const About = () => {
                                         <div className="step-number"><span>2.</span></div>
                                         <span className="title">MatchMaking</span>
                                     </div>
-                                    <span>
+                                    <div className="body-wrapper">
                                         <p>Even if we say so ourselves, we’re great at this. We make sure we’ve got a good fit before we make any introductions. We want there to be fireworks when you meet. We look at location, company metrics, size, cultural fit. All of it. And when we think we’ve got you a match we’ll arrange a first date, chaperoning you all the way.</p>
-                                        <p>You’ll need to be patient though. We want to get this right. Magic doesn’t always happen over night.</p>
-                                    </span>
+                                        <p>You’ll need to be patient though. We want to get this right. Magic doesn’t always happen overnight.</p>
+                                    </div>
                                 </div>
                                 <div className="step-wrapper">
                                     <ExchangeIcon fill="pink" />
@@ -69,9 +69,9 @@ const About = () => {
                                         <div className="step-number"><span>3.</span></div>
                                         <span className="title">Setting the date</span>
                                     </div>
-                                    <span>
-                                        <p>So, you’ve had a few dates and you’ve fallen in Business Love. You want to get together and there’s a deal to be done. No two deals are exactly alike, so we’ll guide and support you in reaching Heads of Terms on the correct deal structure in a timely fashion to make sure you optimise deal value.</p>
-                                    </span>
+                                    <div className="body-wrapper">
+                                        <p>So, you’ve had a few dates and you’ve fallen in Business Love. You want to get together and there’s a deal to be done. No two deals are exactly alike, so we’ll guide and support you in reaching Heads of Terms in a timely fashion for the correct deal structure to make sure you optimise deal value.</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row">
@@ -81,9 +81,9 @@ const About = () => {
                                         <div className="step-number"><span>4.</span></div>
                                         <span className="title">Making a plan</span>
                                     </div>
-                                    <span>
+                                    <div className="body-wrapper">
                                         <p>We’ll translate the legals in your Sale and Purchase Agreement into a detailed road map to successfully assimilate the selling firm into the buying firm, ensuring minimal disruption for clients. For everyone. No one likes disruption. </p>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div className="step-wrapper">
                                     <MeetIcon fill="orange" />
@@ -91,9 +91,9 @@ const About = () => {
                                         <div className="step-number"><span>5.</span></div>
                                         <span className="title">Tying the knot</span>
                                     </div>
-                                    <span>
-                                        <p>When it’s time to do the legals we’ll work closely with a specialist legal team, holding your hand all way, to help reach a successful conclusion that meets the needs of all parties and puts a smile on everyones face. There won’t be a dry eye in the house. This is an emotional time.</p>
-                                    </span>
+                                    <div className="body-wrapper">
+                                        <p>When it’s time to do the legals we’ll work closely with a specialist legal team, holding your hand all the way, to help reach a successful conclusion that meets the needs of all parties and puts a smile on everyone's face. There won’t be a dry eye in the house. This is an emotional time.</p>
+                                    </div>
                                 </div>
                                 <div className="step-wrapper">
                                     <ManageIcon fill="purple" />
@@ -101,9 +101,9 @@ const About = () => {
                                         <div className="step-number"><span>6.</span></div>
                                         <span className="title">Moving in together</span>
                                     </div>
-                                    <span>
+                                    <div className="body-wrapper">
                                         <p>The path of true love never runs smooth so we’ll be by your side throughout the acquisition and integration process to ensure a successful outcome. Successful relationships are what we’re good at. So we won’t leave you to it until the job’s done.</p>
-                                    </span>
+                                    </div>
                                 </div>
                             </div>
                         </CardContent>
@@ -136,7 +136,7 @@ const About = () => {
                             </Card>
                             <Card>
                                 <div className="emoji-wrapper">🤞🏻</div>
-                                <span>We’ll introduce you to our friends. We’ve been doing this a long term and we’ve built a big network of professional relationships. If we think it’ll help, we’ll leverage those relationships to benefit you.</span>
+                                <span>We’ll introduce you to our friends. We’ve been doing this a long time and we’ve built a big network of professional relationships. If we think it’ll help, we’ll leverage those relationships to benefit you.</span>
                             </Card>
                         </div>
                         {/* <div className="image-wrapper">
@@ -156,7 +156,7 @@ const About = () => {
 
                                     <div className="description-wrapper">
                                         <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=_91hNV6vuBY&ab_channel=BruceSpringsteenVEVO" target="_blank" rel="noreferrer">Tougher than the rest (Bruce Springsteen)</a></b></p>
-                                        <p>Hi, I’m Keith and I run The Marriage Bureau. Call me soppy but, having completed over 50 successful acquisition and implementation projects, I love my team and I love what we do. Getting the right people in the same room is what we’re about. Helping find that spark, that special something that makes a deal what is our speciality and then ironing out the creases to create that Happily Ever After. I have no doubt our paths will cross. I’m looking forward to it. Who doesn’t love a good love story?</p>
+                                        <p>Hi, I’m Keith and I run The Marriage Bureau. Call me soppy but, having completed over 50 successful acquisition and implementation projects, I love my team and I love what we do. Getting the right people in the same room is what we’re about. Helping find that spark, that special something that makes a deal is our speciality and then ironing out the creases to create that Happily Ever After. I have no doubt our paths will cross. I’m looking forward to it. Who doesn’t love a good love story?</p>
                                     </div>
                                     <span className="email"><span className="email-icon">📧</span> <a href="mailto:keith@themarriagebureau.co.uk">keith@themarriagebureau.co.uk</a></span>
 
@@ -182,7 +182,7 @@ const About = () => {
 
                                     <div className="description-wrapper">
                                         <p><b>Favourite Love Song?<a href="https://www.youtube.com/watch?v=yT1iDKkZNYU&ab_channel=SuperChannel" target="_blank" rel="noreferrer">You to me are everything (The Real Thing)</a></b></p>
-                                        <p>I’m Norman. Compared to my colleagues, I’m a relative newbie to financial services having cut my teeth as a senior fundraiser in the arts and culture sector. However, I’ve been here a while now and I’ve helped complete over 50 acquisition deals since making “the change”. I’m a communicator and chances are that it’ll be me you speak to first. I hope you’ll like it. I like to think I get people and I understand business so I’m looking forward to a good conversation.</p>
+                                        <p>I’m Norman. Compared to my colleagues, I’m a relative newbie to financial services having cut my teeth as a senior fundraiser in the arts and culture sector. However, I’ve been here a while now and I’ve helped complete over 50 acquisition deals since making the switch. I’m a communicator and chances are that it’ll be me you speak to first. I hope you’ll like it. I like to think I get people and I understand business so I’m looking forward to a good conversation.</p>
                                     </div>
                                     <span className="email"><span className="email-icon">📧</span> <a href="mailto:norman@themarriagebureau.co.uk">norman@themarriagebureau.co.uk</a></span>
 
@@ -235,7 +235,7 @@ const About = () => {
                 </section>
                 <section className="wealth-holdings-section content">
                     <div className="text-wrapper">
-                        <h2>The Big Love God in the sky</h2>
+                        <h2>The Big Love god in the sky</h2>
                         <p>The Marriage Bureau is brought to you by <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer">Wealth Holdings</a>, the consultancy group delivering innovative business solutions to UK financial businesses including, among others, Simply Biz, the Uk’s largest support service provider.</p>
                     </div>
                     <div className="logo-wrapper">

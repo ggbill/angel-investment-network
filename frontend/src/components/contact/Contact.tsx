@@ -190,7 +190,7 @@ const Contact = () => {
                     <div className="contact-details">
                         <h2>How can we help?</h2>
                         <div className="intro-wrapper">
-                            <span className="intro">If you have any questions or comments there are lots of ways to get in touch. Either fill out the simple contact form, otherwise our contact details are below!</span>
+                            <span className="intro">If you have any questions or comments there are lots of ways to get in touch. Either fill out the simple contact form, otherwise our contact details are below.</span>
                         </div>
                         <div className="address-wrapper">
                             <span className="title"><span className="emoji">🏠</span>Address</span>
