@@ -52,7 +52,7 @@ const Buy = () => {
     const [timescale, setTimescale] = useState<BusinessTypeSelection[]>([
         { id: 0, label: 'ASAP', description: "I want this done yesterday.", imageUrl: "", isSelected: false },
         { id: 1, label: 'Within 12 months', description: "Not urgent but keen to get a wiggle on.", imageUrl: "", isSelected: false },
-        { id: 2, label: '12 months +', description: "Easly like Sunday morning.", imageUrl: "", isSelected: false }
+        { id: 2, label: '12 months +', description: "Easy like a Sunday morning.", imageUrl: "", isSelected: false }
     ])
 
     const leadApi = useFetch("leads");

@@ -10,9 +10,7 @@
 
     .left-content {
         display: flex;
-        flex-grow: 1;
-        flex-basis: 0;
-        font-size: 0.7em;
+        flex: 1;
 
         img {
             width: 50px;
@@ -29,15 +27,14 @@
         font-size: 0.7em;
         flex-direction: column;
 
-        a{
+        a {
             margin-top: 6px;
         }
     }
 
     .right-content {
         display: flex;
-        flex-grow: 1;
-        flex-basis: 0;
+        flex: 1;
         justify-content: flex-end;
 
         .social-wrapper {
@@ -81,19 +78,17 @@
             padding-bottom: 12px;
             text-align: center;
 
-            .social-wrapper {   
+            .social-wrapper {
                 > :first-child {
-                    img{
+                    img {
                         margin-left: 0;
                     }
-                    
                 }
                 a {
-                
                     > * {
                         width: 20px !important;
                         height: 20px !important;
-                    }  
+                    }
                 }
             }
         }

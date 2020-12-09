@@ -62,13 +62,14 @@
             }
 
             .selected-location-wrapper {
-                display: flex;
+                // display: flex;
+                // flex-direction: column;
+                .desktop {
+                    display: flex;
                 flex-direction: column;
-                // &.desktop {
-                //     display: block;
-                // }
+                }
 
-                &.mobile {
+                .mobile {
                     display: none;
                 }
 

@@ -11,6 +11,7 @@ import NormanImage from '../../images/norman.jpg'
 import { ReactComponent as LinkedInLogo } from '../../images/linkedin.svg'
 import { ReactComponent as WHLogo } from '../../images/wh-logo.svg'
 import CookieConsentPopup from '../shared/CookieConsentPopup'
+import { Link } from 'react-router-dom'
 
 
 const About = () => {
@@ -146,8 +147,10 @@ const About = () => {
                 </section>
                 <section className="team-section">
                     <div className="content">
-                        <h2>Introducing our MatchMakers</h2>
-                        <p className="intro">Romantics at heart, our MatchMakers are seasoned industry professionals; people who, having owned, managed, sold and bought IFA businesses themselves, know what a good deal looks like.</p>
+                        <h2>Meet some of our MatchMakers</h2>
+                        <p>Romantics at heart, our MatchMakers are seasoned industry professionals; people who, having owned, managed, sold and bought IFA businesses themselves, know what a good deal looks like.</p>
+                        <p className="intro">Although these financial cupids like to hog the limelight, behind them are a crack team that understand financial services inside out – marketing, technology, product development, fund management, building financial advice businesses and much more. Why not <Link to="contact">get in touch</Link> and see how we could help your business flourish.</p>
+                        
                         <div className="matchmakers">
                             <div className="matchmaker-wrapper">
                                 <img alt="" src={KeithImage} />
@@ -235,8 +238,8 @@ const About = () => {
                 </section>
                 <section className="wealth-holdings-section content">
                     <div className="text-wrapper">
-                        <h2>The Big Love god in the sky</h2>
-                        <p>The Marriage Bureau is brought to you by <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer">Wealth Holdings</a>, the consultancy group delivering innovative business solutions to UK financial businesses including, among others, Simply Biz, the Uk’s largest support service provider.</p>
+                        <h2>Who's the daddy?</h2>
+                        <p>The Marriage Bureau is brought to you by <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer">Wealth Holdings</a>, the consultancy group delivering innovative solutions to some of the UK's largest financial businesses.</p>
                     </div>
                     <div className="logo-wrapper">
                         <a href="https://www.wealthholdings.co.uk/" target="_blank" rel="noreferrer"><WHLogo /></a>
