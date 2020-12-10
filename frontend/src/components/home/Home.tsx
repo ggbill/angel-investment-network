@@ -43,7 +43,7 @@ const Home = () => {
                     <p>It’s a tough one.</p>
                     <p>There are plenty of “Introduction Agencies” out there. Brokers that’ll just give you a name, charge a fee and walk away. Job done.</p>
                     <p>But that’s not us. That’s not us at all.</p>
-                    <p>We take you on the whole journey: from a great first date to a happily ever after.</p>
+                    <p>We take you on the whole journey; from a great first date to a happily ever after.</p>
                 </div>
             </section>
 
@@ -123,7 +123,7 @@ const Home = () => {
                 <div className="text-wrapper">
                     <h2>A heart that’s in the right place</h2>
                     <p>Whether you’re buying or selling a business, you can be sure of the delivery of fair exchange in all our transactions. Our business is built on trust, transparency and delivered value and we only charge for successful transactions based upon the level and complexity of the work we do. </p>
-                    <p>That’s why successful financial adviser firms partner with us to execute both their immediate and long term strategic requirements.</p>
+                    <p>That’s why successful financial advisory firms partner with us to execute both their immediate and long term strategic requirements.</p>
                 </div>
             </section>
 
