@@ -1,5 +1,5 @@
 import './buy.scss'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import MenuBar from '../shared/MenuBar'
 import ClientLocation from '../shared/ClientLocation'
 import BasicDetailInputs from '../shared/BasicDetailInputs'
@@ -7,6 +7,7 @@ import BusinessType from '../shared/BusinessType'
 import Timescales from '../shared/Timescales'
 import CallBooking from '../shared/CallBooking'
 import useFetch from "../../hooks/useFetch"
+import ReCAPTCHA from "react-google-recaptcha"
 
 interface BasicDetails {
     name: string,
@@ -58,6 +59,8 @@ const Buy = () => {
     const leadApi = useFetch("leads");
     const emailApi = useFetch("emails");
 
+    const reRef = useRef<ReCAPTCHA>();
+
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
         window.scrollTo({
@@ -74,7 +77,11 @@ const Buy = () => {
         })
     }
 
-    const commitDataToDb = () => {
+    const commitDataToDb = async () => {
+
+        //reCAPTCHA stuff
+        const token = await reRef.current.executeAsync()
+        reRef.current.reset()
 
         let tempAum, tempClients, tempAdvisers, tempTimescale;
 
@@ -126,6 +133,7 @@ const Buy = () => {
                 clients: tempClients,
                 advisers: tempAdvisers,
                 timescale: tempTimescale,
+                reCAPTCHAToken: token
             }).then(data => {
                 console.log(data)
             }).catch((err: Error) => {
@@ -231,6 +239,14 @@ const Buy = () => {
                         />
                     }
                 </section>
+            </div>
+
+            <div className="re-captcha-wrapper">
+                <ReCAPTCHA
+                    ref={reRef}
+                    sitekey="6Lc26vcZAAAAAGC8FPT3kgtG6Tl-IlymOqGk7bY6"
+                    size="invisible"
+                />
             </div>
 
         </div>

@@ -12,6 +12,17 @@ import { ReactComponent as LinkedInLogo } from '../../images/linkedin.svg'
 import { ReactComponent as WHLogo } from '../../images/wh-logo.svg'
 import CookieConsentPopup from '../shared/CookieConsentPopup'
 import { Link } from 'react-router-dom'
+import ReactGA from 'react-ga'
+
+const trackLinkClick = (linkName: string):any => {
+    console.log(`linkName: ${linkName}`)
+    ReactGA.event({
+        category: 'Link Click',
+        action: `Link clicked: ${linkName}`,
+    });
+}
+
+ReactGA.initialize('UA-171582169-2');
 
 
 const About = () => {
@@ -25,7 +36,7 @@ const About = () => {
                             <span className="title">It ain’t what you do it’s the way that you do it. That’s what gets results.</span>
                             <span className="sub-title">
                                 <span>🎸</span>
-                                <a href="http://www.youtube.com/watch?v=H--_-gPX3Nw&t=1m11s" target="_blank" rel="noreferrer">
+                                <a href="http://www.youtube.com/watch?v=H--_-gPX3Nw&t=1m11s" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("About Header")}>
                                     Click me...
                                 </a>
                                 <span>🎸</span>
@@ -150,12 +161,12 @@ const About = () => {
                         <h2>Meet some of our MatchMakers</h2>
                         <p>Romantics at heart, our MatchMakers are seasoned industry professionals; people who, having owned, managed, sold and bought IFA businesses themselves, know what a good deal looks like.</p>
                         <p className="intro">Although these financial cupids like to hog the limelight, behind them are a crack team that understand financial services inside out – marketing, technology, product development, fund management, building financial advice businesses and much more. Why not <Link to="contact">get in touch</Link> and see how we could help your business flourish.</p>
-                        
+
                         <div className="matchmakers">
                             <div className="matchmaker-wrapper">
                                 <img alt="" src={KeithImage} />
                                 <div className="text-wrapper">
-                                    <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                                    <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Keith Song 1")}><LinkedInLogo /></a></span>
 
                                     <div className="description-wrapper">
                                         <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=_91hNV6vuBY&ab_channel=BruceSpringsteenVEVO" target="_blank" rel="noreferrer">Tougher than the rest (Bruce Springsteen)</a></b></p>
@@ -168,7 +179,7 @@ const About = () => {
                             <div className="matchmaker-wrapper">
                                 <img alt="" src={DebbieImage} />
                                 <div className="text-wrapper">
-                                    <span className="name">Debbie Dry <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                                    <span className="name">Debbie Dry <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Debbie Song")}><LinkedInLogo /></a></span>
 
                                     <div className="description-wrapper">
                                         <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=tB54XUhA9_w&ab_channel=TheSoulJukebox" target="_blank" rel="noreferrer">My first, my last, my everything (Barry White)</a></b></p>
@@ -181,7 +192,7 @@ const About = () => {
                             <div className="matchmaker-wrapper">
                                 <img alt="" src={NormanImage} />
                                 <div className="text-wrapper">
-                                    <span className="name">Norman MacLeod <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
+                                    <span className="name">Norman MacLeod <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Norman Song")}><LinkedInLogo /></a></span>
 
                                     <div className="description-wrapper">
                                         <p><b>Favourite Love Song?<a href="https://www.youtube.com/watch?v=yT1iDKkZNYU&ab_channel=SuperChannel" target="_blank" rel="noreferrer">You to me are everything (The Real Thing)</a></b></p>
@@ -200,7 +211,7 @@ const About = () => {
                         <h2>Because Love Comes at a Price</h2>
                         <div className="music-link-wrapper">
                             <span>🎸</span>
-                            <a href="http://www.youtube.com/watch?v=_Dat9CRV800&t=1m52s" target="_blank" rel="noreferrer">
+                            <a href="http://www.youtube.com/watch?v=_Dat9CRV800&t=1m52s" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Fees Song")}>
                                 Click me...
                                 </a>
                             <span>🎸</span>
