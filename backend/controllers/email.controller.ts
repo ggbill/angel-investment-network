@@ -11,7 +11,7 @@ export namespace EmailController {
 
                 if (data === true){
                     let msg = {
-                        to: 'wohamilton@gmail.com',
+                        to: 'hello@themarriagebureau.co.uk',
                         from: process.env.SENDGRID_VERIFIED_EMAIL,
                         subject: 'Default',
                         text: 'Something is not quite right here, contact your IT support.',

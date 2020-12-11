@@ -231,6 +231,7 @@ const Buy = () => {
                             totalSteps={totalSteps}
                             name={basicDetails.name}
                             email={basicDetails.email}
+                            phone={basicDetails.telephone}
                             increaseStepNumber={increaseStepNumber}
                             decreaseStepNumber={decreaseStepNumber}
                             commitDataToDb={commitDataToDb}

@@ -9,6 +9,7 @@ interface InputProps {
     totalSteps: number,
     name: string,
     email: string,
+    phone: string,
     increaseStepNumber: () => void,
     decreaseStepNumber: () => void,
     commitDataToDb: () => void,
@@ -52,7 +53,7 @@ const CallBooking = (props: InputProps) => {
                             title="calendly-iframe"
                             frameBorder="0"
                             height="100%"
-                            src={`https://calendly.com/adviser-love/30min?primary_color=${props.color.substring(1)}&embed_domain=https://www.themarriagebureau.co.uk&embed_type=Inline&name=${encodeURI(props.name)}&email=${encodeURI(props.email)}`}
+                            src={`https://calendly.com/adviser-love/30min?primary_color=${props.color.substring(1)}&embed_domain=https://www.themarriagebureau.co.uk&embed_type=Inline&name=${encodeURI(props.name)}&email=${encodeURI(props.email)}&location=44${encodeURI(props.phone)}`}
                             width="100%"
                         />
                     </div>

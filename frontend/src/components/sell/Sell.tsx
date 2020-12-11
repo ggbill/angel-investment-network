@@ -231,6 +231,7 @@ const Sell = () => {
                             totalSteps={totalSteps}
                             name={basicDetails.name}
                             email={basicDetails.email}
+                            phone={basicDetails.telephone}
                             increaseStepNumber={increaseStepNumber}
                             color="#E94F37"
                             decreaseStepNumber={decreaseStepNumber}
