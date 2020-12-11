@@ -24,9 +24,9 @@ const Footer = (props: InputProps) => {
             </div>
             <div className="right-content">
                 <div className="social-wrapper">
-                    <a href='https://www.facebook.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={facebookImage} /></a>
-                    <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={instagramImage} /></a>
-                    <a href='https://www.linkedin.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={linkedInImage} /></a>
+                    {/* <a href='https://www.facebook.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={facebookImage} /></a> */}
+                    {/* <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={instagramImage} /></a> */}
+                    <a href='https://www.linkedin.com/company/70573670' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={linkedInImage} /></a>
                 </div>
             </div>
         </section>
