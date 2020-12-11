@@ -14,8 +14,9 @@ const Home = () => {
             <section className="header-section">
                 <div className="content">
                     <div className="home-title-wrapper">
-                        {/* <span className="title">Helping Financial Advisers find their happily ever afters </span><div className="heart-wrapper">❤️</div> */}
-                        <span className="title">Where financial advisers come to fall in business love </span><div className="heart-wrapper">❤️</div>
+                        {/* <span className="title">Helping financial advisers find their happily ever afters </span><div className="heart-wrapper">❤️</div> */}
+                        {/* <span className="title">Where financial advisers come to fall in business love </span><div className="heart-wrapper">❤️</div> */}
+                        <span className="title">Where financial advisers come to meet their perfect business partner </span><div className="heart-wrapper">❤️</div>
                     </div>
                     <div className="button-wrapper">
                         <Link to='/buy'>
