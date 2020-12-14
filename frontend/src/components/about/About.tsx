@@ -1,5 +1,5 @@
 import './about.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import MenuBar from '../shared/MenuBar'
 import { Card, CardContent } from '@material-ui/core'
 import { ReactComponent as MeetIcon } from '../../images/mb-meet-icon.svg'
@@ -13,8 +13,9 @@ import { ReactComponent as WHLogo } from '../../images/wh-logo.svg'
 import CookieConsentPopup from '../shared/CookieConsentPopup'
 import { Link } from 'react-router-dom'
 import ReactGA from 'react-ga'
+import VideoDialog from '../shared/VideoDialog'
 
-const trackLinkClick = (linkName: string):any => {
+const trackLinkClick = (linkName: string): any => {
     console.log(`linkName: ${linkName}`)
     ReactGA.event({
         category: 'Link Click',
@@ -26,6 +27,22 @@ ReactGA.initialize('UA-171582169-2');
 
 
 const About = () => {
+
+    const [isVideoDialogOpen, setIsVideoDialogOpen] = useState<boolean>(false)
+    const [videoStartSeconds, setVideoStartSeconds] = useState<number>(0)
+    const [videoId, setVideoId] = useState<string>("")
+
+    const handleVideoDialogClose = () => {
+        setIsVideoDialogOpen(false)
+    };
+
+    const handleVideoOpen = (videoId: string, startSeconds: number, analyticsLabel) => {
+        setIsVideoDialogOpen(true)
+        setVideoStartSeconds(startSeconds)
+        setVideoId(videoId)
+        trackLinkClick(analyticsLabel)
+    };
+
     return (
         <div className="about-page">
             <MenuBar page="about" />
@@ -35,11 +52,9 @@ const About = () => {
                         <div className="song-title-wrapper">
                             <span className="title">It ain’t what you do it’s the way that you do it. That’s what gets results.</span>
                             <span className="sub-title">
-                                <span>🎸</span>
-                                <a href="http://www.youtube.com/watch?v=H--_-gPX3Nw&t=1m11s" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("About Header")}>
-                                    Click me...
-                                </a>
-                                <span>🎸</span>
+                                <div className="click-me" onClick={() => { handleVideoOpen("H--_-gPX3Nw", 73, "About Header Link") }}>
+                                    <span>🎸Click me...🎸</span>
+                                </div>
                             </span>
                             <span className="small-print">(full disclosure headphones might be sensible.)</span>
 
@@ -151,9 +166,6 @@ const About = () => {
                                 <span>We’ll introduce you to our friends. We’ve been doing this a long time and we’ve built a big network of professional relationships. If we think it’ll help, we’ll leverage those relationships to benefit you.</span>
                             </Card>
                         </div>
-                        {/* <div className="image-wrapper">
-                        <img alt="" src={positiveThinkingImage} />
-                    </div> */}
                     </div>
                 </section>
                 <section className="team-section">
@@ -166,10 +178,14 @@ const About = () => {
                             <div className="matchmaker-wrapper">
                                 <img alt="" src={KeithImage} />
                                 <div className="text-wrapper">
-                                    <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Keith Song 1")}><LinkedInLogo /></a></span>
+                                    <span className="name">Keith Brown <a href="https://www.linkedin.com/in/discoverfg/" target="_blank" rel="noreferrer"><LinkedInLogo /></a></span>
 
                                     <div className="description-wrapper">
-                                        <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=_91hNV6vuBY&ab_channel=BruceSpringsteenVEVO" target="_blank" rel="noreferrer">Tougher than the rest (Bruce Springsteen)</a></b></p>
+                                        <p><b>Favourite Love Song?
+                                        <span className="click-me" onClick={() =>  {handleVideoOpen("_91hNV6vuBY", 0, "Keith song")}}>
+                                                🎸Tougher than the rest (Bruce Springsteen)🎸
+                                            </span>
+                                        </b></p>
                                         <p>Hi, I’m Keith and I run The Marriage Bureau. Call me soppy but, having completed over 50 successful acquisition and implementation projects, I love my team and I love what we do. Getting the right people in the same room is what we’re about. Helping find that spark, that special something that makes a deal is our speciality and then ironing out the creases to create that Happily Ever After. I have no doubt our paths will cross. I’m looking forward to it. Who doesn’t love a good love story?</p>
                                     </div>
                                     <span className="email"><span className="email-icon">📧</span> <a href="mailto:keith@themarriagebureau.co.uk">keith@themarriagebureau.co.uk</a></span>
@@ -182,7 +198,12 @@ const About = () => {
                                     <span className="name">Debbie Dry <a href="https://www.linkedin.com/in/debbie-dry-b606b424/" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Debbie Song")}><LinkedInLogo /></a></span>
 
                                     <div className="description-wrapper">
-                                        <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=tB54XUhA9_w&ab_channel=TheSoulJukebox" target="_blank" rel="noreferrer">My first, my last, my everything (Barry White)</a></b></p>
+                                        {/* <p><b>Favourite Love Song? <a href="https://www.youtube.com/watch?v=tB54XUhA9_w&ab_channel=TheSoulJukebox" target="_blank" rel="noreferrer">My first, my last, my everything (Barry White)</a></b></p> */}
+                                        <p><b>Favourite Love Song?
+                                        <span className="click-me" onClick={() =>  {handleVideoOpen("tB54XUhA9_w", 0, "Debbie song")}}>
+                                            🎸My first, my last, my everything (Barry White)🎸
+                                        </span>
+                                        </b></p>                     
                                         <p>Hi, I’m Debbie. Financial services is my thing. It’s the only job I’ve ever known so I hope I’m pretty well placed to support you through the sales and acquisition process. Having been responsible for leading organisation-wide change programmes in IT and operations, I’ll make sure we’ll maintain client focus and business continuity throughout. I’ve spent the last 15 years working with consolidators, the majority at senior leadership and board level, so you can be sure I know my onions. I can’t wait to chat!</p>
                                     </div>
                                     <span className="email"><span className="email-icon">📧</span> <a href="mailto:debbie@themarriagebureau.co.uk">debbie@themarriagebureau.co.uk</a></span>
@@ -195,7 +216,12 @@ const About = () => {
                                     <span className="name">Norman MacLeod <a href="https://www.linkedin.com/in/norman-macleod-27384a94/" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Norman Song")}><LinkedInLogo /></a></span>
 
                                     <div className="description-wrapper">
-                                        <p><b>Favourite Love Song?<a href="https://www.youtube.com/watch?v=yT1iDKkZNYU&ab_channel=SuperChannel" target="_blank" rel="noreferrer">You to me are everything (The Real Thing)</a></b></p>
+                                        {/* <p><b>Favourite Love Song?<a href="https://www.youtube.com/watch?v=yT1iDKkZNYU&ab_channel=SuperChannel" target="_blank" rel="noreferrer">You to me are everything (The Real Thing)</a></b></p> */}
+                                        <p><b>Favourite Love Song?
+                                        <span className="click-me" onClick={() =>  {handleVideoOpen("yT1iDKkZNYU", 0, "Norman song")}}>
+                                            🎸You to me are everything (The Real Thing)🎸
+                                        </span>
+                                        </b></p>   
                                         <p>I’m Norman. Compared to my colleagues, I’m a relative newbie to financial services having cut my teeth as a senior fundraiser in the arts and culture sector. However, I’ve been here a while now and I’ve helped complete over 50 acquisition deals since making the switch. I’m a communicator and chances are that it’ll be me you speak to first. I hope you’ll like it. I like to think I get people and I understand business so I’m looking forward to a good conversation.</p>
                                     </div>
                                     <span className="email"><span className="email-icon">📧</span> <a href="mailto:norman@themarriagebureau.co.uk">norman@themarriagebureau.co.uk</a></span>
@@ -210,11 +236,9 @@ const About = () => {
                     <div className="content">
                         <h2>Because Love Comes at a Price</h2>
                         <div className="music-link-wrapper">
-                            <span>🎸</span>
-                            <a href="http://www.youtube.com/watch?v=_Dat9CRV800&t=1m52s" target="_blank" rel="noreferrer" onClick={() => trackLinkClick("Fees Song")}>
-                                Click me...
-                                </a>
-                            <span>🎸</span>
+                            <span className="click-me" onClick={() =>  {handleVideoOpen("_Dat9CRV800", 112, "Fees song")}}>
+                                🎸Click me...🎸
+                            </span>
                         </div>
 
                         <p>Look, we don’t do this for free. Weddings cost money. But we think that the expense becomes easier to swallow when everyone’s happy. That’s why our charges are based on success.</p>
@@ -260,6 +284,12 @@ const About = () => {
             </div>
 
             <CookieConsentPopup />
+            <VideoDialog
+                videoId={videoId}
+                startSeconds={videoStartSeconds}
+                handleClose={handleVideoDialogClose}
+                isDialogOpen={isVideoDialogOpen}
+            />
         </div>
     )
 }

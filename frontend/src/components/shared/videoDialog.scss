@@ -1,0 +1,55 @@
+.video-dialog{
+    .MuiDialog-paper{
+        max-width: unset;
+        .MuiDialogContent-root{
+            display: flex;
+            flex-direction: column;
+            padding: 12px;
+            align-items: flex-end;
+            
+            iframe{
+                width: 650px;
+            }
+        }
+    }
+
+    button {
+        color: white;
+        background-color: green;
+        border-radius: 5px;
+        font-family: "Poppins", "Helvetica", sans-serif;
+        min-width: 135px;
+        padding: 6px;
+        font-weight: 500;
+        border: none;
+        margin-top: 12px;
+    }
+    button:hover {
+        background-color: green;
+        text-decoration: underline;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .video-dialog{
+        .MuiDialog-paper{
+            display: flex;
+            flex: 1;
+            max-width: unset;
+            margin: 12px;
+            width: unset;
+            .MuiDialogContent-root{
+                div{
+                    display: flex;
+                    flex: 1;
+                    width: 100%;
+                }
+                iframe{
+                    width: unset;
+                    display: flex;
+                    flex: 1;
+                }
+            }
+        }
+    }
+}

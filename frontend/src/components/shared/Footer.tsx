@@ -14,13 +14,19 @@ const Footer = (props: InputProps) => {
     return (
         <section className="footer-section">
             <div className="left-content">
+                {/* <div className="ghost-div"></div> */}
+                {/* <span>The Marriage Bureau is a brand that is wholly owned and operated by <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings Inc Ltd</a>.</span> */}
+                {/* <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings Inc Lts.</a> */}
+                <Link to={'/privacy-policy'}>Privacy Policy</Link>
+
+
+            </div>
+            <div className="middle-content">
                 <Link to={'/'}>
                     <img alt="" src={Logo} />
                 </Link>
-            </div>
-            <div className="middle-content">
-                <span>The Marriage Bureau is a brand that is wholly owned and operated by:</span>
-                <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings.</a>
+                <span>© Copyright 2021 <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings Inc Ltd.</a> All rights reserved.</span>
+
             </div>
             <div className="right-content">
                 <div className="social-wrapper">
@@ -28,6 +34,7 @@ const Footer = (props: InputProps) => {
                     {/* <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={instagramImage} /></a> */}
                     <a href='https://www.linkedin.com/company/70573670' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={linkedInImage} /></a>
                 </div>
+                
             </div>
         </section>
     )

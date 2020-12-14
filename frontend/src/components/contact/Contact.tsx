@@ -10,6 +10,9 @@ import { useRef } from 'react'
 import { headerSongList } from "./HeaderSongs";
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 import CookieConsentPopup from '../shared/CookieConsentPopup'
+import VideoDialog from '../shared/VideoDialog'
+import ReactGA from 'react-ga'
+import { Link } from 'react-router-dom'
 
 interface ContactForm {
     name: string,
@@ -25,10 +28,21 @@ interface ValidationObject {
     helperText: string
 }
 
+const trackLinkClick = (linkName: string): any => {
+    console.log(`linkName: ${linkName}`)
+    ReactGA.event({
+        category: 'Link Click',
+        action: `Link clicked: ${linkName}`,
+    });
+}
+
+ReactGA.initialize('UA-171582169-2');
+
 const Contact = () => {
 
     const [contactForm, setContactForm] = useState<ContactForm>({ name: "", email: "", phone: "", company: "", message: "" })
     const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] = useState<boolean>(false)
+    const [isVideoDialogOpen, setIsVideoDialogOpen] = useState<boolean>(false)
     const [validationObject, setValidationObject] = useState<ValidationObject[]>([
         { name: "name", isValid: true, helperText: "" },
         { name: "email", isValid: true, helperText: "" },
@@ -141,6 +155,10 @@ const Contact = () => {
         setIsConfirmationDialogOpen(false)
     };
 
+    const handleVideoDialogClose = () => {
+        setIsVideoDialogOpen(false)
+    };
+
     const randomlySelectHeaderSong = () => {
         let newNumber = Math.floor(Math.random() * headerSongList.length)
 
@@ -148,6 +166,12 @@ const Contact = () => {
             newNumber = 0
         }
         setHeaderSongNumber(newNumber)
+    }
+
+    const playVideo = () => {
+        setIsVideoDialogOpen(true)
+        trackLinkClick(`Contact Page Header - ${headerSongList[headerSongNumber].title}`)
+
     }
 
 
@@ -164,24 +188,18 @@ const Contact = () => {
             <section className="header-section">
                 <div className="content">
                     <div className="title-wrapper">
-                        <div className="song-title-wrapper">                         
+                        <div className="song-title-wrapper">
                             {headerSongList[headerSongNumber] && <span className="title">{headerSongList[headerSongNumber].title}</span>}
-                            <div className="refresh-icon" onClick={randomlySelectHeaderSong} title="Give me another one!"><AutorenewIcon /></div>                           
+                            <div className="refresh-icon" onClick={randomlySelectHeaderSong} title="Give me another one!"><AutorenewIcon /></div>
                         </div>
                         <span className="sub-title">
-                            <div>
-                            <span>🎸</span>
-                                {headerSongList[headerSongNumber] && <a href={headerSongList[headerSongNumber].videoLink} target="_blank" rel="noreferrer">
-                                    Click me...
-                                </a>}
-                                <span>🎸</span>
+                            <div className="click-me" onClick={() => {playVideo()}}>
+                                <span>🎸Click me...🎸</span>
                             </div>
-                                
-                                
-                                <span className="small-print">(full disclosure headphones might be sensible.)</span>
-                            </span>
+                            <span className="small-print">(full disclosure headphones might be sensible.)</span>
+                        </span>
 
-                        
+
                     </div>
                 </div>
             </section>
@@ -288,8 +306,7 @@ const Contact = () => {
 
 
                                 <span className="small-print">
-                                    By submitting this form you consent to us emailing you occasionally about our products and services.
-                                    You can unsubscribe from emails at any time, and we will never pass your email onto third parties. <a href='https://www.google.com'>Privacy Policy</a>
+                                    By submitting this form you consent to the <Link to={"privacy-policy"}> Privacy Policy</Link> of this site.
                                 </span>
                                 <button className="love-button submit" onClick={sendEmail} disabled={!checkAllValuesComplete()}>Send</button>
                             </CardContent>
@@ -302,9 +319,15 @@ const Contact = () => {
                 content="Thanks. We'll get back to you as soon as possible. Can't wait that long? Why not give us a ring instead?"
                 handleClose={handleConfirmationDialogClose}
                 isDialogOpen={isConfirmationDialogOpen}
-
             />
             <CookieConsentPopup />
+
+            <VideoDialog
+                videoId={headerSongList[headerSongNumber].videoId}
+                startSeconds={headerSongList[headerSongNumber].startSeconds}
+                handleClose={handleVideoDialogClose}
+                isDialogOpen={isVideoDialogOpen}
+            />
         </div>
     )
 }

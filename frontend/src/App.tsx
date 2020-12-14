@@ -13,6 +13,7 @@ import Blog from './components/blog/Blog'
 import Contact from './components/contact/Contact'
 import ReactGA from'react-ga'
 import ScrollToTop from './components/shared/scrollToTop'
+import Privacy from './components/privacy/Privacy'
 
 const history = createBrowserHistory();
 ReactGA.initialize('UA-171582169-2');
@@ -57,6 +58,11 @@ function App() {
                         <Route
                             path="/sell"
                             component={Sell}
+                            exact
+                        />
+                        <Route
+                            path="/privacy-policy"
+                            component={Privacy}
                             exact
                         />
                     </Switch>

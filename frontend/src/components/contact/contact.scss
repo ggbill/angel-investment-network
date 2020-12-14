@@ -22,9 +22,7 @@
                 flex-direction: row;
                 align-items: center;  
 
-                .sub-title {
-                    margin: 0 0 6px 0;
-                }
+                
                 
                 .refresh-icon{
                     margin-left: 24px;
@@ -35,6 +33,12 @@
                 }
 
                 .refresh-icon:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .sub-title {
+                .click-me {
                     cursor: pointer;
                 }
             }
