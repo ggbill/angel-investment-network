@@ -16,7 +16,6 @@ import ReactGA from 'react-ga'
 import VideoDialog from '../shared/VideoDialog'
 
 const trackLinkClick = (linkName: string): any => {
-    console.log(`linkName: ${linkName}`)
     ReactGA.event({
         category: 'Link Click',
         action: `Link clicked: ${linkName}`,

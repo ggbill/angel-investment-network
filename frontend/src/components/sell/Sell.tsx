@@ -8,6 +8,18 @@ import Timescales from '../shared/Timescales'
 import CallBooking from '../shared/CallBooking'
 import useFetch from "../../hooks/useFetch"
 import ReCAPTCHA from "react-google-recaptcha"
+import ReactGA from 'react-ga'
+import VideoDialog from '../shared/VideoDialog'
+import CookieConsentPopup from '../shared/CookieConsentPopup'
+
+const trackLinkClick = (linkName: string): any => {
+    ReactGA.event({
+        category: 'Link Click',
+        action: `Link clicked: ${linkName}`,
+    });
+}
+
+ReactGA.initialize('UA-171582169-2');
 
 interface BasicDetails {
     name: string,
@@ -60,6 +72,22 @@ const Sell = () => {
     const emailApi = useFetch("emails");
 
     const reRef = useRef<ReCAPTCHA>();
+
+    const [isVideoDialogOpen, setIsVideoDialogOpen] = useState<boolean>(false)
+    const [videoStartSeconds, setVideoStartSeconds] = useState<number>(0)
+    const [videoId, setVideoId] = useState<string>("")
+
+    const handleVideoDialogClose = () => {
+        setIsVideoDialogOpen(false)
+    };
+
+    const handleVideoOpen = (videoId: string, startSeconds: number, analyticsLabel) => {
+        setIsVideoDialogOpen(true)
+        setVideoStartSeconds(startSeconds)
+        setVideoId(videoId)
+        trackLinkClick(analyticsLabel)
+    };
+
 
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
@@ -152,12 +180,18 @@ const Sell = () => {
                     <div className="title-wrapper">
                         <div className="song-title-wrapper">
                             <span className="title">I'm Sellin'...</span>
-                            <span className="sub-title">
-                                <span>🎸</span>
+                            {/* <span className="sub-title"> */}
+                                {/* <span>🎸</span>
                                 <a href="http://www.youtube.com/watch?v=4L_yCwFD6Jo&t=1m22s" target="_blank" rel="noreferrer">
                                     (Click me...)
                                 </a>
                                 <span>🎸</span>
+                            </span>
+                            <span className="small-print">(full disclosure headphones might be sensible.)</span> */}
+                            <span className="sub-title">
+                                <div className="click-me" onClick={() => { handleVideoOpen("4L_yCwFD6Jo", 82, "Sell Header Link") }}>
+                                    <span>🎸Click me...🎸</span>
+                                </div>
                             </span>
                             <span className="small-print">(full disclosure headphones might be sensible.)</span>
                         </div>
@@ -250,6 +284,15 @@ const Sell = () => {
                     size="invisible"
                 />
             </div>
+
+            <CookieConsentPopup />
+
+            <VideoDialog
+                videoId={videoId}
+                startSeconds={videoStartSeconds}
+                handleClose={handleVideoDialogClose}
+                isDialogOpen={isVideoDialogOpen}
+            />
         </div>
     )
 }
