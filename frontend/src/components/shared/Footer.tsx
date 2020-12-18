@@ -1,10 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 import "./footer.scss"
-import facebookImage from '../../images/facebook.png';
-import instagramImage from '../../images/instagram.png';
-import linkedInImage from '../../images/linkedin.png';
-import Logo from '../../images/tmb-logo.png'
 
 interface InputProps {
 
@@ -17,22 +13,22 @@ const Footer = (props: InputProps) => {
                 {/* <div className="ghost-div"></div> */}
                 {/* <span>The Marriage Bureau is a brand that is wholly owned and operated by <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings Inc Ltd</a>.</span> */}
                 {/* <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings Inc Lts.</a> */}
-                <Link to={'/privacy-policy'}>Privacy Policy</Link>
+                {/* <Link to={'/privacy-policy'}>Privacy Policy</Link> */}
 
 
             </div>
             <div className="middle-content">
-                <Link to={'/'}>
+                {/* <Link to={'/'}>
                     <img alt="" src={Logo} />
-                </Link>
-                <span>© Copyright 2021 <a target="_blank" rel="noreferrer" href='https://www.wealthholdings.co.uk'>Wealth Holdings Inc Ltd.</a> All rights reserved.</span>
+                </Link> */}
+                <span>© 2020 Angel Investment Network Ltd - Connecting Global & Local Entrepreneurs with Angel Investors</span>
 
             </div>
             <div className="right-content">
                 <div className="social-wrapper">
                     {/* <a href='https://www.facebook.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={facebookImage} /></a> */}
                     {/* <a href='https://www.instagram.com' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={instagramImage} /></a> */}
-                    <a href='https://www.linkedin.com/company/70573670' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={linkedInImage} /></a>
+                    {/* <a href='https://www.linkedin.com/company/70573670' target="_blank" rel="noreferrer"><img className="social-icon" alt="" src={linkedInImage} /></a> */}
                 </div>
                 
             </div>

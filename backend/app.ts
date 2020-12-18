@@ -6,8 +6,7 @@ import requestLoggerMiddleware from './request.logger.middleware';
 const path = require('path');
 const shrinkRay = require('shrink-ray-current');
 
-import leadRouter from './routes/lead';
-import emailRouter from './routes/email';
+import submissionRouter from './routes/submission';
 
 const app = express();
 
@@ -18,8 +17,7 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(requestLoggerMiddleware);
 
-app.use('/leads', leadRouter);
-app.use('/emails', emailRouter);
+app.use('/submissions', submissionRouter);
 
 if (process.env.NODE_ENV === 'production') {
 
@@ -30,7 +28,6 @@ if (process.env.NODE_ENV === 'production') {
     app.get("*", (_, response) => {
         response.sendFile(path.resolve("..", "frontend", "build", "index.html"));
     });
-
 }
 
 export default app; 

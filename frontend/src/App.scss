@@ -7,23 +7,14 @@
 }
 
 .full-height-content {
-    min-height: calc(100vh - 159px); /* will cover the 100% of viewport minus (header + footer) */
+    min-height: calc(100vh - 167px); /* will cover the 100% of viewport minus (header + footer) */
     overflow: hidden;
     display: block;
-    // margin-top: 64px;
-    margin-top: 100px;
-}
-
-.buyer {
-    background-color: #0093a8 !important;
-}
-
-.seller {
-    background-color: #E94F37 !important;
+    margin-top: 85px;
 }
 
 .header-section {
-    background-color:#3f3b5b;
+    background-color:#2258FF;
     color: white;
     padding: 75px 0;
 
@@ -44,134 +35,13 @@
     }
 }
 
-.love-button{
+.ain-button{
     color: white;
     border-radius: 5px;
     font-family: "Poppins", "Helvetica", sans-serif;
     min-width: 135px;
     padding: 12px 6px;
     font-weight: 500;
-    // margin: 0 0 0 12px;
     border: none;
-
-    &.menu {
-        font-size: 0.8em;
-        opacity: 0;
-        position: fixed;
-
-        &.show-cta {
-            position: static;
-            opacity: 1;
-            animation-name: ctaFadeIn;
-            animation-iteration-count: 1;
-            animation-timing-function: ease-in;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-        }
-
-        &.visible{
-            position: static;
-            opacity: 1; 
-        }
-    }
-
-    &.menu:hover {
-        text-decoration: underline;
-    }
+    background-color: #3B7CEE;
 }
-
-.love-button:hover{
-    cursor: pointer;
-}
-
-.love-button:disabled{
-    background-color: gray !important;
-    border: none;
-    cursor: unset;
-}
-
-
-
-
-
-@keyframes ctaFadeIn {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        position: static;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes logoFadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes logoFadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    // .full-height-content {
-    //     min-height: calc(100vh - 180px); /* will cover the 100% of viewport minus (header + footer) */
-    //     margin-top: 56px;
-    // }
-
-    .header-section{
-        .title-wrapper{
-            .title{
-                font-size: 2em;
-                margin-bottom: 12px;
-            }
-
-            .sub-title{
-                font-size: 1.2em;
-            }
-        }   
-    }
-
-    .love-button{
-        margin: 0 0 6px 0;
-    }
-
-    .cta-button {
-        width: 100%;
-        padding: 6px;
-        font-size: 1em;
-    }
-
-    .title-wrapper {
-        .title {
-            font-size: 1.5em;
-            font-weight: bold;
-            line-height: 1.1em;
-        }
-    
-        .step-counter {
-            font-size: 1.2em;
-            margin-top: 6px;
-        }
-    }
-}
-
-@media only screen and (max-width: 750px) {
-    .full-height-content {
-        min-height: calc(100vh - 180px); /* will cover the 100% of viewport minus (header + footer) */
-        margin-top: 70px;
-    }
-}
-
-
