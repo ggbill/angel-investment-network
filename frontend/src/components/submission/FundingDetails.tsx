@@ -65,7 +65,7 @@ const FundingDetails = (props: InputProps) => {
         <section className="funding-details-section">
             <div className="title-wrapper">
                 <span className="step-counter">(Step {props.stepNumber} / {props.totalSteps - 1}) </span>
-                <span className="title">Funding Details.</span>
+                <span className="title">Funding Details. 💸</span>
             </div>
 
             <div className="intro-text">

@@ -31,7 +31,7 @@ const BasicDetails = (props: InputProps) => {
         <section className="basic-details-section">
             <div className="title-wrapper">
                 <span className="step-counter">(Step {props.stepNumber} / {props.totalSteps - 1}) </span>
-                <span className="title">The basics.</span>
+                <span className="title">The basics. 🌱</span>
             </div>
 
             <div className="intro-text">
