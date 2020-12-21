@@ -58,11 +58,11 @@ const ExtrasDetails = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.isMovingOffice ||
-            !props.submissionDetails.isLawerInPlace  ||
-            !props.submissionDetails.isLookingForChairman  || 
-            !props.submissionDetails.extraHelp  ||
-            !props.submissionDetails.isMissionDriven 
-            ) {
+            !props.submissionDetails.isLawerInPlace ||
+            !props.submissionDetails.isLookingForChairman ||
+            !props.submissionDetails.extraHelp ||
+            !props.submissionDetails.isMissionDriven
+        ) {
             return (false)
         } else {
             return (true)
@@ -144,9 +144,9 @@ const ExtrasDetails = (props: InputProps) => {
                     value={props.submissionDetails.extraHelp}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                        error={!validationObject[3].isValid}
-                        helperText={validationObject[3].helperText}
-                        required
+                    error={!validationObject[3].isValid}
+                    helperText={validationObject[3].helperText}
+                    required
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="mission-label">Are you a mission driven company?</InputLabel>
@@ -160,21 +160,21 @@ const ExtrasDetails = (props: InputProps) => {
                         error={!validationObject[4].isValid}
                         required
                         label="Are you a mission driven company?"
-                        
+
                     >
                         <ListItem value="false">No</ListItem>
                         <ListItem value="true">Yes</ListItem>
                     </Select>
-                    {validationObject[4].helperText ? <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>:
-                    <FormHelperText>i.e. a profit-driven company whose aim is to address a social and/or environmental challenge.</FormHelperText>
+                    {validationObject[4].helperText ? <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText> :
+                        <FormHelperText>i.e. a profit-driven company whose aim is to address a social and/or environmental challenge.</FormHelperText>
                     }
-                    
+
                 </FormControl>
             </div>
             <div className="button-wrapper">
-            <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>
-                    <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Submit</button>
-                </div>
+                <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>
+                <button className="ain-button next" disabled={!checkValuesComplete()}>Submit</button>
+            </div>
         </section>
     )
 

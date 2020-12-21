@@ -61,7 +61,7 @@ const Submission = () => {
         extraHelp: "",
         isMissionDriven: null
     })
-    const [stepNumber, setStepNumber] = useState<number>(6)
+    const [stepNumber, setStepNumber] = useState<number>(1)
     const totalSteps = 7
 
     const history = useHistory();
