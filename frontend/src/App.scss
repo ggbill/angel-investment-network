@@ -46,6 +46,12 @@
     background-color: #3b7cee;
 }
 
+.ain-button:disabled{
+    background-color: gray !important;
+    border: none;
+    cursor: unset;
+}
+
 .basic-details-section,
 .funding-details-section,
 .team-details-section,
@@ -80,6 +86,10 @@
 
         .margin-right {
             margin-right: 12px;
+        }
+
+        .MuiInputBase-input.Mui-disabled {
+            background: gainsboro;
         }
     }
 }

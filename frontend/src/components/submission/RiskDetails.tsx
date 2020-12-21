@@ -1,7 +1,7 @@
 import './riskDetails.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
-import { FormControl, InputLabel, OutlinedInput } from '@material-ui/core';
+import { FormControl, FormHelperText, InputLabel, OutlinedInput } from '@material-ui/core';
 import NumberFormat from 'react-number-format';
 
 interface InputProps {
@@ -37,12 +37,49 @@ function NumberFormatCustom(props) {
 
 const RiskDetails = (props: InputProps) => {
 
+    const [validationObject, setValidationObject] = useState<App.ValidationObject[]>([
+        { name: "cashRemaining", isValid: true, helperText: "" },
+        { name: "monthsOfCashLeft", isValid: true, helperText: "" },
+        { name: "monthlyBurnRate", isValid: true, helperText: "" },
+        { name: "companyDebt", isValid: true, helperText: "" }
+    ])
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        console.log(`name: ${name}`)
-        console.log(`value: ${value}`)
         props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+    }
+
+    const handleBlur = (event) => {
+        const { name, value } = event.target
+        let tempValidationObject = [...validationObject]
+        if (value) {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = true
+                    element.helperText = ""
+                }
+            });
+        } else {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = false
+                    element.helperText = "Please fill me in!"
+                }
+            });
+        }
+        setValidationObject(tempValidationObject)
+        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+    }
+
+    const checkValuesComplete = (): boolean => {
+        if (!props.submissionDetails.cashRemaining ||
+            !props.submissionDetails.monthsOfCashLeft  ||
+            !props.submissionDetails.monthlyBurnRate  || 
+            !props.submissionDetails.companyDebt  ) {
+            return (false)
+        } else {
+            return (true)
+        }
     }
 
     return (
@@ -65,9 +102,13 @@ const RiskDetails = (props: InputProps) => {
                         name="cashRemaining"
                         value={props.submissionDetails.cashRemaining}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[0].isValid}
+                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={265}
                     />
+                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
                 <TextField
                     id="monthsOfCashLeft"
@@ -75,14 +116,14 @@ const RiskDetails = (props: InputProps) => {
                     type="number"
                     className=""
                     label="Months of cash left"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.monthsOfCashLeft}
                     onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={!validationObject[1].isValid}
+                    helperText={!validationObject[1].isValid}
                     InputProps={{ inputProps: { min: 0 } }}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
+                    required
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel htmlFor="monthlyBurnRate">Monthly Burn Rate</InputLabel>
@@ -91,9 +132,13 @@ const RiskDetails = (props: InputProps) => {
                         name="monthlyBurnRate"
                         value={props.submissionDetails.monthlyBurnRate}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[2].isValid}
+                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={140}
                     />
+                    {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
                 </FormControl>
                 <FormControl variant="outlined" className="">
                     <InputLabel htmlFor="companyDebt">Company debt</InputLabel>
@@ -102,10 +147,18 @@ const RiskDetails = (props: InputProps) => {
                         name="companyDebt"
                         value={props.submissionDetails.companyDebt}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[3].isValid}
+                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={110}
                     />
+                    {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
                 </FormControl>
+            </div>
+            <div className="button-wrapper">
+                <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>
+                <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Next</button>
             </div>
         </section>
     )

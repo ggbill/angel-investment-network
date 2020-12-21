@@ -1,5 +1,5 @@
 import './extrasDetails.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import {
     MuiPickersUtilsProvider,
@@ -18,42 +18,56 @@ interface InputProps {
     decreaseStepNumber: () => void
 }
 
-function NumberFormatCustom(props) {
-    const { inputRef, onChange, ...other } = props;
-
-    return (
-        <NumberFormat
-            {...other}
-            getInputRef={inputRef}
-            onValueChange={(values) => {
-                onChange({
-                    target: {
-                        name: props.name,
-                        value: values.value,
-                    },
-                });
-            }}
-            thousandSeparator
-            isNumericString
-            prefix="£"
-        />
-    );
-}
-
 const ExtrasDetails = (props: InputProps) => {
+
+    const [validationObject, setValidationObject] = useState<App.ValidationObject[]>([
+        { name: "isMovingOffice", isValid: true, helperText: "" },
+        { name: "isLawerInPlace", isValid: true, helperText: "" },
+        { name: "isLookingForChairman", isValid: true, helperText: "" },
+        { name: "extraHelp", isValid: true, helperText: "" },
+        { name: "isMissionDriven", isValid: true, helperText: "" }
+    ])
 
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        console.log(`name: ${name}`)
-        console.log(`value: ${value}`)
         props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
     }
 
-    // const handleFoundedDateChange = (date) => {
-    //     props.setSubmissionDetails({ ...props.submissionDetails, foundedDate: date })
-    // };
+    const handleBlur = (event) => {
+        const { name, value } = event.target
+        let tempValidationObject = [...validationObject]
+        if (value) {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = true
+                    element.helperText = ""
+                }
+            });
+        } else {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = false
+                    element.helperText = "Please fill me in!"
+                }
+            });
+        }
+        setValidationObject(tempValidationObject)
+        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+    }
 
+    const checkValuesComplete = (): boolean => {
+        if (!props.submissionDetails.isMovingOffice ||
+            !props.submissionDetails.isLawerInPlace  ||
+            !props.submissionDetails.isLookingForChairman  || 
+            !props.submissionDetails.extraHelp  ||
+            !props.submissionDetails.isMissionDriven 
+            ) {
+            return (false)
+        } else {
+            return (true)
+        }
+    }
     return (
         <section className="extras-details-section">
             <div className="title-wrapper">
@@ -75,11 +89,15 @@ const ExtrasDetails = (props: InputProps) => {
                         name="isMovingOffice"
                         value={props.submissionDetails.isMovingOffice}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[0].isValid}
+                        required
                         label="Will you be moving office in the next 12 months?"
                     >
                         <ListItem value="false">No</ListItem>
                         <ListItem value="true">Yes</ListItem>
                     </Select>
+                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
                 <FormControl variant="outlined" className="">
                     <InputLabel id="lawyer-label">Do you have a lawyer or termsheet in place?</InputLabel>
@@ -89,11 +107,15 @@ const ExtrasDetails = (props: InputProps) => {
                         name="isLawerInPlace"
                         value={props.submissionDetails.isLawerInPlace}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[1].isValid}
+                        required
                         label="Do you have a lawyer or termsheet in place?"
                     >
                         <ListItem value="false">No</ListItem>
                         <ListItem value="true">Yes</ListItem>
                     </Select>
+                    {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                 </FormControl>
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="chairman-label">Are you looking for a chairman?</InputLabel>
@@ -103,24 +125,28 @@ const ExtrasDetails = (props: InputProps) => {
                         name="isLookingForChairman"
                         value={props.submissionDetails.isLookingForChairman}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[2].isValid}
+                        required
                         label="Are you looking for a chairman?"
                     >
                         <ListItem value="false">No</ListItem>
                         <ListItem value="true">Yes</ListItem>
                     </Select>
+                    {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
                 </FormControl>
                 <TextField
                     id="extraHelp"
                     name="extraHelp"
                     className=""
                     label="Is there anything outside of fundraising we can help you with?"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.extraHelp}
                     onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
+                    onBlur={handleBlur}
+                        error={!validationObject[3].isValid}
+                        helperText={validationObject[3].helperText}
+                        required
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="mission-label">Are you a mission driven company?</InputLabel>
@@ -130,15 +156,25 @@ const ExtrasDetails = (props: InputProps) => {
                         name="isMissionDriven"
                         value={props.submissionDetails.isMissionDriven}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[4].isValid}
+                        required
                         label="Are you a mission driven company?"
                         
                     >
                         <ListItem value="false">No</ListItem>
                         <ListItem value="true">Yes</ListItem>
                     </Select>
+                    {validationObject[4].helperText ? <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>:
                     <FormHelperText>i.e. a profit-driven company whose aim is to address a social and/or environmental challenge.</FormHelperText>
+                    }
+                    
                 </FormControl>
             </div>
+            <div className="button-wrapper">
+            <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>
+                    <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Submit</button>
+                </div>
         </section>
     )
 

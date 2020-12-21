@@ -1,12 +1,12 @@
 import './forecastDetails.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
-import { FormControl, Input, InputAdornment, InputLabel, ListItem, MenuItem, OutlinedInput, Select } from '@material-ui/core';
+import { FormControl, FormHelperText, Input, InputAdornment, InputLabel, ListItem, MenuItem, OutlinedInput, Select } from '@material-ui/core';
 import NumberFormat from 'react-number-format';
 
 interface InputProps {
@@ -42,17 +42,59 @@ function NumberFormatCustom(props) {
 
 const ForecastDetails = (props: InputProps) => {
 
+    const [validationObject, setValidationObject] = useState<App.ValidationObject[]>([
+        { name: "stage", isValid: true, helperText: "" },
+        { name: "cashRequiredToFinish", isValid: true, helperText: "" },
+        { name: "monthsUntilRevenue", isValid: true, helperText: "" },
+        { name: "startOfFinancialYear", isValid: true, helperText: "" },
+        { name: "monthlyRevenue", isValid: true, helperText: "" },
+        { name: "twelveMonthProjectedRevenue", isValid: true, helperText: "" }
+    ])
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        console.log(`name: ${name}`)
-        console.log(`value: ${value}`)
         props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
     }
 
     const handleFinancialYearDateChange = (date) => {
         props.setSubmissionDetails({ ...props.submissionDetails, startOfFinancialYear: date })
     };
+
+    const handleBlur = (event) => {
+        const { name, value } = event.target
+        let tempValidationObject = [...validationObject]
+        if (value) {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = true
+                    element.helperText = ""
+                }
+            });
+        } else {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = false
+                    element.helperText = "Please fill me in!"
+                }
+            });
+        }
+        setValidationObject(tempValidationObject)
+        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+    }
+
+    const checkValuesComplete = (): boolean => {
+        if (!props.submissionDetails.stage ||
+            (!props.submissionDetails.cashRequiredToFinish && props.submissionDetails.stage !== "1" && props.submissionDetails.stage !== "2" && props.submissionDetails.stage !== "3" && props.submissionDetails.stage !== "4") ||
+            (!props.submissionDetails.monthsUntilRevenue && props.submissionDetails.stage !== "2" && props.submissionDetails.stage !== "3" && props.submissionDetails.stage !== "4") ||
+            !props.submissionDetails.startOfFinancialYear ||
+            !props.submissionDetails.monthlyRevenue ||
+            !props.submissionDetails.twelveMonthProjectedRevenue
+        ) {
+            return (false)
+        } else {
+            return (true)
+        }
+    }
 
     return (
         <section className="forecast-details-section">
@@ -67,7 +109,7 @@ const ForecastDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-            <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="stage-label">Stage</InputLabel>
                     <Select
                         labelId="stage-label"
@@ -75,41 +117,59 @@ const ForecastDetails = (props: InputProps) => {
                         name="stage"
                         value={props.submissionDetails.stage}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[0].isValid}
+                        required
                         label="Stage"
                     >
-                        <ListItem value="0">Pre-Startup/R&amp;D</ListItem>
-                        <ListItem value="1">MVP/Finished Product</ListItem>
+                        <ListItem value="0">Pre-Startup/MVP</ListItem>
+                        <ListItem value="1">Finished Product</ListItem>
                         <ListItem value="2">Achieving Sales</ListItem>
                         <ListItem value="3">Breaking Even</ListItem>
                         <ListItem value="4">Profitable</ListItem>
                         <ListItem value="5">Other</ListItem>
                     </Select>
+                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="" disabled>
+                <FormControl variant="outlined" className="" disabled={
+                    props.submissionDetails.stage === "1" ||
+                    props.submissionDetails.stage === "2" ||
+                    props.submissionDetails.stage === "3" ||
+                    props.submissionDetails.stage === "4"
+                }>
                     <InputLabel htmlFor="cashRequiredToFinish">Money needed to finish product</InputLabel>
                     <OutlinedInput
                         id="cashRequiredToFinish"
                         name="cashRequiredToFinish"
                         value={props.submissionDetails.cashRequiredToFinish}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[1].isValid}
+                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={230}
                     />
+                    {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                 </FormControl>
                 <TextField
                     id="monthsUntilRevenue"
                     name="monthsUntilRevenue"
                     className="margin-right"
                     label="Months until revenue making"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.monthsUntilRevenue}
                     onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
+                    onBlur={handleBlur}
+                    error={!validationObject[2].isValid}
+                    helperText={validationObject[2].helperText}
                     type="number"
                     InputProps={{ inputProps: { min: 0 } }}
+                    required
+                    disabled={
+                        props.submissionDetails.stage === "2" ||
+                        props.submissionDetails.stage === "3" ||
+                        props.submissionDetails.stage === "4"
+                    }
                 />
 
                 <MuiPickersUtilsProvider utils={MomentUtils}>
@@ -124,9 +184,12 @@ const ForecastDetails = (props: InputProps) => {
                         label="Start of financial year"
                         value={props.submissionDetails.startOfFinancialYear}
                         onChange={handleFinancialYearDateChange}
+                        onBlur={handleBlur}
                         KeyboardButtonProps={{
                             'aria-label': 'change date',
                         }}
+                        error={!validationObject[3].isValid}
+                        helperText={validationObject[3].helperText}
                     />
                 </MuiPickersUtilsProvider>
                 <FormControl variant="outlined" className="margin-right">
@@ -136,9 +199,13 @@ const ForecastDetails = (props: InputProps) => {
                         name="monthlyRevenue"
                         value={props.submissionDetails.monthlyRevenue}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         inputComponent={NumberFormatCustom}
                         labelWidth={180}
+                        error={!validationObject[4].isValid}
+
                     />
+                    {validationObject[4].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
                 </FormControl>
                 <FormControl variant="outlined" className="">
                     <InputLabel htmlFor="twelveMonthProjectedRevenue">Projected monthly revenue in 12 months</InputLabel>
@@ -147,10 +214,17 @@ const ForecastDetails = (props: InputProps) => {
                         name="twelveMonthProjectedRevenue"
                         value={props.submissionDetails.twelveMonthProjectedRevenue}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[5].isValid}
                         inputComponent={NumberFormatCustom}
                         labelWidth={295}
                     />
+                    {validationObject[5].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>}
                 </FormControl>
+            </div>
+            <div className="button-wrapper">
+                <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>
+                <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Next</button>
             </div>
         </section>
     )

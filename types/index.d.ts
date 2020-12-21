@@ -17,7 +17,7 @@ declare module App {
         previousValuation: number | null,
         foundersAverageSalary: number | null,
         teamExperience: string,
-        isPreviousExits: boolean,
+        isPreviousExits: boolean | null,
         foundersCount: number | null,
         employeesCount: number | null,
         twelveMonthSalaryForecast: number | null,
@@ -32,10 +32,16 @@ declare module App {
         startOfFinancialYear: Date | null,
         monthlyRevenue: number | null,
         twelveMonthProjectedRevenue: number | null,
-        isMovingOffice: boolean,
-        isLawerInPlace: boolean,
-        isLookingForChairman: boolean,
+        isMovingOffice: boolean | null,
+        isLawerInPlace: boolean | null,
+        isLookingForChairman: boolean | null,
         extraHelp: string,
-        isMissionDriven: boolean
+        isMissionDriven: boolean | null
+    }
+
+    interface ValidationObject {
+        name: string,
+        isValid: boolean,
+        helperText: string
     }
 }

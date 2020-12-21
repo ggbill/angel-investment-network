@@ -8,6 +8,18 @@ import RiskDetails from './RiskDetails'
 import ForecastDetails from './ForecastDetails'
 import ExtrasDetails from './ExtrasDetails'
 import { useHistory } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+    validOutline: {
+        borderWidth: "1px",
+        borderColor: `#2258FF !important`
+    },
+    errorOutline: {
+        borderWidth: "1px",
+        borderColor: `red !important`
+    }
+}));
 
 const Submission = () => {
     const [submissionDetails, setSubmissionDetails] = useState<App.SubmissionDetails>({
@@ -28,7 +40,7 @@ const Submission = () => {
         previousValuation: null,
         foundersAverageSalary: null,
         teamExperience: "",
-        isPreviousExits: false,
+        isPreviousExits: null,
         foundersCount: null,
         employeesCount: null,
         twelveMonthSalaryForecast: null,
@@ -43,13 +55,13 @@ const Submission = () => {
         startOfFinancialYear: null,
         monthlyRevenue: null,
         twelveMonthProjectedRevenue: null,
-        isMovingOffice: false,
-        isLawerInPlace: false,
-        isLookingForChairman: false,
+        isMovingOffice: null,
+        isLawerInPlace: null,
+        isLookingForChairman: null,
         extraHelp: "",
-        isMissionDriven: false
+        isMissionDriven: null
     })
-    const [stepNumber, setStepNumber] = useState<number>(1)
+    const [stepNumber, setStepNumber] = useState<number>(6)
     const totalSteps = 7
 
     const history = useHistory();
@@ -134,13 +146,13 @@ const Submission = () => {
                             totalSteps={totalSteps}
                         />
                     }
-                    <div className="button-wrapper">
+                    {/* <div className="button-wrapper">
                         <button className="ain-button back" onClick={stepNumber === 0 ? history.push('/') : decreaseStepNumber}>Back</button>
                         {stepNumber === totalSteps - 1 ?
                             <button className="ain-button next">Submit</button> :
                             <button className="ain-button next" onClick={increaseStepNumber}>Next</button>
                         }
-                    </div>
+                    </div> */}
 
                     {/* <p>{submissionDetails.businessType}</p>
                     <p>{submissionDetails.companyName}</p>

@@ -1,12 +1,13 @@
 import './basicDetails.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
-import { FormControl, InputLabel, ListItem, Select } from '@material-ui/core';
+import { FormControl, FormHelperText, InputLabel, ListItem, Select } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
 interface InputProps {
     stepNumber: number,
@@ -18,14 +19,63 @@ interface InputProps {
 
 const BasicDetails = (props: InputProps) => {
 
+    const [validationObject, setValidationObject] = useState<App.ValidationObject[]>([
+        { name: "companyName", isValid: true, helperText: "" },
+        { name: "email", isValid: true, helperText: "" },
+        { name: "foundedDate", isValid: true, helperText: "" },
+        { name: "officePostCode", isValid: true, helperText: "" },
+        { name: "businessType", isValid: true, helperText: "" },
+        { name: "website", isValid: true, helperText: "" },
+        { name: "sector", isValid: true, helperText: "" }
+    ])
+
+    const history = useHistory();
+
     const handleChange = (event) => {
         const { name, value } = event.target
+        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+    }
+
+    const handleBlur = (event) => {
+        const { name, value } = event.target
+        let tempValidationObject = [...validationObject]
+        if (value) {
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = true
+                    element.helperText = ""
+                }
+            });
+        } else {
+            console.log("blur no value")
+            tempValidationObject.forEach(element => {
+                if (name === element.name) {
+                    element.isValid = false
+                    element.helperText = "Please fill me in!"
+                }
+            });
+        }
+        setValidationObject(tempValidationObject)
         props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
     }
 
     const handleFoundedDateChange = (date) => {
         props.setSubmissionDetails({ ...props.submissionDetails, foundedDate: date })
     };
+
+    const checkValuesComplete = (): boolean => {
+        if (!props.submissionDetails.companyName  ||
+            !props.submissionDetails.email  ||
+            !props.submissionDetails.foundedDate||
+            !props.submissionDetails.officePostCode ||
+            !props.submissionDetails.businessType  ||
+            !props.submissionDetails.website  ||
+            !props.submissionDetails.sector ) {
+            return (false)
+        } else {
+            return (true)
+        }
+    }
 
     return (
         <section className="basic-details-section">
@@ -35,7 +85,7 @@ const BasicDetails = (props: InputProps) => {
             </div>
 
             <div className="intro-text">
-            <span>Let's get to know the basics about you.</span>
+                <span>Let's get to know the basics about you.</span>
             </div>
 
 
@@ -45,27 +95,25 @@ const BasicDetails = (props: InputProps) => {
                     name="companyName"
                     className="margin-right"
                     label="Company Name"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.companyName}
                     onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // error={true}
-                    // helperText="messed something up"
+                    onBlur={handleBlur}
+                    error={!validationObject[0].isValid}
+                    helperText={validationObject[0].helperText}
                     required
                 />
                 <TextField
                     id="email"
                     name="email"
                     label="Email Address"
-                    // InputProps={validationObject[1].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.email}
                     onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[1].isValid}
-                    // helperText="&nbsp;"
+                    onBlur={handleBlur}
+                    error={!validationObject[1].isValid}
+                    helperText={validationObject[1].helperText}
+                    required
                 />
                 <>
                     <MuiPickersUtilsProvider utils={MomentUtils}>
@@ -80,10 +128,13 @@ const BasicDetails = (props: InputProps) => {
                             label="When was your company founded"
                             value={props.submissionDetails.foundedDate}
                             onChange={handleFoundedDateChange}
+                            onBlur={handleBlur}
+
                             KeyboardButtonProps={{
                                 'aria-label': 'change date',
                             }}
-                            // helperText="&nbsp;"
+                            error={!validationObject[2].isValid}
+                            helperText={validationObject[2].helperText}
                         />
                     </MuiPickersUtilsProvider>
                 </>
@@ -94,13 +145,13 @@ const BasicDetails = (props: InputProps) => {
                     name="officePostCode"
                     className=""
                     label="Office Post Code"
-                    // InputProps={validationObject[3].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.officePostCode}
                     onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[3].isValid}
-                    // helperText="&nbsp;"
+                    onBlur={handleBlur}
+                    error={!validationObject[3].isValid}
+                    helperText={validationObject[3].helperText}
+                    required
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="business-type-label">Business Type</InputLabel>
@@ -110,16 +161,20 @@ const BasicDetails = (props: InputProps) => {
                         name="businessType"
                         value={props.submissionDetails.businessType}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[4].isValid}
+                        required
                         label="Business Type"
 
                     >
-                        <ListItem value="">
-                            <em>None</em>
-                        </ListItem>
                         <ListItem value={"B2B"}>B2B</ListItem>
                         <ListItem value={"B2C"}>B2C</ListItem>
                         <ListItem value={"Both"}>Both</ListItem>
                     </Select>
+
+                    {validationObject[4].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
+
+
                 </FormControl>
                 <TextField
                     id="website"
@@ -130,9 +185,10 @@ const BasicDetails = (props: InputProps) => {
                     variant="outlined"
                     value={props.submissionDetails.website}
                     onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[3].isValid}
-                    // helperText="&nbsp;"
+                    onBlur={handleBlur}
+                    error={!validationObject[5].isValid}
+                    helperText={validationObject[5].helperText}
+                    required
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="sector-label">Sector</InputLabel>
@@ -142,12 +198,12 @@ const BasicDetails = (props: InputProps) => {
                         name="sector"
                         value={props.submissionDetails.sector}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[6].isValid}
+                        required
                         label="Sector"
 
                     >
-                        <ListItem value="0">
-                            <em>None</em>
-                        </ListItem>
                         <ListItem value="5">Agriculture</ListItem>
                         <ListItem value="12">Business Services</ListItem>
                         <ListItem value="1">Education &amp; Training</ListItem>
@@ -169,8 +225,22 @@ const BasicDetails = (props: InputProps) => {
                         <ListItem value="22">Technology</ListItem>
                         <ListItem value="4">Transportation</ListItem>
                     </Select>
+                    {validationObject[6].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
                 </FormControl>
             </div>
+
+            {/* <p>companyName: {props.submissionDetails.companyName}</p>
+            <p>email: {props.submissionDetails.email}</p>
+            <p>foundedDate: {String(props.submissionDetails.foundedDate)}</p>
+            <p>post code: {props.submissionDetails.officePostCode}</p>
+            <p>bus type: {props.submissionDetails.businessType}</p>
+            <p>website: {props.submissionDetails.website}</p>
+            <p>sector: {props.submissionDetails.sector}</p> */}
+
+                <div className="button-wrapper">
+                    <button className="ain-button back" onClick={() => history.push('/')}>Back</button>
+                    <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Next</button>
+                </div>
         </section>
     )
 
