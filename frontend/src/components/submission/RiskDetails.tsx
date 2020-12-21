@@ -49,7 +49,7 @@ const RiskDetails = (props: InputProps) => {
         <section className="risk-details-section">
             <div className="title-wrapper">
                 <span className="step-counter">(Step {props.stepNumber} / {props.totalSteps - 1}) </span>
-                <span className="title">Risk Details. ✈️</span>
+                <span className="title">Risk Details. 🧾</span>
             </div>
 
             <div className="intro-text">

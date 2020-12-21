@@ -58,7 +58,7 @@ const ForecastDetails = (props: InputProps) => {
         <section className="forecast-details-section">
             <div className="title-wrapper">
                 <span className="step-counter">(Step {props.stepNumber} / {props.totalSteps - 1}) </span>
-                <span className="title">Forecast Details. ⛅</span>
+                <span className="title">Forecast Details. 💸</span>
             </div>
 
             <div className="intro-text">
@@ -85,7 +85,7 @@ const ForecastDetails = (props: InputProps) => {
                         <ListItem value="5">Other</ListItem>
                     </Select>
                 </FormControl>
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" disabled>
                     <InputLabel htmlFor="cashRequiredToFinish">Money needed to finish product</InputLabel>
                     <OutlinedInput
                         id="cashRequiredToFinish"
@@ -151,116 +151,6 @@ const ForecastDetails = (props: InputProps) => {
                         labelWidth={295}
                     />
                 </FormControl>
-
-
-
-
-
-
-
-
-                {/* <FormControl variant="outlined" className="">
-                    <InputLabel id="team-experience-label">Team Experience</InputLabel>
-                    <Select
-                        labelId="team-experience-label"
-                        id="teamExperience"
-                        name="teamExperience"
-                        value={props.submissionDetails.teamExperience}
-                        onChange={handleChange}
-                        label="Team Experience"
-                    >
-                        <ListItem value="1">1-5 years</ListItem>
-                        <ListItem value="2">5-10 years</ListItem>
-                        <ListItem value="3">10-15 years</ListItem>
-                        <ListItem value="4">15+ years</ListItem>
-                    </Select>
-                </FormControl>
-                <FormControl variant="outlined" className="margin-right">
-                    <InputLabel id="previous-exits-label">Team Experience</InputLabel>
-                    <Select
-                        labelId="previous-exits-label"
-                        id="isPreviousExits"
-                        name="isPreviousExits"
-                        value={props.submissionDetails.isPreviousExits}
-                        onChange={handleChange}
-                        label="Team Experience"
-                    >
-                        <ListItem value="false">No</ListItem>
-                        <ListItem value="true">Yes</ListItem>
-                    </Select>
-                </FormControl>
-                <TextField
-                    id="foundersCount"
-                    name="foundersCount"
-                    className=""
-                    label="Number of founders in the team"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
-                    variant="outlined"
-                    value={props.submissionDetails.foundersCount}
-                    onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
-                    type="number"
-                    InputProps={{ inputProps: { min: 0 } }}
-                />
-                <TextField
-                    id="employeesCount"
-                    name="employeesCount"
-                    className="margin-right"
-                    label="Number of employees including founders"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
-                    variant="outlined"
-                    value={props.submissionDetails.employeesCount}
-                    onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
-                    type="number"
-                    InputProps={{ inputProps: { min: 0 } }}
-                />
-                <FormControl variant="outlined" className="">
-                    <InputLabel htmlFor="twelveMonthSalaryForecast">Forecast total salary spend in next 12 months</InputLabel>
-                    <OutlinedInput
-                        id="twelveMonthSalaryForecast"
-                        name="twelveMonthSalaryForecast"
-                        value={props.submissionDetails.twelveMonthSalaryForecast}
-                        onChange={handleChange}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={330}
-                    />
-                </FormControl>
-                
-                <TextField
-                    id="twelveMonthHiresForecast"
-                    name="twelveMonthHiresForecast"
-                    className="margin-right"
-                    label="Number of future hires in next 12 months"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
-                    variant="outlined"
-                    value={props.submissionDetails.twelveMonthHiresForecast}
-                    onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
-                    type="number"
-                    InputProps={{ inputProps: { min: 0 } }}
-                />
-                <TextField
-                    id="keyPositionsToHire"
-                    name="keyPositionsToHire"
-                    className=""
-                    label="What key positions will you be hiring?"
-                    // InputProps={validationObject[0].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
-                    variant="outlined"
-                    value={props.submissionDetails.keyPositionsToHire}
-                    onChange={handleChange}
-                    // onBlur={handleBlur}
-                    // error={!validationObject[0].isValid}
-                    // helperText="&nbsp;"
-                /> */}
-
-
             </div>
         </section>
     )
