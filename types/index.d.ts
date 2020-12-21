@@ -1,5 +1,4 @@
 declare module App {
-
     interface SubmissionDetails{
         companyName: string,
         email: string,
@@ -23,6 +22,20 @@ declare module App {
         employeesCount: number | null,
         twelveMonthSalaryForecast: number | null,
         twelveMonthHiresForecast: number | null,
-        keyPositionsToHire: string
+        keyPositionsToHire: string,
+        cashRemaining: number | null,
+        monthsOfCashLeft: number | null,
+        monthlyBurnRate: number | null,
+        companyDebt: number | null,
+        cashRequiredToFinish: number | null,
+        monthsUntilRevenue: number | null,
+        startOfFinancialYear: Date | null,
+        monthlyRevenue: number | null,
+        twelveMonthProjectedRevenue: number | null,
+        isMovingOffice: boolean,
+        isLawerInPlace: boolean,
+        isLookingForChairman: boolean,
+        extraHelp: string,
+        isMissionDriven: boolean
     }
 }

@@ -21,7 +21,9 @@ const Footer = (props: InputProps) => {
                 {/* <Link to={'/'}>
                     <img alt="" src={Logo} />
                 </Link> */}
-                <span>© 2020 Angel Investment Network Ltd - Connecting Global & Local Entrepreneurs with Angel Investors</span>
+                <span>© 2021 Angel Investment Network Ltd</span>
+                {/* <br/> */}
+                <span>Connecting Global & Local Entrepreneurs with Angel Investors</span> 
 
             </div>
             <div className="right-content">

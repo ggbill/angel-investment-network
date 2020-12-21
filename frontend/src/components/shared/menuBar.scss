@@ -1,6 +1,5 @@
 .menu-bar {
-    margin-bottom: 48px;
-    
+   
     .MuiAppBar-root {
         position: fixed;
         box-shadow: none;
@@ -10,13 +9,18 @@
     .MuiAppBar-colorPrimary {
         flex-grow: 1;
         background-color: #2258FF;
-        // background-color: #121824;
         color: white;
     }
 
     .MuiToolbar-root {
         justify-content: space-between;
         padding: 6px 24px;
+
+        .logo-wrapper{
+            a{
+                display: flex;
+            }
+        }
     }
 
     .hamburger-menu {

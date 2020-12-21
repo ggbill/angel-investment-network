@@ -7,14 +7,14 @@
 }
 
 .full-height-content {
-    min-height: calc(100vh - 167px); /* will cover the 100% of viewport minus (header + footer) */
+    min-height: calc(100vh - 215px); /* will cover the 100% of viewport minus (header + footer) */
     overflow: hidden;
     display: block;
     margin-top: 85px;
 }
 
 .header-section {
-    background-color:#2258FF;
+    background-color: #2258ff;
     color: white;
     padding: 75px 0;
 
@@ -35,7 +35,7 @@
     }
 }
 
-.ain-button{
+.ain-button {
     color: white;
     border-radius: 5px;
     font-family: "Poppins", "Helvetica", sans-serif;
@@ -43,10 +43,16 @@
     padding: 12px 6px;
     font-weight: 500;
     border: none;
-    background-color: #3B7CEE;
+    background-color: #3b7cee;
 }
 
-.basic-details-section, .funding-details-section, .team-details-section {
+.basic-details-section,
+.funding-details-section,
+.team-details-section,
+.risk-details-section,
+.forecast-details-section,
+.extras-details-section {
+    margin-top: 48px;
     .title-wrapper {
         display: flex;
         flex-direction: column;
@@ -79,7 +85,12 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .basic-details-section {
+    .basic-details-section,
+    .funding-details-section,
+    .team-details-section,
+    .risk-details-section,
+    .forecast-details-section,
+    .extras-details-section {
         .input-wrapper {
             display: flex;
             flex-direction: column;
@@ -90,4 +101,10 @@
             }
         }
     }
+
+    // .ain-button{
+    //     margin-bottom: 12px;
+    // }
+
+    
 }

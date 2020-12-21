@@ -35,7 +35,7 @@ const BasicDetails = (props: InputProps) => {
             </div>
 
             <div className="intro-text">
-                <span>It's time to build your profile. We're going to ask you a few simple questions, after which we'll be able to book you in for a chat. The more you give, the more we've got.</span>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
             </div>
 
 
@@ -51,7 +51,9 @@ const BasicDetails = (props: InputProps) => {
                     onChange={handleChange}
                     // onBlur={handleBlur}
                     // error={!validationObject[0].isValid}
-                    helperText="&nbsp;"
+                    // error={true}
+                    // helperText="messed something up"
+                    required
                 />
                 <TextField
                     id="email"
@@ -63,7 +65,7 @@ const BasicDetails = (props: InputProps) => {
                     onChange={handleChange}
                     // onBlur={handleBlur}
                     // error={!validationObject[1].isValid}
-                    helperText="&nbsp;"
+                    // helperText="&nbsp;"
                 />
                 <>
                     <MuiPickersUtilsProvider utils={MomentUtils}>
@@ -81,7 +83,7 @@ const BasicDetails = (props: InputProps) => {
                             KeyboardButtonProps={{
                                 'aria-label': 'change date',
                             }}
-                            helperText="&nbsp;"
+                            // helperText="&nbsp;"
                         />
                     </MuiPickersUtilsProvider>
                 </>
@@ -98,7 +100,7 @@ const BasicDetails = (props: InputProps) => {
                     onChange={handleChange}
                     // onBlur={handleBlur}
                     // error={!validationObject[3].isValid}
-                    helperText="&nbsp;"
+                    // helperText="&nbsp;"
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="business-type-label">Business Type</InputLabel>
@@ -130,7 +132,7 @@ const BasicDetails = (props: InputProps) => {
                     onChange={handleChange}
                     // onBlur={handleBlur}
                     // error={!validationObject[3].isValid}
-                    helperText="&nbsp;"
+                    // helperText="&nbsp;"
                 />
                 <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="sector-label">Sector</InputLabel>

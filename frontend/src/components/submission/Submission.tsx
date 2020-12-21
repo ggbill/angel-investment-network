@@ -4,10 +4,12 @@ import MenuBar from '../shared/MenuBar'
 import BasicDetails from './BasicDetails'
 import FundingDetails from './FundingDetails'
 import TeamDetails from './TeamDetails'
-
+import RiskDetails from './RiskDetails'
+import ForecastDetails from './ForecastDetails'
+import ExtrasDetails from './ExtrasDetails'
+import { useHistory } from "react-router-dom";
 
 const Submission = () => {
-
     const [submissionDetails, setSubmissionDetails] = useState<App.SubmissionDetails>({
         companyName: "",
         email: "",
@@ -20,7 +22,7 @@ const Submission = () => {
         preMoneyValuation: null,
         taxBenefits: "",
         amountRaising: null,
-        currentCommitments:null,
+        currentCommitments: null,
         marketSize: "",
         previousRoundRaise: null,
         previousValuation: null,
@@ -31,10 +33,26 @@ const Submission = () => {
         employeesCount: null,
         twelveMonthSalaryForecast: null,
         twelveMonthHiresForecast: null,
-        keyPositionsToHire: ""
+        keyPositionsToHire: "",
+        cashRemaining: null,
+        monthsOfCashLeft: null,
+        monthlyBurnRate: null,
+        companyDebt: null,
+        cashRequiredToFinish: null,
+        monthsUntilRevenue: null,
+        startOfFinancialYear: null,
+        monthlyRevenue: null,
+        twelveMonthProjectedRevenue: null,
+        isMovingOffice: false,
+        isLawerInPlace: false,
+        isLookingForChairman: false,
+        extraHelp: "",
+        isMissionDriven: false
     })
     const [stepNumber, setStepNumber] = useState<number>(1)
-    const totalSteps = 6
+    const totalSteps = 7
+
+    const history = useHistory();
 
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
@@ -61,7 +79,7 @@ const Submission = () => {
                         <BasicDetails
                             stepNumber={stepNumber}
                             setSubmissionDetails={setSubmissionDetails}
-                            submissionDetails={ submissionDetails }
+                            submissionDetails={submissionDetails}
                             increaseStepNumber={increaseStepNumber}
                             totalSteps={totalSteps}
                         />
@@ -70,7 +88,7 @@ const Submission = () => {
                         <FundingDetails
                             stepNumber={stepNumber}
                             setSubmissionDetails={setSubmissionDetails}
-                            submissionDetails={ submissionDetails }
+                            submissionDetails={submissionDetails}
                             increaseStepNumber={increaseStepNumber}
                             decreaseStepNumber={decreaseStepNumber}
                             totalSteps={totalSteps}
@@ -80,17 +98,50 @@ const Submission = () => {
                         <TeamDetails
                             stepNumber={stepNumber}
                             setSubmissionDetails={setSubmissionDetails}
-                            submissionDetails={ submissionDetails }
+                            submissionDetails={submissionDetails}
+                            increaseStepNumber={increaseStepNumber}
+                            decreaseStepNumber={decreaseStepNumber}
+                            totalSteps={totalSteps}
+                        />
+                    }
+                    {stepNumber === 4 &&
+                        <RiskDetails
+                            stepNumber={stepNumber}
+                            setSubmissionDetails={setSubmissionDetails}
+                            submissionDetails={submissionDetails}
+                            increaseStepNumber={increaseStepNumber}
+                            decreaseStepNumber={decreaseStepNumber}
+                            totalSteps={totalSteps}
+                        />
+                    }
+                    {stepNumber === 5 &&
+                        <ForecastDetails
+                            stepNumber={stepNumber}
+                            setSubmissionDetails={setSubmissionDetails}
+                            submissionDetails={submissionDetails}
+                            increaseStepNumber={increaseStepNumber}
+                            decreaseStepNumber={decreaseStepNumber}
+                            totalSteps={totalSteps}
+                        />
+                    }
+                    {stepNumber === 6 &&
+                        <ExtrasDetails
+                            stepNumber={stepNumber}
+                            setSubmissionDetails={setSubmissionDetails}
+                            submissionDetails={submissionDetails}
                             increaseStepNumber={increaseStepNumber}
                             decreaseStepNumber={decreaseStepNumber}
                             totalSteps={totalSteps}
                         />
                     }
                     <div className="button-wrapper">
-                        <button className="ain-button" onClick={decreaseStepNumber}>Back</button>
-                        <button className="ain-button next" onClick={increaseStepNumber}>Next</button>
+                        <button className="ain-button back" onClick={stepNumber === 0 ? history.push('/') : decreaseStepNumber}>Back</button>
+                        {stepNumber === totalSteps - 1 ?
+                            <button className="ain-button next">Submit</button> :
+                            <button className="ain-button next" onClick={increaseStepNumber}>Next</button>
+                        }
                     </div>
-                    
+
                     {/* <p>{submissionDetails.businessType}</p>
                     <p>{submissionDetails.companyName}</p>
                     <p>{submissionDetails.email}</p>

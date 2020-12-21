@@ -75,24 +75,6 @@ const FundingDetails = (props: InputProps) => {
 
             <div className="input-wrapper">
                 <FormControl variant="outlined" className="margin-right">
-                    <InputLabel id="stage-label">Stage</InputLabel>
-                    <Select
-                        labelId="stage-label"
-                        id="stage"
-                        name="stage"
-                        value={props.submissionDetails.stage}
-                        onChange={handleChange}
-                        label="Stage"
-                    >
-                        <ListItem value="0">Pre-Startup/R&amp;D</ListItem>
-                        <ListItem value="1">MVP/Finished Product</ListItem>
-                        <ListItem value="2">Achieving Sales</ListItem>
-                        <ListItem value="3">Breaking Even</ListItem>
-                        <ListItem value="4">Profitable</ListItem>
-                        <ListItem value="5">Other</ListItem>
-                    </Select>
-                </FormControl>
-                <FormControl variant="outlined">
                     <InputLabel htmlFor="preMoneyValuation">Pre-Money Valuation</InputLabel>
                     <OutlinedInput
                         id="preMoneyValuation"
@@ -103,7 +85,7 @@ const FundingDetails = (props: InputProps) => {
                         labelWidth={155}
                     />
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="">
                     <InputLabel id="tax-benefits-label">Tax Benefits</InputLabel>
                     <Select
                         labelId="tax-benefits-label"
@@ -119,7 +101,7 @@ const FundingDetails = (props: InputProps) => {
                         <ListItem value="neither">Neither</ListItem>
                     </Select>
                 </FormControl>
-                <FormControl variant="outlined">
+                <FormControl variant="outlined" className="margin-right">
                     <InputLabel htmlFor="amountRaising">Amount Raising</InputLabel>
                     <OutlinedInput
                         id="amountRaising"
@@ -130,7 +112,7 @@ const FundingDetails = (props: InputProps) => {
                         labelWidth={115}
                     />
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="">
                     <InputLabel htmlFor="currentCommitments">Current Commitments</InputLabel>
                     <OutlinedInput
                         id="currentCommitments"
@@ -141,7 +123,7 @@ const FundingDetails = (props: InputProps) => {
                         labelWidth={160}
                     />
                 </FormControl>
-                <FormControl variant="outlined" >
+                <FormControl variant="outlined" className="margin-right">
                     <InputLabel id="market-size-label">Market Size</InputLabel>
                     <Select
                         labelId="market-size-label"
@@ -162,7 +144,7 @@ const FundingDetails = (props: InputProps) => {
                         <ListItem value="9">£5bn+</ListItem>
                     </Select>
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="">
                     <InputLabel htmlFor="previousRoundRaise">Funding raised in previous round</InputLabel>
                     <OutlinedInput
                         id="previousRoundRaise"
@@ -173,7 +155,7 @@ const FundingDetails = (props: InputProps) => {
                         labelWidth={240}
                     />
                 </FormControl>
-                <FormControl variant="outlined" >
+                <FormControl variant="outlined" className="margin-right">
                     <InputLabel htmlFor="previousValuation">Previous Valuation</InputLabel>
                     <OutlinedInput
                         id="previousValuation"
