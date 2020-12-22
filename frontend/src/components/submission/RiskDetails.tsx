@@ -95,7 +95,7 @@ const RiskDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="cashRemaining">Cash remaining in company account</InputLabel>
                     <OutlinedInput
                         id="cashRemaining"
@@ -104,7 +104,6 @@ const RiskDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[0].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={265}
                     />
@@ -125,7 +124,7 @@ const RiskDetails = (props: InputProps) => {
                     InputProps={{ inputProps: { min: 0 } }}
                     required
                 />
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="monthlyBurnRate">Monthly Burn Rate</InputLabel>
                     <OutlinedInput
                         id="monthlyBurnRate"
@@ -134,13 +133,12 @@ const RiskDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[2].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={140}
                     />
                     {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="companyDebt">Company debt</InputLabel>
                     <OutlinedInput
                         id="companyDebt"
@@ -149,7 +147,6 @@ const RiskDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[3].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={110}
                     />

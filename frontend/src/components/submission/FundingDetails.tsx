@@ -114,7 +114,7 @@ const FundingDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="preMoneyValuation">Pre-Money Valuation</InputLabel>
                     <OutlinedInput
                         id="preMoneyValuation"
@@ -123,13 +123,12 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[0].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={155}
                     />
                     {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel id="tax-benefits-label">Tax Benefits</InputLabel>
                     <Select
                         labelId="tax-benefits-label"
@@ -139,7 +138,6 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[1].isValid}
-                        required
                         label="Tax Benefits"
                     >
                         <ListItem value="EIS">EIS</ListItem>
@@ -149,7 +147,7 @@ const FundingDetails = (props: InputProps) => {
                     </Select>
                     {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="amountRaising">Amount Raising</InputLabel>
                     <OutlinedInput
                         id="amountRaising"
@@ -158,13 +156,12 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[2].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={115}
                     />
                     {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="currentCommitments">Current Commitments</InputLabel>
                     <OutlinedInput
                         id="currentCommitments"
@@ -173,13 +170,12 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[3].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={160}
                     />
                     {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="market-size-label">Market Size</InputLabel>
                     <Select
                         labelId="market-size-label"
@@ -189,7 +185,6 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[4].isValid}
-                        required
                         label="Market Size"
                     >
                         <ListItem value="1">£1 - £10m</ListItem>
@@ -205,7 +200,7 @@ const FundingDetails = (props: InputProps) => {
                     {validationObject[4].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
                 </FormControl>
 
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="previousRoundRaise">Funding raised in previous round</InputLabel>
                     <OutlinedInput
                         id="previousRoundRaise"
@@ -214,13 +209,12 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[5].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={240}
                     />
                     {validationObject[5].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="previousValuation">Previous Valuation</InputLabel>
                     <OutlinedInput
                         id="previousValuation"
@@ -229,7 +223,6 @@ const FundingDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[6].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={140}
                     />

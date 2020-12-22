@@ -81,7 +81,7 @@ const ExtrasDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="moving-office-label">Will you be moving office in the next 12 months?</InputLabel>
                     <Select
                         labelId="moving-office-label"
@@ -91,7 +91,6 @@ const ExtrasDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[0].isValid}
-                        required
                         label="Will you be moving office in the next 12 months?"
                     >
                         <ListItem value="false">No</ListItem>
@@ -99,7 +98,7 @@ const ExtrasDetails = (props: InputProps) => {
                     </Select>
                     {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel id="lawyer-label">Do you have a lawyer or termsheet in place?</InputLabel>
                     <Select
                         labelId="lawyer-label"
@@ -109,7 +108,6 @@ const ExtrasDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[1].isValid}
-                        required
                         label="Do you have a lawyer or termsheet in place?"
                     >
                         <ListItem value="false">No</ListItem>
@@ -117,7 +115,7 @@ const ExtrasDetails = (props: InputProps) => {
                     </Select>
                     {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="chairman-label">Are you looking for a chairman?</InputLabel>
                     <Select
                         labelId="chairman-label"
@@ -127,7 +125,6 @@ const ExtrasDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[2].isValid}
-                        required
                         label="Are you looking for a chairman?"
                     >
                         <ListItem value="false">No</ListItem>
@@ -148,7 +145,7 @@ const ExtrasDetails = (props: InputProps) => {
                     helperText={validationObject[3].helperText}
                     required
                 />
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="mission-label">Are you a mission driven company?</InputLabel>
                     <Select
                         labelId="mission-label"
@@ -158,7 +155,6 @@ const ExtrasDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[4].isValid}
-                        required
                         label="Are you a mission driven company?"
 
                     >

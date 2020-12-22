@@ -55,47 +55,9 @@ const MenuBar = () => {
                                 <img alt="ain-logo" src={AINLogo} />
                             </Link>
                         </div>
-                        <div className="menu-items">
-                            {/* <LinkButton className="link-button" to='/about'>About us</LinkButton> */}
-                            {/* <LinkButton className="link-button" to='/blog'>Blog</LinkButton> */}
-                            {/* <LinkButton className="link-button" to='/contact'>Get in touch</LinkButton> */}
-                            {/* If home page conditionally hide ctas, if not always show. */}
-                        </div>
-                        <Button className="clickable-icon hamburger-menu" aria-controls="simple-menu" aria-haspopup="true" onClick={toggleDrawer(true)}>
-                            <MenuIcon />
-                        </Button>
                     </Toolbar>
                 </AppBar>
             </div>
-            <Drawer
-                anchor="top"
-                open={isDrawerOpen}
-                onClose={toggleDrawer(false)}
-                className="menu-drawer"
-            >
-                <div className="close-icon-container">
-                    <Button className="clickable-icon hamburger-menu" aria-controls="simple-menu" aria-haspopup="true" onClick={toggleDrawer(false)}>
-                        <CloseIcon />
-                    </Button>
-                </div>
-                {/* <Link to='/about' style={{ textDecoration: 'none', color: 'black' }}>
-                    <MenuItem onClick={handleClose}>About</MenuItem>
-                </Link>
-                <Link to='/contact' style={{ textDecoration: 'none', color: 'black' }}>
-                    <MenuItem onClick={handleClose}>Get In Touch</MenuItem>
-                </Link>
-                <Link to='/buy'>
-                    <MenuItem onClick={handleClose}><button className={'love-button buyer menu visible'}>BUY A BUSINESS</button></MenuItem>
-                </Link>
-                <Link to='/sell'>
-                    <MenuItem onClick={handleClose}><button className={'love-button seller menu visible'}>SELL MY BUSINESS</button></MenuItem>
-                </Link>
-                <Link to={'/'}>
-                <MenuItem onClick={handleClose} className="logo-menu-item"><img alt="tmb-logo" src={Logo} /></MenuItem>
-                    
-                </Link> */}
-
-            </Drawer>
         </>
     )
 }

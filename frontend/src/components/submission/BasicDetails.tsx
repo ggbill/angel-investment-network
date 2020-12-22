@@ -129,6 +129,7 @@ const BasicDetails = (props: InputProps) => {
                             value={props.submissionDetails.foundedDate}
                             onChange={handleFoundedDateChange}
                             onBlur={handleBlur}
+                            required
 
                             KeyboardButtonProps={{
                                 'aria-label': 'change date',
@@ -153,7 +154,7 @@ const BasicDetails = (props: InputProps) => {
                     helperText={validationObject[3].helperText}
                     required
                 />
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="business-type-label">Business Type</InputLabel>
                     <Select
                         labelId="business-type-label"
@@ -163,25 +164,19 @@ const BasicDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[4].isValid}
-                        required
                         label="Business Type"
-
                     >
                         <ListItem value={"B2B"}>B2B</ListItem>
                         <ListItem value={"B2C"}>B2C</ListItem>
                         <ListItem value={"Both"}>Both</ListItem>
                     </Select>
-
                     {validationObject[4].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
-
-
                 </FormControl>
                 <TextField
                     id="website"
                     name="website"
-                    // className="margin-right"
+                    className=""
                     label="Company Website"
-                    // InputProps={validationObject[3].isValid ? { classes: { notchedOutline: classes.validOutline } } : { classes: { notchedOutline: classes.errorOutline } }}
                     variant="outlined"
                     value={props.submissionDetails.website}
                     onChange={handleChange}
@@ -190,7 +185,7 @@ const BasicDetails = (props: InputProps) => {
                     helperText={validationObject[5].helperText}
                     required
                 />
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="sector-label">Sector</InputLabel>
                     <Select
                         labelId="sector-label"
@@ -200,9 +195,7 @@ const BasicDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[6].isValid}
-                        required
                         label="Sector"
-
                     >
                         <ListItem value="5">Agriculture</ListItem>
                         <ListItem value="12">Business Services</ListItem>

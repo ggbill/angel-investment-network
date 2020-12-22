@@ -119,7 +119,7 @@ const TeamDetails = (props: InputProps) => {
 
             <div className="input-wrapper">
 
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="foundersAverageSalary">Founders Average Salary</InputLabel>
                     <OutlinedInput
                         id="foundersAverageSalary"
@@ -128,14 +128,13 @@ const TeamDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[0].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={185}
                     />
                     {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
 
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel id="team-experience-label">Team Experience</InputLabel>
                     <Select
                         labelId="team-experience-label"
@@ -145,7 +144,6 @@ const TeamDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[1].isValid}
-                        required
                         label="Team Experience"
                     >
                         <ListItem value="1">1-5 years</ListItem>
@@ -155,7 +153,7 @@ const TeamDetails = (props: InputProps) => {
                     </Select>
                     {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="previous-exits-label">Previous Exits</InputLabel>
                     <Select
                         labelId="previous-exits-label"
@@ -165,7 +163,6 @@ const TeamDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[2].isValid}
-                        required
                         label="Previous Exits"
                     >
                         <ListItem value="false">No</ListItem>
@@ -203,7 +200,7 @@ const TeamDetails = (props: InputProps) => {
                     InputProps={{ inputProps: { min: 1 } }}
                     required
                 />
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="foundersAverageSalary">Forecase Total Salary Spend in Next 12 Months</InputLabel>
                     <OutlinedInput
                         id="twelveMonthSalaryForecast"
@@ -212,7 +209,6 @@ const TeamDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[5].isValid}
-                        required
                         inputComponent={NumberFormatCustom}
                         labelWidth={345}
                     />

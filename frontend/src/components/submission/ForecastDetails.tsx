@@ -109,7 +109,7 @@ const ForecastDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="stage-label">Stage</InputLabel>
                     <Select
                         labelId="stage-label"
@@ -119,7 +119,6 @@ const ForecastDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[0].isValid}
-                        required
                         label="Stage"
                     >
                         <ListItem value="0">Pre-Startup/MVP</ListItem>
@@ -131,7 +130,7 @@ const ForecastDetails = (props: InputProps) => {
                     </Select>
                     {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="" disabled={
+                <FormControl variant="outlined" required className="" disabled={
                     props.submissionDetails.stage === "1" ||
                     props.submissionDetails.stage === "2" ||
                     props.submissionDetails.stage === "3" ||
@@ -144,8 +143,7 @@ const ForecastDetails = (props: InputProps) => {
                         value={props.submissionDetails.cashRequiredToFinish}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={!validationObject[1].isValid}
-                        required
+                        error={!validationObject[1].isValid}   
                         inputComponent={NumberFormatCustom}
                         labelWidth={230}
                     />
@@ -190,9 +188,10 @@ const ForecastDetails = (props: InputProps) => {
                         }}
                         error={!validationObject[3].isValid}
                         helperText={validationObject[3].helperText}
+                        required
                     />
                 </MuiPickersUtilsProvider>
-                <FormControl variant="outlined" className="margin-right">
+                <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="monthlyRevenue">Current monthly revenue</InputLabel>
                     <OutlinedInput
                         id="monthlyRevenue"
@@ -203,11 +202,10 @@ const ForecastDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={180}
                         error={!validationObject[4].isValid}
-
                     />
                     {validationObject[4].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
                 </FormControl>
-                <FormControl variant="outlined" className="">
+                <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="twelveMonthProjectedRevenue">Projected monthly revenue in 12 months</InputLabel>
                     <OutlinedInput
                         id="twelveMonthProjectedRevenue"
