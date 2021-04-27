@@ -15,13 +15,13 @@ function App() {
             <Router history={history}>
                 <div className="full-height-content">
                     <Switch>
-                        <Route
+                        {/* <Route
                             path="/"
                             component={Home}
                             exact
-                        />
+                        /> */}
                         <Route
-                            path="/broking-submission"
+                            path="/"
                             component={Submission}
                             exact
                         />

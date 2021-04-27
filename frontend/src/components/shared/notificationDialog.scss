@@ -1,0 +1,19 @@
+.MuiDialog-paper {
+    .title-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .MuiSvgIcon-root {
+            padding: 0 12px 0 0;
+
+            font-size: 2em;
+            &.success {
+                color: #57ab6e;
+            }
+            &.error {
+                color: red;
+            }
+        }
+    }
+}

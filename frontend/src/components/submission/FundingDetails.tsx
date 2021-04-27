@@ -89,12 +89,12 @@ const FundingDetails = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.preMoneyValuation ||
-            !props.submissionDetails.taxBenefits  ||
-            !props.submissionDetails.amountRaising  || 
+            !props.submissionDetails.taxBenefits ||
+            !props.submissionDetails.amountRaising ||
             !props.submissionDetails.currentCommitments ||
             !props.submissionDetails.marketSize ||
-            !props.submissionDetails.previousRoundRaise  || 
-            !props.submissionDetails.previousValuation ) {
+            !props.submissionDetails.previousRoundRaise ||
+            !props.submissionDetails.previousValuation) {
             return (false)
         } else {
             return (true)
@@ -126,7 +126,10 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={155}
                     />
-                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
+                    {validationObject[0].helperText === "" ?
+                        <FormHelperText>&nbsp;</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>
+                    }
                 </FormControl>
                 <FormControl variant="outlined" className="" required>
                     <InputLabel id="tax-benefits-label">Tax Benefits</InputLabel>
@@ -145,7 +148,10 @@ const FundingDetails = (props: InputProps) => {
                         <ListItem value="both">Both</ListItem>
                         <ListItem value="neither">Neither</ListItem>
                     </Select>
-                    {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
+                    {validationObject[1].helperText === "" ?
+                        <FormHelperText>&nbsp;</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>
+                    }
                 </FormControl>
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="amountRaising">Amount Raising</InputLabel>
@@ -159,7 +165,10 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={115}
                     />
-                    {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
+                    {validationObject[2].helperText === "" ?
+                        <FormHelperText>&nbsp;</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>
+                    }
                 </FormControl>
                 <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="currentCommitments">Current Commitments</InputLabel>
@@ -173,7 +182,10 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={160}
                     />
-                    {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
+                    {validationObject[3].helperText === "" ?
+                        <FormHelperText>&nbsp;</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>
+                    }
                 </FormControl>
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="market-size-label">Market Size</InputLabel>
@@ -187,17 +199,20 @@ const FundingDetails = (props: InputProps) => {
                         error={!validationObject[4].isValid}
                         label="Market Size"
                     >
-                        <ListItem value="1">£1 - £10m</ListItem>
-                        <ListItem value="2">£10 - £25m</ListItem>
-                        <ListItem value="3">£25 - £50m</ListItem>
-                        <ListItem value="4">£50m - £100m</ListItem>
-                        <ListItem value="5">£100m - £250m</ListItem>
-                        <ListItem value="6">£250m - £500m</ListItem>
-                        <ListItem value="7">£500m - £1bn</ListItem>
-                        <ListItem value="8">£1bn - £5bn</ListItem>
-                        <ListItem value="9">£5bn+</ListItem>
+                        <ListItem value="£1 - £10m">£1 - £10m</ListItem>
+                        <ListItem value="£10 - £25m">£10 - £25m</ListItem>
+                        <ListItem value="£25 - £50m3">£25 - £50m</ListItem>
+                        <ListItem value="£50m - £100m">£50m - £100m</ListItem>
+                        <ListItem value="£100m - £250m">£100m - £250m</ListItem>
+                        <ListItem value="£250m - £500m">£250m - £500m</ListItem>
+                        <ListItem value="£500m - £1bn">£500m - £1bn</ListItem>
+                        <ListItem value="£1bn - £5bn">£1bn - £5bn</ListItem>
+                        <ListItem value="£5bn+">£5bn+</ListItem>
                     </Select>
-                    {validationObject[4].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
+                    {validationObject[4].helperText === "" ?
+                        <FormHelperText>&nbsp;</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>
+                    }
                 </FormControl>
 
                 <FormControl variant="outlined" className="" required>
@@ -212,7 +227,10 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={240}
                     />
-                    {validationObject[5].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>}
+                    {validationObject[5].helperText === "" ?
+                        <FormHelperText>Enter £0 if this is your first round.</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>
+                    }
                 </FormControl>
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="previousValuation">Previous Valuation</InputLabel>
@@ -226,7 +244,10 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={140}
                     />
-                    {validationObject[6].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[6].helperText}</FormHelperText>}
+                    {validationObject[6].helperText === "" ?
+                        <FormHelperText>Enter £0 if this is your first round.</FormHelperText> :
+                        <FormHelperText style={{ "color": "red" }}>{validationObject[6].helperText}</FormHelperText>
+                    }
                 </FormControl>
             </div>
             <div className="button-wrapper">

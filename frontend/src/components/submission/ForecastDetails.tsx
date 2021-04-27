@@ -121,20 +121,20 @@ const ForecastDetails = (props: InputProps) => {
                         error={!validationObject[0].isValid}
                         label="Stage"
                     >
-                        <ListItem value="0">Pre-Startup/MVP</ListItem>
-                        <ListItem value="1">Finished Product</ListItem>
-                        <ListItem value="2">Achieving Sales</ListItem>
-                        <ListItem value="3">Breaking Even</ListItem>
-                        <ListItem value="4">Profitable</ListItem>
-                        <ListItem value="5">Other</ListItem>
+                        <ListItem value="Pre-Startup/MVP">Pre-Startup/MVP</ListItem>
+                        <ListItem value="Finished Product">Finished Product</ListItem>
+                        <ListItem value="Achieving Sales">Achieving Sales</ListItem>
+                        <ListItem value="Breaking Even">Breaking Even</ListItem>
+                        <ListItem value="Profitable">Profitable</ListItem>
+                        <ListItem value="Other">Other</ListItem>
                     </Select>
                     {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                 </FormControl>
                 <FormControl variant="outlined" required className="" disabled={
-                    props.submissionDetails.stage === "1" ||
-                    props.submissionDetails.stage === "2" ||
-                    props.submissionDetails.stage === "3" ||
-                    props.submissionDetails.stage === "4"
+                    props.submissionDetails.stage === "Finished Product" ||
+                    props.submissionDetails.stage === "Achieving Sales" ||
+                    props.submissionDetails.stage === "Profitable" ||
+                    props.submissionDetails.stage === "Breaking Even"
                 }>
                     <InputLabel htmlFor="cashRequiredToFinish">Money needed to finish product</InputLabel>
                     <OutlinedInput
@@ -164,9 +164,9 @@ const ForecastDetails = (props: InputProps) => {
                     InputProps={{ inputProps: { min: 0 } }}
                     required
                     disabled={
-                        props.submissionDetails.stage === "2" ||
-                        props.submissionDetails.stage === "3" ||
-                        props.submissionDetails.stage === "4"
+                        props.submissionDetails.stage === "Profitable" ||
+                        props.submissionDetails.stage === "Achieving Sales" ||
+                        props.submissionDetails.stage === "Breaking Even"
                     }
                 />
 

@@ -1,5 +1,5 @@
 import './basicDetails.scss'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import TextField from '@material-ui/core/TextField'
 import {
     MuiPickersUtilsProvider,
@@ -26,10 +26,12 @@ const BasicDetails = (props: InputProps) => {
         { name: "officePostCode", isValid: true, helperText: "" },
         { name: "businessType", isValid: true, helperText: "" },
         { name: "website", isValid: true, helperText: "" },
-        { name: "sector", isValid: true, helperText: "" }
+        { name: "sector", isValid: true, helperText: "" },
+        { name: "logoFile", isValid: true, helperText: "" },
     ])
 
     const history = useHistory();
+    const logoFile: any = useRef(null)
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -64,17 +66,49 @@ const BasicDetails = (props: InputProps) => {
     };
 
     const checkValuesComplete = (): boolean => {
-        if (!props.submissionDetails.companyName  ||
-            !props.submissionDetails.email  ||
-            !props.submissionDetails.foundedDate||
+        if (!props.submissionDetails.companyName ||
+            !props.submissionDetails.email ||
+            !props.submissionDetails.foundedDate ||
             !props.submissionDetails.officePostCode ||
-            !props.submissionDetails.businessType  ||
-            !props.submissionDetails.website  ||
-            !props.submissionDetails.sector ) {
+            !props.submissionDetails.businessType ||
+            !props.submissionDetails.website ||
+            !props.submissionDetails.sector ||
+            !props.submissionDetails.logoFile) {
             return (false)
         } else {
             return (true)
         }
+    }
+
+    const goToNextStep = () => {
+
+        props.increaseStepNumber()
+
+        // const formData = new FormData();
+        // formData.append("file", props.submissionDetails.logoFile);
+        // formData.append("upload_preset", "wb88wjmq");
+        // formData.append("folder", "AIN Brokerage Form - Logos");
+        // formData.append("tags", `${props.submissionDetails.companyName}, ${props.submissionDetails.email}`);
+
+        // fetch("https://api.cloudinary.com/v1_1/venture-assembly/raw/upload", {
+        //     method: "POST",
+        //     body: formData
+        // })
+        //     .then(response => response.json())
+        //     .then(json => {
+
+        //         console.log(json)
+
+        //         props.setSubmissionDetails({ ...props.submissionDetails, logoFile: json.url })
+        //         props.increaseStepNumber()
+
+
+        //         // setReviewDetails({ ...reviewDetails, pitchDeckUrl: json.url })
+        //         // setStepNumber(stepNumber + 1)
+        //     }).catch(err => {
+        //         console.log("fail")
+        //         throw new Error(err);
+        //     });
     }
 
     return (
@@ -164,7 +198,7 @@ const BasicDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[4].isValid}
-                        label="Business Type"
+                        label="Business Type *"
                     >
                         <ListItem value={"B2B"}>B2B</ListItem>
                         <ListItem value={"B2C"}>B2C</ListItem>
@@ -195,31 +229,58 @@ const BasicDetails = (props: InputProps) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!validationObject[6].isValid}
-                        label="Sector"
+                        label="Sector *"
                     >
-                        <ListItem value="5">Agriculture</ListItem>
-                        <ListItem value="12">Business Services</ListItem>
-                        <ListItem value="1">Education &amp; Training</ListItem>
-                        <ListItem value="15">Energy &amp; Natural Resources</ListItem>
-                        <ListItem value="28">Entertainment &amp; Leisure</ListItem>
-                        <ListItem value="21">Fashion &amp; Beauty</ListItem>
-                        <ListItem value="13">Finance</ListItem>
-                        <ListItem value="23">Food &amp; Beverage</ListItem>
-                        <ListItem value="17">Hospitality, Restaurants &amp; Bars</ListItem>
-                        <ListItem value="14">Manufacturing &amp; Engineering</ListItem>
-                        <ListItem value="11">Media</ListItem>
-                        <ListItem value="2">Medical &amp; Sciences</ListItem>
-                        <ListItem value="29">Personal Services</ListItem>
-                        <ListItem value="18">Products &amp; Inventions</ListItem>
-                        <ListItem value="16">Property </ListItem>
-                        <ListItem value="19">Retail</ListItem>
-                        <ListItem value="20">Sales &amp; Marketing</ListItem>
-                        <ListItem value="8">Software</ListItem>
-                        <ListItem value="22">Technology</ListItem>
-                        <ListItem value="4">Transportation</ListItem>
+                        <ListItem value="Agriculture">Agriculture</ListItem>
+                        <ListItem value="Business Services">Business Services</ListItem>
+                        <ListItem value="Education &amp; Training">Education &amp; Training</ListItem>
+                        <ListItem value="Energy &amp; Natural Resources">Energy &amp; Natural Resources</ListItem>
+                        <ListItem value="Entertainment &amp; Leisure">Entertainment &amp; Leisure</ListItem>
+                        <ListItem value="Fashion &amp; Beauty">Fashion &amp; Beauty</ListItem>
+                        <ListItem value="Finance">Finance</ListItem>
+                        <ListItem value="Food &amp; Beverage">Food &amp; Beverage</ListItem>
+                        <ListItem value="Hospitality, Restaurants &amp; Bars">Hospitality, Restaurants &amp; Bars</ListItem>
+                        <ListItem value="Manufacturing &amp; Engineering">Manufacturing &amp; Engineering</ListItem>
+                        <ListItem value="Media">Media</ListItem>
+                        <ListItem value="Medical &amp; Sciences">Medical &amp; Sciences</ListItem>
+                        <ListItem value="Personal Services">Personal Services</ListItem>
+                        <ListItem value="Products &amp; Inventions">Products &amp; Inventions</ListItem>
+                        <ListItem value="Property">Property</ListItem>
+                        <ListItem value="Retail">Retail</ListItem>
+                        <ListItem value="Sales &amp; Marketing">Sales &amp; Marketing</ListItem>
+                        <ListItem value="Software">Software</ListItem>
+                        <ListItem value="Technology">Technology</ListItem>
+                        <ListItem value="Transportation">Transportation</ListItem>
                     </Select>
                     {validationObject[6].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
                 </FormControl>
+                <div className="field-wrapper" onClick={() => logoFile.current.click()}>
+                    <input
+                        // accept=".pdf"
+                        style={{ display: 'none' }}
+                        type="file"
+                        onChange={(event) => {
+                            if (!event.target.files) return
+                            // setReviewDetails({ ...reviewDetails, pitchDeckFile: event.target.files[0] })
+                            props.setSubmissionDetails({ ...props.submissionDetails, logoFile: event.target.files[0] })
+                        }}
+                        ref={logoFile}
+                    />
+
+                    <TextField
+                        label="Your Logo"
+                        className="file-upload"
+                        variant="outlined"
+                        defaultValue="Select a File"
+                        value={props.submissionDetails.logoFile ? props.submissionDetails.logoFile.name : "Select a File"}
+                        disabled
+                        required
+                        fullWidth
+                        error={!validationObject[7].isValid}
+                        helperText={validationObject[7].helperText}
+                    />
+
+                </div>
             </div>
 
             {/* <p>companyName: {props.submissionDetails.companyName}</p>
@@ -230,10 +291,11 @@ const BasicDetails = (props: InputProps) => {
             <p>website: {props.submissionDetails.website}</p>
             <p>sector: {props.submissionDetails.sector}</p> */}
 
-                <div className="button-wrapper">
-                    <button className="ain-button back" onClick={() => history.push('/')}>Back</button>
-                    <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Next</button>
-                </div>
+            <div className="button-wrapper">
+                {/* <button className="ain-button back" onClick={() => history.push('/')}>Back</button> */}
+                <button className="ain-button next" disabled={!checkValuesComplete()} onClick={goToNextStep}>Next</button>
+                {/* <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Next</button> */}
+            </div>
         </section>
     )
 

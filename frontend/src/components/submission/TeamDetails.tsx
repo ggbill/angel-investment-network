@@ -146,10 +146,10 @@ const TeamDetails = (props: InputProps) => {
                         error={!validationObject[1].isValid}
                         label="Team Experience"
                     >
-                        <ListItem value="1">1-5 years</ListItem>
-                        <ListItem value="2">5-10 years</ListItem>
-                        <ListItem value="3">10-15 years</ListItem>
-                        <ListItem value="4">15+ years</ListItem>
+                        <ListItem value="1-5 years">1-5 years</ListItem>
+                        <ListItem value="5-10 years">5-10 years</ListItem>
+                        <ListItem value="10-15 years">10-15 years</ListItem>
+                        <ListItem value="15+ years">15+ years</ListItem>
                     </Select>
                     {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                 </FormControl>

@@ -7,10 +7,10 @@
 }
 
 .full-height-content {
-    min-height: calc(100vh - 215px); /* will cover the 100% of viewport minus (header + footer) */
+    min-height: calc(100vh - 170px); /* will cover the 100% of viewport minus (header + footer) */
     overflow: hidden;
     display: block;
-    margin-top: 85px;
+    margin-top: 40px;
 }
 
 .header-section {
@@ -44,9 +44,15 @@
     font-weight: 500;
     border: none;
     background-color: #3b7cee;
+    cursor: pointer;
+
+    &.submit {
+        background-color: green;
+        margin-left: 12px;
+    }
 }
 
-.ain-button:disabled{
+.ain-button:disabled {
     background-color: gray !important;
     border: none;
     cursor: unset;
@@ -58,7 +64,7 @@
 .risk-details-section,
 .forecast-details-section,
 .extras-details-section {
-    margin-top: 48px;
+    // margin-top: 48px;
     .title-wrapper {
         display: flex;
         flex-direction: column;
@@ -78,18 +84,43 @@
         margin-bottom: 24px;
     }
 
+    // .input-wrapper {
+    //     .MuiFormControl-root {
+    //         width: calc(50% - 6px);
+    //         margin-bottom: 12px;
+    //     }
+
+    //     .margin-right {
+    //         margin-right: 12px;
+    //     }
+
+    //     .MuiInputBase-input.Mui-disabled {
+    //         background: gainsboro;
+    //     }
+    // }
+
     .input-wrapper {
-        .MuiFormControl-root {
+        .file-upload {
+            .MuiInputBase-input.Mui-disabled {
+                cursor: pointer;
+            }
+
+            .MuiInputBase-root.Mui-disabled:hover {
+                .MuiOutlinedInput-notchedOutline {
+                    border-color: black;
+                }
+            }
+        }
+
+        > * {
+            display: inline-flex;
+
             width: calc(50% - 6px);
             margin-bottom: 12px;
-        }
 
-        .margin-right {
-            margin-right: 12px;
-        }
-
-        .MuiInputBase-input.Mui-disabled {
-            background: gainsboro;
+            &:nth-child(odd) {
+                margin-right: 12px;
+            }
         }
     }
 }
@@ -115,6 +146,4 @@
     // .ain-button{
     //     margin-bottom: 12px;
     // }
-
-    
 }

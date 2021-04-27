@@ -33,10 +33,13 @@ declare module App {
         monthlyRevenue: number | null,
         twelveMonthProjectedRevenue: number | null,
         isMovingOffice: boolean | null,
-        isLawerInPlace: boolean | null,
+        isLawyerInPlace: boolean | null,
         isLookingForChairman: boolean | null,
         extraHelp: string,
-        isMissionDriven: boolean | null
+        isMissionDriven: boolean | null,
+        logoFile: any,
+        pitchDeckFile: any,
+        financialsFile: any,
     }
 
     interface ValidationObject {
@@ -44,4 +47,5 @@ declare module App {
         isValid: boolean,
         helperText: string
     }
+
 }
