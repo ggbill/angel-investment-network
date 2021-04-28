@@ -50,7 +50,7 @@ const Submission = () => {
                                 increaseStepNumber={increaseStepNumber}
                                 totalSteps={totalSteps}
                             />
-                            {/* <button onClick={() => prepopulateValues()}>populate values</button> */}
+                            <button onClick={() => prepopulateValues()}>populate values</button>
                         </>
                     }
                     {stepNumber === 2 &&
