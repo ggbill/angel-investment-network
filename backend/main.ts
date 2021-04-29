@@ -13,14 +13,14 @@ server.on('error', (err) => {
 
 server.on('listening', async () => {
     console.info(`Listening on a port ${PORT}`);
-    mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/angel-investment-network", {
-        useNewUrlParser: true,
-        useFindAndModify: false
-    });
-    mongoose.connection.once('open', () => {
-        console.info('Connected to Mongo via Mongoose');
-    });
-    mongoose.connection.on('error', (err) => {
-        console.error('Unable to connect to Mongo via Mongoose', err);
-    });
+    // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/angel-investment-network", {
+    //     useNewUrlParser: true,
+    //     useFindAndModify: false
+    // });
+    // mongoose.connection.once('open', () => {
+    //     console.info('Connected to Mongo via Mongoose');
+    // });
+    // mongoose.connection.on('error', (err) => {
+    //     console.error('Unable to connect to Mongo via Mongoose', err);
+    // });
 });

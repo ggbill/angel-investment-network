@@ -5,7 +5,6 @@ const router = require('express').Router();
 var Airtable = require('airtable');
 require('dotenv').config()
 var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appn4fdNE3iwcMp1k');
-var cloudinary = require('cloudinary').v2;
 
 router.post('/', async (request: Request, response: Response) => {
 

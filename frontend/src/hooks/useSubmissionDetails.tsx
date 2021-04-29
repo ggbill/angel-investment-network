@@ -149,6 +149,9 @@ const useSubmissionDetails = () => {
                         financialsFile: [{ "url": financialsResult.secure_url }]
                     }).then((result) => {
                         return { isSuccess: true }
+                    }).catch((err: Error) => {
+                        console.log(err)
+                        return { isSuccess: false, error: err }
                     })
                 })
             })
