@@ -52,6 +52,7 @@ router.post('/', async (request: Request, response: Response) => {
         }
       ], function(err, records) {
         if (err) {
+            console.log("something went wrong")
             response.status(404).send(err);
         }
         // records.forEach(function (record) {
