@@ -6,7 +6,7 @@ var Airtable = require('airtable');
 require('dotenv').config()
 var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appn4fdNE3iwcMp1k');
 
-router.post('/', async (request: Request, response: Response) => {
+router.post('/postSubmission', async (request: Request, response: Response) => {
 
     // console.log(request.body.logoFile)
 
