@@ -142,7 +142,7 @@ const useSubmissionDetails = () => {
         return cloudinaryUpload(submissionDetails.logoFile, "", "").then(logoResult => {
             return cloudinaryUpload(submissionDetails.pitchDeckFile, "", "").then(pitchResult => {
                 return cloudinaryUpload(submissionDetails.financialsFile, "", "").then(financialsResult => {
-                    return airtableApi.post(`/postSubmission`, {
+                    return airtableApi.post(``, {
                         ...submissionDetails,
                         logoFile: [{ "url": logoResult.secure_url }],
                         pitchDeckFile: [{ "url": pitchResult.secure_url }],
