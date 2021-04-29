@@ -61,4 +61,8 @@ router.post('/', async (request: Request, response: Response) => {
       });
 });
 
+router.get('/test', async (request: Request, response: Response) => {
+  response.json({result: "it worked"});
+})
+
 export default router;
