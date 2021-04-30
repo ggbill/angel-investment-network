@@ -52,7 +52,7 @@ router.post('/', async (request: Request, response: Response) => {
         }
       ], function(err, records) {
         if (err) {
-            console.log(JSON.stringify(err))
+            console.error(err)
             response.status(404).send(err);
         }
         // records.forEach(function (record) {
