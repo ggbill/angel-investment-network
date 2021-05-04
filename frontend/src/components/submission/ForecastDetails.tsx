@@ -53,7 +53,22 @@ const ForecastDetails = (props: InputProps) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+        // console.log(`name: ${name}, value: ${value}`)
+        
+        // reset the validation of the variable disabled fields on stage change (so dont get stuck on "Please fill me in!")
+        if (name === "stage") {
+            let tempValidationObject = [...validationObject]
+            tempValidationObject.forEach(element => {
+                if (element.name === "cashRequiredToFinish" || element.name === "monthsUntilRevenue") {
+                    element.isValid = true
+                    element.helperText = ""
+                }
+            });
+            setValidationObject(tempValidationObject)
+            props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+        }else{
+            props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+        }
     }
 
     const handleFinancialYearDateChange = (date) => {
@@ -84,8 +99,8 @@ const ForecastDetails = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.stage ||
-            (!props.submissionDetails.cashRequiredToFinish && props.submissionDetails.stage !== "1" && props.submissionDetails.stage !== "2" && props.submissionDetails.stage !== "3" && props.submissionDetails.stage !== "4") ||
-            (!props.submissionDetails.monthsUntilRevenue && props.submissionDetails.stage !== "2" && props.submissionDetails.stage !== "3" && props.submissionDetails.stage !== "4") ||
+            (!props.submissionDetails.cashRequiredToFinish  && props.submissionDetails.stage !== "Achieving Sales" && props.submissionDetails.stage !== "Breaking Even" && props.submissionDetails.stage !== "Profitable" && props.submissionDetails.stage !== "Finished Product") ||
+            (!props.submissionDetails.monthsUntilRevenue && props.submissionDetails.stage !== "Achieving Sales" && props.submissionDetails.stage !== "Breaking Even" && props.submissionDetails.stage !== "Profitable" ) ||
             !props.submissionDetails.startOfFinancialYear ||
             !props.submissionDetails.monthlyRevenue ||
             !props.submissionDetails.twelveMonthProjectedRevenue
@@ -143,7 +158,7 @@ const ForecastDetails = (props: InputProps) => {
                         value={props.submissionDetails.cashRequiredToFinish}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={!validationObject[1].isValid}   
+                        error={!validationObject[1].isValid}
                         inputComponent={NumberFormatCustom}
                         labelWidth={230}
                     />
@@ -189,6 +204,7 @@ const ForecastDetails = (props: InputProps) => {
                         error={!validationObject[3].isValid}
                         helperText={validationObject[3].helperText}
                         required
+                        autoOk={true}
                     />
                 </MuiPickersUtilsProvider>
                 <FormControl variant="outlined" className="margin-right" required>

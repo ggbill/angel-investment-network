@@ -58,6 +58,10 @@
     cursor: unset;
 }
 
+.MuiPopover-paper{
+    cursor: pointer;
+}
+
 .basic-details-section,
 .funding-details-section,
 .team-details-section,
@@ -84,25 +88,11 @@
         margin-bottom: 24px;
     }
 
-    // .input-wrapper {
-    //     .MuiFormControl-root {
-    //         width: calc(50% - 6px);
-    //         margin-bottom: 12px;
-    //     }
-
-    //     .margin-right {
-    //         margin-right: 12px;
-    //     }
-
-    //     .MuiInputBase-input.Mui-disabled {
-    //         background: gainsboro;
-    //     }
-    // }
-
     .input-wrapper {
         .file-upload {
             .MuiInputBase-input.Mui-disabled {
                 cursor: pointer;
+                color: rgba(0, 0, 0, 0.54);
             }
 
             .MuiInputBase-root.Mui-disabled:hover {
@@ -110,9 +100,13 @@
                     border-color: black;
                 }
             }
+
+            &.file-selected .MuiInputBase-input{
+                color: black
+            }
         }
 
-        > * {
+        >* {
             display: inline-flex;
 
             width: calc(50% - 6px);

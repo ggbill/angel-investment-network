@@ -63,7 +63,9 @@ const Uploads = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.pitchDeckFile ||
-            !props.submissionDetails.financialsFile) {
+            !props.submissionDetails.pitchDeckFile.name ||
+            !props.submissionDetails.financialsFile ||
+            !props.submissionDetails.financialsFile.name) {
             return (false)
         } else {
             return (true)

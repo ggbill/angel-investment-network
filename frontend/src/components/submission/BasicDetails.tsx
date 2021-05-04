@@ -7,7 +7,6 @@ import {
 } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
 import { FormControl, FormHelperText, InputLabel, ListItem, Select } from '@material-ui/core';
-import { useHistory } from "react-router-dom";
 
 interface InputProps {
     stepNumber: number,
@@ -30,7 +29,6 @@ const BasicDetails = (props: InputProps) => {
         { name: "logoFile", isValid: true, helperText: "" },
     ])
 
-    const history = useHistory();
     const logoFile: any = useRef(null)
 
     const handleChange = (event) => {
@@ -41,6 +39,7 @@ const BasicDetails = (props: InputProps) => {
     const handleBlur = (event) => {
         const { name, value } = event.target
         let tempValidationObject = [...validationObject]
+        
         if (value) {
             tempValidationObject.forEach(element => {
                 if (name === element.name) {
@@ -49,7 +48,6 @@ const BasicDetails = (props: InputProps) => {
                 }
             });
         } else {
-            console.log("blur no value")
             tempValidationObject.forEach(element => {
                 if (name === element.name) {
                     element.isValid = false
@@ -73,42 +71,12 @@ const BasicDetails = (props: InputProps) => {
             !props.submissionDetails.businessType ||
             !props.submissionDetails.website ||
             !props.submissionDetails.sector ||
-            !props.submissionDetails.logoFile) {
+            !props.submissionDetails.logoFile ||
+            !props.submissionDetails.logoFile.name) {
             return (false)
         } else {
             return (true)
         }
-    }
-
-    const goToNextStep = () => {
-
-        props.increaseStepNumber()
-
-        // const formData = new FormData();
-        // formData.append("file", props.submissionDetails.logoFile);
-        // formData.append("upload_preset", "wb88wjmq");
-        // formData.append("folder", "AIN Brokerage Form - Logos");
-        // formData.append("tags", `${props.submissionDetails.companyName}, ${props.submissionDetails.email}`);
-
-        // fetch("https://api.cloudinary.com/v1_1/venture-assembly/raw/upload", {
-        //     method: "POST",
-        //     body: formData
-        // })
-        //     .then(response => response.json())
-        //     .then(json => {
-
-        //         console.log(json)
-
-        //         props.setSubmissionDetails({ ...props.submissionDetails, logoFile: json.url })
-        //         props.increaseStepNumber()
-
-
-        //         // setReviewDetails({ ...reviewDetails, pitchDeckUrl: json.url })
-        //         // setStepNumber(stepNumber + 1)
-        //     }).catch(err => {
-        //         console.log("fail")
-        //         throw new Error(err);
-        //     });
     }
 
     return (
@@ -164,7 +132,7 @@ const BasicDetails = (props: InputProps) => {
                             onChange={handleFoundedDateChange}
                             onBlur={handleBlur}
                             required
-
+                            autoOk={true}
                             KeyboardButtonProps={{
                                 'aria-label': 'change date',
                             }}
@@ -252,7 +220,7 @@ const BasicDetails = (props: InputProps) => {
                         <ListItem value="Technology">Technology</ListItem>
                         <ListItem value="Transportation">Transportation</ListItem>
                     </Select>
-                    {validationObject[6].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>}
+                    {validationObject[6].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[6].helperText}</FormHelperText>}
                 </FormControl>
                 <div className="field-wrapper" onClick={() => logoFile.current.click()}>
                     <input
@@ -269,7 +237,8 @@ const BasicDetails = (props: InputProps) => {
 
                     <TextField
                         label="Your Logo"
-                        className="file-upload"
+                        className={props.submissionDetails.logoFile && props.submissionDetails.logoFile.name ? "file-upload file-selected" : "file-upload"}
+                        // className="file-upload"
                         variant="outlined"
                         defaultValue="Select a File"
                         value={props.submissionDetails.logoFile ? props.submissionDetails.logoFile.name : "Select a File"}
@@ -292,9 +261,7 @@ const BasicDetails = (props: InputProps) => {
             <p>sector: {props.submissionDetails.sector}</p> */}
 
             <div className="button-wrapper">
-                {/* <button className="ain-button back" onClick={() => history.push('/')}>Back</button> */}
-                <button className="ain-button next" disabled={!checkValuesComplete()} onClick={goToNextStep}>Next</button>
-                {/* <button className="ain-button next" disabled={!checkValuesComplete()} onClick={props.increaseStepNumber}>Next</button> */}
+                <button className="ain-button next" disabled={!checkValuesComplete()} onClick={() => props.increaseStepNumber()}>Next</button>
             </div>
         </section>
     )

@@ -138,25 +138,50 @@ const useSubmissionDetails = () => {
     }
 
     const submitData = () => {
+        console.log(submissionDetails)
 
         return cloudinaryUpload(submissionDetails.logoFile, "", "").then(logoResult => {
             return cloudinaryUpload(submissionDetails.pitchDeckFile, "", "").then(pitchResult => {
                 return cloudinaryUpload(submissionDetails.financialsFile, "", "").then(financialsResult => {
                     return airtableApi.post(``, {
                         ...submissionDetails,
+                        preMoneyValuation: Number(submissionDetails.preMoneyValuation),
+                        amountRaising: Number(submissionDetails.amountRaising),
+                        currentCommitments: Number(submissionDetails.currentCommitments),
+                        previousRoundRaise: Number(submissionDetails.previousRoundRaise),
+                        previousValuation: Number(submissionDetails.previousValuation),
+                        foundersAverageSalary: Number(submissionDetails.foundersAverageSalary),
+                        foundersCount: Number(submissionDetails.foundersCount),
+                        employeesCount: Number(submissionDetails.employeesCount),
+                        twelveMonthSalaryForecast: Number(submissionDetails.twelveMonthSalaryForecast),
+                        twelveMonthHiresForecast: Number(submissionDetails.twelveMonthHiresForecast),
+                        cashRemaining: Number(submissionDetails.cashRemaining),
+                        monthsOfCashLeft: Number(submissionDetails.monthsOfCashLeft),
+                        monthlyBurnRate: Number(submissionDetails.monthlyBurnRate),
+                        companyDebt: Number(submissionDetails.companyDebt),
+                        cashRequiredToFinish: Number(submissionDetails.cashRequiredToFinish),
+                        monthsUntilRevenue: Number(submissionDetails.monthsUntilRevenue),
+                        monthlyRevenue: Number(submissionDetails.monthlyRevenue),
+                        twelveMonthProjectedRevenue: Number(submissionDetails.twelveMonthProjectedRevenue),
                         logoFile: [{ "url": logoResult.secure_url }],
                         pitchDeckFile: [{ "url": pitchResult.secure_url }],
                         financialsFile: [{ "url": financialsResult.secure_url }]
                     }).then((result) => {
-                        return { isSuccess: true }
+                        if (result.error){
+                            return { isSuccess: false, error: result.message }
+                        }else{
+                            return { isSuccess: true }
+                        }  
                     }).catch((err: Error) => {
-                        console.log(err)
                         return { isSuccess: false, error: err }
                     })
+                }).catch((err: Error) => {
+                    return { isSuccess: false, error: err }
                 })
+            }).catch((err: Error) => {
+                return { isSuccess: false, error: err }
             })
         }).catch((err: Error) => {
-            console.log(err)
             return { isSuccess: false, error: err }
         })
     }

@@ -57,6 +57,7 @@ const TeamDetails = (props: InputProps) => {
         { name: "isPreviousExits", isValid: true, helperText: "" },
         { name: "foundersCount", isValid: true, helperText: "" },
         { name: "employeesCount", isValid: true, helperText: "" },
+        { name: "twelveMonthSalaryForecast", isValid: true, helperText: "" },
         { name: "twelveMonthHiresForecast", isValid: true, helperText: "" },
         { name: "keyPositionsToHire", isValid: true, helperText: "" }
     ])
@@ -201,7 +202,7 @@ const TeamDetails = (props: InputProps) => {
                     required
                 />
                 <FormControl variant="outlined" className="" required>
-                    <InputLabel htmlFor="foundersAverageSalary">Forecase Total Salary Spend in Next 12 Months</InputLabel>
+                    <InputLabel htmlFor="twelveMonthSalaryForecast">Forecast Total Salary Spend in Next 12 Months</InputLabel>
                     <OutlinedInput
                         id="twelveMonthSalaryForecast"
                         name="twelveMonthSalaryForecast"
@@ -223,8 +224,8 @@ const TeamDetails = (props: InputProps) => {
                     value={props.submissionDetails.twelveMonthHiresForecast}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={!validationObject[5].isValid}
-                    helperText={!validationObject[5].isValid}
+                    error={!validationObject[6].isValid}
+                    helperText={!validationObject[6].isValid}
                     type="number"
                     InputProps={{ inputProps: { min: 0 } }}
                     required
@@ -238,8 +239,8 @@ const TeamDetails = (props: InputProps) => {
                     value={props.submissionDetails.keyPositionsToHire}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={!validationObject[6].isValid}
-                    helperText={!validationObject[6].isValid}
+                    error={!validationObject[7].isValid}
+                    helperText={!validationObject[7].isValid}
                     required
                 />
             </div>
