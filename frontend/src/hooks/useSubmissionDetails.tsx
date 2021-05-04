@@ -208,7 +208,6 @@ const useSubmissionDetails = () => {
             .catch(err => {
                 throw new Error(err);
             });
-
     }
 
     return {
