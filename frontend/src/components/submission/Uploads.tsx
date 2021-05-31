@@ -118,7 +118,7 @@ const Uploads = (props: InputProps) => {
 
                 <div className="field-wrapper" onClick={() => financialsFile.current.click()}>
                     <input
-                        // accept=".pdf"
+                        // accept=".pdf, .ppt, .pptx, .odp"
                         style={{ display: 'none' }}
                         type="file"
                         onChange={(event) => {

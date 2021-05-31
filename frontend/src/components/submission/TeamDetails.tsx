@@ -1,14 +1,10 @@
 import './teamDetails.scss'
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
-import { FormControl, FormHelperText, Input, InputAdornment, InputLabel, ListItem, MenuItem, OutlinedInput, Select } from '@material-ui/core';
+import { FormControl, FormHelperText, InputLabel, ListItem, OutlinedInput, Select } from '@material-ui/core';
 import NumberFormat from 'react-number-format';
-import { makeStyles } from '@material-ui/core/styles'
+import HelpIcon from '@material-ui/icons/Help';
+import Tooltip from '@material-ui/core/Tooltip';
 
 interface InputProps {
     stepNumber: number,
@@ -94,12 +90,12 @@ const TeamDetails = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.foundersAverageSalary ||
-            !props.submissionDetails.teamExperience  ||
-            !props.submissionDetails.isPreviousExits  || 
+            !props.submissionDetails.teamExperience ||
+            !props.submissionDetails.isPreviousExits ||
             !props.submissionDetails.foundersCount ||
             !props.submissionDetails.employeesCount ||
-            !props.submissionDetails.twelveMonthHiresForecast  || 
-            !props.submissionDetails.keyPositionsToHire ) {
+            !props.submissionDetails.twelveMonthHiresForecast ||
+            !props.submissionDetails.keyPositionsToHire) {
             return (false)
         } else {
             return (true)
@@ -120,40 +116,51 @@ const TeamDetails = (props: InputProps) => {
 
             <div className="input-wrapper">
 
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel htmlFor="foundersAverageSalary">Founders Average Salary</InputLabel>
-                    <OutlinedInput
-                        id="foundersAverageSalary"
-                        name="foundersAverageSalary"
-                        value={props.submissionDetails.foundersAverageSalary}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[0].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={185}
-                    />
-                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
-                </FormControl>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel htmlFor="foundersAverageSalary">Founders Average Salary</InputLabel>
+                        <OutlinedInput
+                            id="foundersAverageSalary"
+                            name="foundersAverageSalary"
+                            value={props.submissionDetails.foundersAverageSalary}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[0].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={185}
+                        />
+                        {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
+                    </FormControl>
+                    <Tooltip title="Total of all founder salaries divided by number of founders." enterDelay={200} leaveDelay={200}>
+                        <HelpIcon className="help-icon" />
+                    </Tooltip>
+                </div>
 
-                <FormControl variant="outlined" className="" required>
-                    <InputLabel id="team-experience-label">Team Experience</InputLabel>
-                    <Select
-                        labelId="team-experience-label"
-                        id="teamExperience"
-                        name="teamExperience"
-                        value={props.submissionDetails.teamExperience}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[1].isValid}
-                        label="Team Experience"
-                    >
-                        <ListItem value="1-5 years">1-5 years</ListItem>
-                        <ListItem value="5-10 years">5-10 years</ListItem>
-                        <ListItem value="10-15 years">10-15 years</ListItem>
-                        <ListItem value="15+ years">15+ years</ListItem>
-                    </Select>
-                    {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
-                </FormControl>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="" required>
+                        <InputLabel id="team-experience-label">Team Experience</InputLabel>
+                        <Select
+                            labelId="team-experience-label"
+                            id="teamExperience"
+                            name="teamExperience"
+                            value={props.submissionDetails.teamExperience}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[1].isValid}
+                            label="Team Experience"
+                        >
+                            <ListItem value="1-5 years">1-5 years</ListItem>
+                            <ListItem value="5-10 years">5-10 years</ListItem>
+                            <ListItem value="10-15 years">10-15 years</ListItem>
+                            <ListItem value="15+ years">15+ years</ListItem>
+                        </Select>
+                        {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
+                    </FormControl>
+                    <Tooltip title="Total years of relevant experience across your whole team combined" enterDelay={200} leaveDelay={200}>
+                        <HelpIcon className="help-icon" />
+                    </Tooltip>
+                </div>
+
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="previous-exits-label">Previous Exits</InputLabel>
                     <Select

@@ -72,7 +72,7 @@
     .title-wrapper {
         display: flex;
         flex-direction: column;
-        margin-bottom: 24px;
+        // margin-bottom: 24px;
         .title {
             font-size: 2em;
             font-weight: bold;
@@ -85,7 +85,7 @@
     }
 
     .intro-text {
-        margin-bottom: 24px;
+        margin-bottom: 36px;
     }
 
     .input-wrapper {
@@ -114,6 +114,16 @@
 
             &:nth-child(odd) {
                 margin-right: 12px;
+            }
+
+            .MuiFormControl-root{
+                flex-grow: 1;
+            }
+
+            .MuiSvgIcon-root.help-icon{
+                color: rgba(0, 0, 0, 0.54);
+                margin: 16px 2px 0 6px;
+                cursor: pointer;
             }
         }
     }

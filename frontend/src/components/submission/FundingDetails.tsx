@@ -1,13 +1,9 @@
 import './fundingDetails.scss'
 import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField'
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
-import { FormControl, FormHelperText, Input, InputAdornment, InputLabel, ListItem, MenuItem, OutlinedInput, Select } from '@material-ui/core';
+import { FormControl, FormHelperText, InputLabel, ListItem, OutlinedInput, Select } from '@material-ui/core';
 import NumberFormat from 'react-number-format';
+import HelpIcon from '@material-ui/icons/Help';
+import Tooltip from '@material-ui/core/Tooltip';
 
 interface InputProps {
     stepNumber: number,
@@ -114,23 +110,25 @@ const FundingDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel htmlFor="preMoneyValuation">Pre-Money Valuation</InputLabel>
-                    <OutlinedInput
-                        id="preMoneyValuation"
-                        name="preMoneyValuation"
-                        value={props.submissionDetails.preMoneyValuation}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[0].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={155}
-                    />
-                    {validationObject[0].helperText === "" ?
-                        <FormHelperText>&nbsp;</FormHelperText> :
-                        <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>
-                    }
-                </FormControl>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel htmlFor="preMoneyValuation">Pre-Money Valuation</InputLabel>
+                        <OutlinedInput
+                            id="preMoneyValuation"
+                            name="preMoneyValuation"
+                            value={props.submissionDetails.preMoneyValuation}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[0].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={155}
+                        />
+
+                            <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>
+                        
+                    </FormControl>
+                </div>
+
                 <FormControl variant="outlined" className="" required>
                     <InputLabel id="tax-benefits-label">Tax Benefits</InputLabel>
                     <Select
@@ -148,10 +146,9 @@ const FundingDetails = (props: InputProps) => {
                         <ListItem value="both">Both</ListItem>
                         <ListItem value="neither">Neither</ListItem>
                     </Select>
-                    {validationObject[1].helperText === "" ?
-                        <FormHelperText>&nbsp;</FormHelperText> :
+
                         <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>
-                    }
+                    
                 </FormControl>
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="amountRaising">Amount Raising</InputLabel>
@@ -165,10 +162,9 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={115}
                     />
-                    {validationObject[2].helperText === "" ?
-                        <FormHelperText>&nbsp;</FormHelperText> :
+
                         <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>
-                    }
+                    
                 </FormControl>
                 <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="currentCommitments">Current Commitments</InputLabel>
@@ -182,10 +178,9 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={160}
                     />
-                    {validationObject[3].helperText === "" ?
-                        <FormHelperText>&nbsp;</FormHelperText> :
+
                         <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>
-                    }
+                    
                 </FormControl>
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel id="market-size-label">Market Size</InputLabel>
@@ -209,29 +204,33 @@ const FundingDetails = (props: InputProps) => {
                         <ListItem value="£1bn - £5bn">£1bn - £5bn</ListItem>
                         <ListItem value="£5bn+">£5bn+</ListItem>
                     </Select>
-                    {validationObject[4].helperText === "" ?
-                        <FormHelperText>&nbsp;</FormHelperText> :
+
                         <FormHelperText style={{ "color": "red" }}>{validationObject[4].helperText}</FormHelperText>
-                    }
+                    
                 </FormControl>
 
-                <FormControl variant="outlined" className="" required>
-                    <InputLabel htmlFor="previousRoundRaise">Funding raised in previous round</InputLabel>
-                    <OutlinedInput
-                        id="previousRoundRaise"
-                        name="previousRoundRaise"
-                        value={props.submissionDetails.previousRoundRaise}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[5].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={240}
-                    />
-                    {validationObject[5].helperText === "" ?
-                        <FormHelperText>Enter £0 if this is your first round.</FormHelperText> :
-                        <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>
-                    }
-                </FormControl>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="" required>
+                        <InputLabel htmlFor="previousRoundRaise">Funding raised in previous round</InputLabel>
+                        <OutlinedInput
+                            id="previousRoundRaise"
+                            name="previousRoundRaise"
+                            value={props.submissionDetails.previousRoundRaise}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[5].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={240}
+                        />
+
+                            <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>
+                        
+                    </FormControl>
+                    <Tooltip title="Enter £0 if this is your first round." enterDelay={200} leaveDelay={200}>
+                        <HelpIcon className="help-icon" />
+                    </Tooltip>
+                </div>
+                <div className="form-control-wrapper">
                 <FormControl variant="outlined" className="margin-right" required>
                     <InputLabel htmlFor="previousValuation">Previous Valuation</InputLabel>
                     <OutlinedInput
@@ -244,11 +243,14 @@ const FundingDetails = (props: InputProps) => {
                         inputComponent={NumberFormatCustom}
                         labelWidth={140}
                     />
-                    {validationObject[6].helperText === "" ?
-                        <FormHelperText>Enter £0 if this is your first round.</FormHelperText> :
+
                         <FormHelperText style={{ "color": "red" }}>{validationObject[6].helperText}</FormHelperText>
-                    }
+                    
                 </FormControl>
+                <Tooltip title="Enter £0 if this is your first round." enterDelay={200} leaveDelay={200}>
+                        <HelpIcon className="help-icon" />
+                    </Tooltip>
+                </div>
             </div>
             <div className="button-wrapper">
                 <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>

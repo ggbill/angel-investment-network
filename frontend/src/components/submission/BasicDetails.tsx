@@ -224,7 +224,7 @@ const BasicDetails = (props: InputProps) => {
                 </FormControl>
                 <div className="field-wrapper" onClick={() => logoFile.current.click()}>
                     <input
-                        // accept=".pdf"
+                        accept="image/*"
                         style={{ display: 'none' }}
                         type="file"
                         onChange={(event) => {

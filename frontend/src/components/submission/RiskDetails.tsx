@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import { FormControl, FormHelperText, InputLabel, OutlinedInput } from '@material-ui/core';
 import NumberFormat from 'react-number-format';
+import HelpIcon from '@material-ui/icons/Help';
+import Tooltip from '@material-ui/core/Tooltip';
 
 interface InputProps {
     stepNumber: number,
@@ -73,9 +75,9 @@ const RiskDetails = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.cashRemaining ||
-            !props.submissionDetails.monthsOfCashLeft  ||
-            !props.submissionDetails.monthlyBurnRate  || 
-            !props.submissionDetails.companyDebt  ) {
+            !props.submissionDetails.monthsOfCashLeft ||
+            !props.submissionDetails.monthlyBurnRate ||
+            !props.submissionDetails.companyDebt) {
             return (false)
         } else {
             return (true)
@@ -124,20 +126,26 @@ const RiskDetails = (props: InputProps) => {
                     InputProps={{ inputProps: { min: 0 } }}
                     required
                 />
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel htmlFor="monthlyBurnRate">Monthly Burn Rate</InputLabel>
-                    <OutlinedInput
-                        id="monthlyBurnRate"
-                        name="monthlyBurnRate"
-                        value={props.submissionDetails.monthlyBurnRate}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[2].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={140}
-                    />
-                    {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
-                </FormControl>
+
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel htmlFor="monthlyBurnRate">Monthly Burn Rate</InputLabel>
+                        <OutlinedInput
+                            id="monthlyBurnRate"
+                            name="monthlyBurnRate"
+                            value={props.submissionDetails.monthlyBurnRate}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[2].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={140}
+                        />
+                        {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
+                    </FormControl>
+                    <Tooltip title="If you are not yet profitable, what is your average loss each month? If profitable, congrats! Put £0." enterDelay={200} leaveDelay={200}>
+                        <HelpIcon className="help-icon" />
+                    </Tooltip>
+                </div>
                 <FormControl variant="outlined" className="" required>
                     <InputLabel htmlFor="companyDebt">Company debt</InputLabel>
                     <OutlinedInput

@@ -96,7 +96,7 @@ const ExtrasDetails = (props: InputProps) => {
         setIsLoading(true)
         props.submitData().then(result => {
             if(result.isSuccess){
-                handleSuccessDialogOpen("Success", "Your submission was successful.")
+                handleSuccessDialogOpen("Success", "Thank you for submitting your raise, we will review and come back to you as soon as possible.")
                 setIsLoading(false)
             }else{
                 handleErrorDialogOpen("Error", result.error)
