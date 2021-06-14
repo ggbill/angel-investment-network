@@ -121,17 +121,46 @@ const ForecastDetails = (props: InputProps) => {
         props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
     }
 
+    // const checkValuesComplete = (): boolean => {
+    //     if (!props.submissionDetails.stage ||
+    //         (!props.submissionDetails.cashRequiredToFinish && props.submissionDetails.stage !== "Achieving Sales" && props.submissionDetails.stage !== "Breaking Even" && props.submissionDetails.stage !== "Profitable" && props.submissionDetails.stage !== "Finished Product") ||
+    //         (!props.submissionDetails.monthsUntilRevenue && props.submissionDetails.stage !== "Achieving Sales" && props.submissionDetails.stage !== "Breaking Even" && props.submissionDetails.stage !== "Profitable") ||
+    //         !props.submissionDetails.startOfFinancialYear ||
+    //         !props.submissionDetails.monthlyRevenue ||
+    //         !props.submissionDetails.twelveMonthProjectedRevenue
+    //     ) {
+    //         return (false)
+    //     } else {
+    //         return (true)
+    //     }
+    // }
+
     const checkValuesComplete = (): boolean => {
-        if (!props.submissionDetails.stage ||
+        let isValuesValid = true
+        let isAllValuesComplete = false
+        validationObject.forEach(element => {
+            if (!element.isValid) {
+                isValuesValid = false
+            }
+        });
+
+        if (
+            !props.submissionDetails.stage ||
             (!props.submissionDetails.cashRequiredToFinish && props.submissionDetails.stage !== "Achieving Sales" && props.submissionDetails.stage !== "Breaking Even" && props.submissionDetails.stage !== "Profitable" && props.submissionDetails.stage !== "Finished Product") ||
             (!props.submissionDetails.monthsUntilRevenue && props.submissionDetails.stage !== "Achieving Sales" && props.submissionDetails.stage !== "Breaking Even" && props.submissionDetails.stage !== "Profitable") ||
             !props.submissionDetails.startOfFinancialYear ||
             !props.submissionDetails.monthlyRevenue ||
             !props.submissionDetails.twelveMonthProjectedRevenue
-        ) {
-            return (false)
+            ) {
+            isAllValuesComplete = false
         } else {
-            return (true)
+            isAllValuesComplete = true
+        }
+
+        if (isAllValuesComplete && isValuesValid) {
+            return true
+        } else {
+            return false
         }
     }
 
