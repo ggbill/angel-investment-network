@@ -35,8 +35,6 @@ const Submission = () => {
         })
     }
 
-
-
     return (
         <div className="submission-page">
             <div className="content">

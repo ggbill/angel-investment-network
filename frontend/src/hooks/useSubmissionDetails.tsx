@@ -138,9 +138,10 @@ const useSubmissionDetails = () => {
     }
 
     const submitData = () => {
-        console.log(submissionDetails)
+        // console.log(submissionDetails)
 
         return cloudinaryUpload(submissionDetails.logoFile, "", "").then(logoResult => {
+            console.log(logoResult)
             return cloudinaryUpload(submissionDetails.pitchDeckFile, "", "").then(pitchResult => {
                 return cloudinaryUpload(submissionDetails.financialsFile, "", "").then(financialsResult => {
                     return airtableApi.post(``, {
@@ -163,9 +164,9 @@ const useSubmissionDetails = () => {
                         monthsUntilRevenue: Number(submissionDetails.monthsUntilRevenue),
                         monthlyRevenue: Number(submissionDetails.monthlyRevenue),
                         twelveMonthProjectedRevenue: Number(submissionDetails.twelveMonthProjectedRevenue),
-                        logoFile: [{ "url": logoResult.secure_url }],
-                        pitchDeckFile: [{ "url": pitchResult.secure_url }],
-                        financialsFile: [{ "url": financialsResult.secure_url }]
+                        logoFile: logoResult ? [{ "url": logoResult.secure_url }] : null,
+                        pitchDeckFile: pitchResult ?  [{ "url": pitchResult.secure_url }] : null,
+                        financialsFile: financialsResult ? [{ "url": financialsResult.secure_url }] : null
                     }).then((result) => {
                         if (result.error){
                             return { isSuccess: false, error: result.message }
@@ -189,25 +190,34 @@ const useSubmissionDetails = () => {
 
     const cloudinaryUpload = (file: any, companyName, email) => {
 
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", "wb88wjmq");
-        formData.append("folder", "AIN Brokerage Form");
-        formData.append("tags", `${companyName}, ${email}`);
+        // console.log(file)
 
-        return fetch("https://api.cloudinary.com/v1_1/venture-assembly/raw/upload", {
-            method: "POST",
-            body: formData
-        })
-            .then(response => {
-                return response.json()
+        if (file && file.name){
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", "wb88wjmq");
+            formData.append("folder", "AIN Brokerage Form");
+            formData.append("tags", `${companyName}, ${email}`);
+    
+            return fetch("https://api.cloudinary.com/v1_1/venture-assembly/raw/upload", {
+                method: "POST",
+                body: formData
             })
-            .then(json => {
-                return json
-            })
-            .catch(err => {
-                throw new Error(err);
+                .then(response => {
+                    return response.json()
+                })
+                .then(json => {
+                    return json
+                })
+                .catch(err => {
+                    throw new Error(err);
+                });
+        }else{
+            // console.log(JSON.parse("no file"))
+            return new Promise((resolve: (result) => void, reject: (error: Error) => void) => {
+                resolve(null)
             });
+        }
     }
 
     return {

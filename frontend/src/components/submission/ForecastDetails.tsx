@@ -74,6 +74,28 @@ const ForecastDetails = (props: InputProps) => {
     }
 
     const handleFinancialYearDateChange = (date) => {
+        let tempValidationObject = [...validationObject]
+        if (date) {
+            tempValidationObject.forEach(element => {
+                if (element.name === "startOfFinancialYear") {
+                    if (!Date.parse(date)) {
+                        element.isValid = false
+                        element.helperText = "Invalid date."
+                    } else {
+                        element.isValid = true
+                        element.helperText = ""
+                    }
+                }
+            });
+        } else {
+            tempValidationObject.forEach(element => {
+                if ("startOfFinancialYear" === element.name) {
+                    element.isValid = false
+                    element.helperText = "Please fill me in!"
+                }
+            });
+        }
+        setValidationObject(tempValidationObject)
         props.setSubmissionDetails({ ...props.submissionDetails, startOfFinancialYear: date })
     };
 
@@ -210,7 +232,7 @@ const ForecastDetails = (props: InputProps) => {
                             label="Start of financial year"
                             value={props.submissionDetails.startOfFinancialYear}
                             onChange={handleFinancialYearDateChange}
-                            onBlur={handleBlur}
+                            // onBlur={handleBlur}
                             KeyboardButtonProps={{
                                 'aria-label': 'change date',
                             }}
