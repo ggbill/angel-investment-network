@@ -58,7 +58,7 @@
     cursor: unset;
 }
 
-.MuiPopover-paper{
+.MuiPopover-paper {
     cursor: pointer;
 }
 
@@ -101,12 +101,22 @@
                 }
             }
 
-            &.file-selected .MuiInputBase-input{
-                color: black
+            &.file-selected .MuiInputBase-input {
+                color: black;
             }
         }
 
-        >* {
+        .column-wrapper {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+
+            .MuiIconButton-colorSecondary {
+                color: #3b7cee;
+            }
+        }
+
+        > * {
             display: inline-flex;
 
             width: calc(50% - 6px);
@@ -116,14 +126,21 @@
                 margin-right: 12px;
             }
 
-            .MuiFormControl-root{
+            .MuiFormControl-root {
                 flex-grow: 1;
             }
 
-            .MuiSvgIcon-root.help-icon{
-                color: rgba(0, 0, 0, 0.54);
-                margin: 16px 2px 0 6px;
-                cursor: pointer;
+            .help-icon-wrapper {
+                width: 32px;
+                .MuiSvgIcon-root.help-icon {
+                    color: rgba(0, 0, 0, 0.54);
+                    margin: 16px 2px 0 6px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: rgba(0, 0, 0, 0.7);
+                    }
+                }
             }
         }
     }
@@ -140,7 +157,7 @@
             display: flex;
             flex-direction: column;
             padding-bottom: 24px;
-            >* {
+            > * {
                 width: 100%;
                 margin: 0 0 12px 0;
             }

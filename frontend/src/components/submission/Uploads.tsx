@@ -6,8 +6,9 @@ import {
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
-import { FormControl, FormHelperText, InputLabel, ListItem, Select } from '@material-ui/core';
+import { FormControl, FormControlLabel, Checkbox, FormHelperText, InputLabel, ListItem, Select } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
+
 
 interface InputProps {
     stepNumber: number,
@@ -22,17 +23,12 @@ const Uploads = (props: InputProps) => {
 
     const [validationObject, setValidationObject] = useState<App.ValidationObject[]>([
         { name: "pitchDeckFile", isValid: true, helperText: "" },
-        { name: "financialsFile", isValid: true, helperText: "" },
+        // { name: "financialsFile", isValid: true, helperText: "" },
     ])
+    const [isNeedPitchDeck, setIsNeedPitchDeck] = useState<boolean>(false)
 
-    const history = useHistory();
     const pitchDeckFile: any = useRef(null)
     const financialsFile: any = useRef(null)
-
-    const handleChange = (event) => {
-        const { name, value } = event.target
-        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
-    }
 
     const handleBlur = (event) => {
         const { name, value } = event.target
@@ -62,15 +58,29 @@ const Uploads = (props: InputProps) => {
     };
 
     const checkValuesComplete = (): boolean => {
-        if (!props.submissionDetails.pitchDeckFile ||
-            !props.submissionDetails.pitchDeckFile.name ||
-            !props.submissionDetails.financialsFile ||
-            !props.submissionDetails.financialsFile.name) {
-            return (false)
-        } else {
+        if (isNeedPitchDeck) {
             return (true)
+        } else {
+            if (!props.submissionDetails.pitchDeckFile ||
+                !props.submissionDetails.pitchDeckFile.name
+            ) {
+                return (false)
+            } else {
+                return (true)
+            }
         }
     }
+    // const checkValuesComplete = (): boolean => {
+    //     if (!props.submissionDetails.pitchDeckFile ||
+    //         !props.submissionDetails.pitchDeckFile.name
+    //         // !props.submissionDetails.financialsFile ||
+    //         // !props.submissionDetails.financialsFile.name
+    //         ) {
+    //         return (false)
+    //     } else {
+    //         return (true)
+    //     }
+    // }
 
     const goToNextStep = () => {
         props.increaseStepNumber()
@@ -89,34 +99,44 @@ const Uploads = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <div className="field-wrapper" onClick={() => pitchDeckFile.current.click()}>
-                    <input
-                        // accept=".pdf"
-                        style={{ display: 'none' }}
-                        type="file"
-                        onChange={(event) => {
-                            if (!event.target.files) return
-                            // setReviewDetails({ ...reviewDetails, pitchDeckFile: event.target.files[0] })
-                            props.setSubmissionDetails({ ...props.submissionDetails, pitchDeckFile: event.target.files[0] })
-                        }}
-                        ref={pitchDeckFile}
-                    />
+                <div className="field-wrapper form-control-wrapper" >
 
-                    <TextField
-                        label="Your Pitch Deck"
-                        variant="outlined"
-                        className="file-upload"
-                        defaultValue="Select a File"
-                        value={props.submissionDetails.pitchDeckFile ? props.submissionDetails.pitchDeckFile.name : "Select a File"}
-                        disabled
-                        required
-                        fullWidth
-                        error={!validationObject[0].isValid}
-                        helperText={validationObject[0].helperText}
-                    />
+
+                    <div className="column-wrapper">
+                        <input
+                            // accept=".pdf"
+                            style={{ display: 'none' }}
+                            type="file"
+                            onChange={(event) => {
+                                if (!event.target.files) return
+                                // setReviewDetails({ ...reviewDetails, pitchDeckFile: event.target.files[0] })
+                                props.setSubmissionDetails({ ...props.submissionDetails, pitchDeckFile: event.target.files[0] })
+                            }}
+                            ref={pitchDeckFile}
+                        />
+                        <TextField
+                            onClick={() => pitchDeckFile.current.click()}
+                            label="Your Pitch Deck"
+                            variant="outlined"
+                            className="file-upload"
+                            defaultValue="Select a File"
+                            value={props.submissionDetails.pitchDeckFile ? props.submissionDetails.pitchDeckFile.name : "Select a File"}
+                            disabled
+                            required
+                            fullWidth
+                            error={!validationObject[0].isValid}
+                            helperText={validationObject[0].helperText}
+                        />
+                        <FormControlLabel
+                            control={<Checkbox checked={isNeedPitchDeck} onChange={() => setIsNeedPitchDeck(!isNeedPitchDeck)} name="checkedA" />}
+                            label="I don’t have a pitch deck yet"
+                        />
+                    </div>
+
+                    <div className="help-icon-wrapper"></div>
                 </div>
 
-                <div className="field-wrapper" onClick={() => financialsFile.current.click()}>
+                <div className="field-wrapper form-control-wrapper" onClick={() => financialsFile.current.click()}>
                     <input
                         // accept=".pdf, .ppt, .pptx, .odp"
                         style={{ display: 'none' }}
@@ -136,11 +156,12 @@ const Uploads = (props: InputProps) => {
                         defaultValue="Select a File"
                         value={props.submissionDetails.financialsFile ? props.submissionDetails.financialsFile.name : "Select a File"}
                         disabled
-                        required
+                        // required
                         fullWidth
-                        error={!validationObject[1].isValid}
-                        helperText={validationObject[1].helperText}
+                    // error={!validationObject[1].isValid}
+                    // helperText={validationObject[1].helperText}
                     />
+                    <div className="help-icon-wrapper"></div>
                 </div>
             </div>
 

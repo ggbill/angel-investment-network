@@ -131,9 +131,12 @@ const TeamDetails = (props: InputProps) => {
                         />
                         {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
                     </FormControl>
-                    <Tooltip title="Total of all founder salaries divided by number of founders." enterDelay={200} leaveDelay={200}>
-                        <HelpIcon className="help-icon" />
-                    </Tooltip>
+                    <div className="help-icon-wrapper">
+                        <Tooltip title="Total of all founder salaries divided by number of founders." enterDelay={200} leaveDelay={200}>
+                            <HelpIcon className="help-icon" />
+                        </Tooltip>
+                    </div>
+
                 </div>
 
                 <div className="form-control-wrapper">
@@ -156,100 +159,120 @@ const TeamDetails = (props: InputProps) => {
                         </Select>
                         {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
                     </FormControl>
-                    <Tooltip title="Total years of relevant experience across your whole team combined" enterDelay={200} leaveDelay={200}>
-                        <HelpIcon className="help-icon" />
-                    </Tooltip>
-                </div>
+                    <div className="help-icon-wrapper">
+                        <Tooltip title="Average industry experience of your founders." enterDelay={200} leaveDelay={200}>
+                            <HelpIcon className="help-icon" />
+                        </Tooltip>
+                    </div>
 
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel id="previous-exits-label">Previous Exits</InputLabel>
-                    <Select
-                        labelId="previous-exits-label"
-                        id="isPreviousExits"
-                        name="isPreviousExits"
-                        value={props.submissionDetails.isPreviousExits}
+                </div>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel id="previous-exits-label">Previous Exits</InputLabel>
+                        <Select
+                            labelId="previous-exits-label"
+                            id="isPreviousExits"
+                            name="isPreviousExits"
+                            value={props.submissionDetails.isPreviousExits}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[2].isValid}
+                            label="Previous Exits"
+                        >
+                            <ListItem value="false">No</ListItem>
+                            <ListItem value="true">Yes</ListItem>
+                        </Select>
+                        {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <TextField
+                        id="foundersCount"
+                        name="foundersCount"
+                        className=""
+                        label="Number of Founders"
+                        variant="outlined"
+                        value={props.submissionDetails.foundersCount}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={!validationObject[2].isValid}
-                        label="Previous Exits"
-                    >
-                        <ListItem value="false">No</ListItem>
-                        <ListItem value="true">Yes</ListItem>
-                    </Select>
-                    {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
-                </FormControl>
-                <TextField
-                    id="foundersCount"
-                    name="foundersCount"
-                    className=""
-                    label="Number of Founders"
-                    variant="outlined"
-                    value={props.submissionDetails.foundersCount}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={!validationObject[3].isValid}
-                    helperText={validationObject[3].helperText}
-                    type="number"
-                    InputProps={{ inputProps: { min: 1 } }}
-                    required
-                />
-                <TextField
-                    id="employeesCount"
-                    name="employeesCount"
-                    className="margin-right"
-                    label="Number of Employees Including Founders"
-                    variant="outlined"
-                    value={props.submissionDetails.employeesCount}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={!validationObject[4].isValid}
-                    helperText={!validationObject[4].isValid}
-                    type="number"
-                    InputProps={{ inputProps: { min: 1 } }}
-                    required
-                />
-                <FormControl variant="outlined" className="" required>
-                    <InputLabel htmlFor="twelveMonthSalaryForecast">Forecast Total Salary Spend in Next 12 Months</InputLabel>
-                    <OutlinedInput
-                        id="twelveMonthSalaryForecast"
-                        name="twelveMonthSalaryForecast"
-                        value={props.submissionDetails.twelveMonthSalaryForecast}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[5].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={345}
+                        error={!validationObject[3].isValid}
+                        helperText={validationObject[3].helperText}
+                        type="number"
+                        InputProps={{ inputProps: { min: 1 } }}
+                        required
                     />
-                    {validationObject[5].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>}
-                </FormControl>
-                <TextField
-                    id="twelveMonthHiresForecast"
-                    name="twelveMonthHiresForecast"
-                    className="margin-right"
-                    label="Number of Future Hires in Next 12 Months"
-                    variant="outlined"
-                    value={props.submissionDetails.twelveMonthHiresForecast}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={!validationObject[6].isValid}
-                    helperText={!validationObject[6].isValid}
-                    type="number"
-                    InputProps={{ inputProps: { min: 0 } }}
-                    required
-                />
-                <TextField
-                    id="keyPositionsToHire"
-                    name="keyPositionsToHire"
-                    className=""
-                    label="What Key Positions will you be Hiring"
-                    variant="outlined"
-                    value={props.submissionDetails.keyPositionsToHire}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={!validationObject[7].isValid}
-                    helperText={!validationObject[7].isValid}
-                    required
-                />
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <TextField
+                        id="employeesCount"
+                        name="employeesCount"
+                        className="margin-right"
+                        label="Number of Employees Including Founders"
+                        variant="outlined"
+                        value={props.submissionDetails.employeesCount}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[4].isValid}
+                        helperText={!validationObject[4].isValid}
+                        type="number"
+                        InputProps={{ inputProps: { min: 1 } }}
+                        required
+                    />
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="" required>
+                        <InputLabel htmlFor="twelveMonthSalaryForecast">Forecast Total Salary Spend in Next 12 Months</InputLabel>
+                        <OutlinedInput
+                            id="twelveMonthSalaryForecast"
+                            name="twelveMonthSalaryForecast"
+                            value={props.submissionDetails.twelveMonthSalaryForecast}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[5].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={345}
+                        />
+                        {validationObject[5].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[5].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <TextField
+                        id="twelveMonthHiresForecast"
+                        name="twelveMonthHiresForecast"
+                        className="margin-right"
+                        label="Number of Future Hires in Next 12 Months"
+                        variant="outlined"
+                        value={props.submissionDetails.twelveMonthHiresForecast}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[6].isValid}
+                        helperText={!validationObject[6].isValid}
+                        type="number"
+                        InputProps={{ inputProps: { min: 0 } }}
+                        required
+                    />
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <TextField
+                        id="keyPositionsToHire"
+                        name="keyPositionsToHire"
+                        className=""
+                        label="What Key Positions will you be Hiring"
+                        variant="outlined"
+                        value={props.submissionDetails.keyPositionsToHire}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={!validationObject[7].isValid}
+                        helperText={!validationObject[7].isValid}
+                        required
+                    />
+                    <div className="help-icon-wrapper"></div>
+                </div>
             </div>
             <div className="button-wrapper">
                 <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>

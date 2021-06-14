@@ -97,36 +97,41 @@ const RiskDetails = (props: InputProps) => {
 
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel htmlFor="cashRemaining">Cash remaining in company account</InputLabel>
-                    <OutlinedInput
-                        id="cashRemaining"
-                        name="cashRemaining"
-                        value={props.submissionDetails.cashRemaining}
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel htmlFor="cashRemaining">Cash remaining in company account</InputLabel>
+                        <OutlinedInput
+                            id="cashRemaining"
+                            name="cashRemaining"
+                            value={props.submissionDetails.cashRemaining}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[0].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={265}
+                        />
+                        {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <TextField
+                        id="monthsOfCashLeft"
+                        name="monthsOfCashLeft"
+                        type="number"
+                        className=""
+                        label="Months of cash left"
+                        variant="outlined"
+                        value={props.submissionDetails.monthsOfCashLeft}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={!validationObject[0].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={265}
+                        error={!validationObject[1].isValid}
+                        helperText={!validationObject[1].isValid}
+                        InputProps={{ inputProps: { min: 0 } }}
+                        required
                     />
-                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
-                </FormControl>
-                <TextField
-                    id="monthsOfCashLeft"
-                    name="monthsOfCashLeft"
-                    type="number"
-                    className=""
-                    label="Months of cash left"
-                    variant="outlined"
-                    value={props.submissionDetails.monthsOfCashLeft}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={!validationObject[1].isValid}
-                    helperText={!validationObject[1].isValid}
-                    InputProps={{ inputProps: { min: 0 } }}
-                    required
-                />
-
+                    <div className="help-icon-wrapper"></div>
+                </div>
                 <div className="form-control-wrapper">
                     <FormControl variant="outlined" className="margin-right" required>
                         <InputLabel htmlFor="monthlyBurnRate">Monthly Burn Rate</InputLabel>
@@ -142,24 +147,31 @@ const RiskDetails = (props: InputProps) => {
                         />
                         {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
                     </FormControl>
-                    <Tooltip title="If you are not yet profitable, what is your average loss each month? If profitable, congrats! Put £0." enterDelay={200} leaveDelay={200}>
+                    <div className="help-icon-wrapper">
+                       <Tooltip title="If you are not yet profitable, what is your average loss each month? If profitable, congrats! Put £0." enterDelay={200} leaveDelay={200}>
                         <HelpIcon className="help-icon" />
-                    </Tooltip>
+                    </Tooltip>  
+                    </div> 
                 </div>
-                <FormControl variant="outlined" className="" required>
-                    <InputLabel htmlFor="companyDebt">Company debt</InputLabel>
-                    <OutlinedInput
-                        id="companyDebt"
-                        name="companyDebt"
-                        value={props.submissionDetails.companyDebt}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[3].isValid}
-                        inputComponent={NumberFormatCustom}
-                        labelWidth={110}
-                    />
-                    {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
-                </FormControl>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="" required>
+                        <InputLabel htmlFor="companyDebt">Company debt</InputLabel>
+                        <OutlinedInput
+                            id="companyDebt"
+                            name="companyDebt"
+                            value={props.submissionDetails.companyDebt}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[3].isValid}
+                            inputComponent={NumberFormatCustom}
+                            labelWidth={110}
+                        />
+                        {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+
+
             </div>
             <div className="button-wrapper">
                 <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>

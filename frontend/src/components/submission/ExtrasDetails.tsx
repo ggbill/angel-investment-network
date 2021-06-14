@@ -73,7 +73,7 @@ const ExtrasDetails = (props: InputProps) => {
     };
 
     const handleClose = () => {
-        if (dialogType === "success"){
+        if (dialogType === "success") {
             props.setStepNumber(1)
             props.clearValues()
         }
@@ -82,9 +82,9 @@ const ExtrasDetails = (props: InputProps) => {
 
     const checkValuesComplete = (): boolean => {
         if (!props.submissionDetails.isMovingOffice ||
-        !props.submissionDetails.isLawyerInPlace ||
-        !props.submissionDetails.isLookingForChairman ||
-        !props.submissionDetails.isMissionDriven 
+            !props.submissionDetails.isLawyerInPlace ||
+            !props.submissionDetails.isLookingForChairman ||
+            !props.submissionDetails.isMissionDriven
         ) {
             return (false)
         } else {
@@ -95,14 +95,14 @@ const ExtrasDetails = (props: InputProps) => {
     const submitData = () => {
         setIsLoading(true)
         props.submitData().then(result => {
-            if(result.isSuccess){
+            if (result.isSuccess) {
                 handleSuccessDialogOpen("Success", "Thank you for submitting your raise, we will review and come back to you as soon as possible.")
                 setIsLoading(false)
-            }else{
+            } else {
                 handleErrorDialogOpen("Error", result.error)
                 setIsLoading(false)
             }
-        })   
+        })
     }
 
     return (
@@ -117,89 +117,105 @@ const ExtrasDetails = (props: InputProps) => {
             </div>
 
             <div className="input-wrapper">
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel id="moving-office-label">Will you be moving office in the next 12 months?</InputLabel>
-                    <Select
-                        labelId="moving-office-label"
-                        id="isMovingOffice"
-                        name="isMovingOffice"
-                        value={props.submissionDetails.isMovingOffice}
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel id="moving-office-label">Will you be moving office in the next 12 months?</InputLabel>
+                        <Select
+                            labelId="moving-office-label"
+                            id="isMovingOffice"
+                            name="isMovingOffice"
+                            value={props.submissionDetails.isMovingOffice}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[0].isValid}
+                            label="Will you be moving office in the next 12 months?"
+                        >
+                            <ListItem value="false">No</ListItem>
+                            <ListItem value="true">Yes</ListItem>
+                        </Select>
+                        {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="" required>
+                        <InputLabel id="lawyer-label">Do you have a lawyer or termsheet in place?</InputLabel>
+                        <Select
+                            labelId="lawyer-label"
+                            id="isLawyerInPlace"
+                            name="isLawyerInPlace"
+                            value={props.submissionDetails.isLawyerInPlace}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[1].isValid}
+                            label="Do you have a lawyer or termsheet in place?"
+                        >
+                            <ListItem value="false">No</ListItem>
+                            <ListItem value="true">Yes</ListItem>
+                        </Select>
+                        {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel id="chairman-label">Are you looking for a chairman?</InputLabel>
+                        <Select
+                            labelId="chairman-label"
+                            id="isLookingForChairman"
+                            name="isLookingForChairman"
+                            value={props.submissionDetails.isLookingForChairman}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[2].isValid}
+                            label="Are you looking for a chairman?"
+                        >
+                            <ListItem value="false">No</ListItem>
+                            <ListItem value="true">Yes</ListItem>
+                        </Select>
+                        {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <TextField
+                        id="extraHelp"
+                        name="extraHelp"
+                        className=""
+                        label="Is there anything outside of fundraising we can help you with?"
+                        variant="outlined"
+                        value={props.submissionDetails.extraHelp}
                         onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[0].isValid}
-                        label="Will you be moving office in the next 12 months?"
-                    >
-                        <ListItem value="false">No</ListItem>
-                        <ListItem value="true">Yes</ListItem>
-                    </Select>
-                    {validationObject[0].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[0].helperText}</FormHelperText>}
-                </FormControl>
-                <FormControl variant="outlined" className="" required>
-                    <InputLabel id="lawyer-label">Do you have a lawyer or termsheet in place?</InputLabel>
-                    <Select
-                        labelId="lawyer-label"
-                        id="isLawyerInPlace"
-                        name="isLawyerInPlace"
-                        value={props.submissionDetails.isLawyerInPlace}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[1].isValid}
-                        label="Do you have a lawyer or termsheet in place?"
-                    >
-                        <ListItem value="false">No</ListItem>
-                        <ListItem value="true">Yes</ListItem>
-                    </Select>
-                    {validationObject[1].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[1].helperText}</FormHelperText>}
-                </FormControl>
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel id="chairman-label">Are you looking for a chairman?</InputLabel>
-                    <Select
-                        labelId="chairman-label"
-                        id="isLookingForChairman"
-                        name="isLookingForChairman"
-                        value={props.submissionDetails.isLookingForChairman}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[2].isValid}
-                        label="Are you looking for a chairman?"
-                    >
-                        <ListItem value="false">No</ListItem>
-                        <ListItem value="true">Yes</ListItem>
-                    </Select>
-                    {validationObject[2].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[2].helperText}</FormHelperText>}
-                </FormControl>
-                <TextField
-                    id="extraHelp"
-                    name="extraHelp"
-                    className=""
-                    label="Is there anything outside of fundraising we can help you with?"
-                    variant="outlined"
-                    value={props.submissionDetails.extraHelp}
-                    onChange={handleChange}
-                />
-                <FormControl variant="outlined" className="margin-right" required>
-                    <InputLabel id="mission-label">Are you a mission driven company?</InputLabel>
-                    <Select
-                        labelId="mission-label"
-                        id="isMissionDriven"
-                        name="isMissionDriven"
-                        value={props.submissionDetails.isMissionDriven}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={!validationObject[3].isValid}
-                        label="Are you a mission driven company?"
+                    />
+                    <div className="help-icon-wrapper"></div>
+                </div>
+                <div className="form-control-wrapper">
+                    <FormControl variant="outlined" className="margin-right" required>
+                        <InputLabel id="mission-label">Are you a mission driven company?</InputLabel>
+                        <Select
+                            labelId="mission-label"
+                            id="isMissionDriven"
+                            name="isMissionDriven"
+                            value={props.submissionDetails.isMissionDriven}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={!validationObject[3].isValid}
+                            label="Are you a mission driven company?"
 
-                    >
-                        <ListItem value="false">No</ListItem>
-                        <ListItem value="true">Yes</ListItem>
-                    </Select>
-                    {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
-                </FormControl>
+                        >
+                            <ListItem value="false">No</ListItem>
+                            <ListItem value="true">Yes</ListItem>
+                        </Select>
+                        {validationObject[3].helperText && <FormHelperText style={{ "color": "red" }}>{validationObject[3].helperText}</FormHelperText>}
+                    </FormControl>
+                    <div className="help-icon-wrapper"></div>
+                </div>
+
             </div>
             <div className="button-wrapper">
                 <button className="ain-button back" onClick={props.decreaseStepNumber}>Back</button>
                 <button className="ain-button next" disabled={isLoading || !checkValuesComplete()} onClick={submitData}>
-                    {isLoading ? <CircularProgress /> : <span>Submit</span> }
+                    {isLoading ? <CircularProgress /> : <span>Submit</span>}
                 </button>
             </div>
 
