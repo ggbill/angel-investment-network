@@ -21,7 +21,7 @@ const Footer = (props: InputProps) => {
                 {/* <Link to={'/'}>
                     <img alt="" src={Logo} />
                 </Link> */}
-                <span>Broking Submission Form</span>
+                <span>Venture Submission Tool</span>
                 {/* <br/> */}
                 <span>© 2021</span> 
 
