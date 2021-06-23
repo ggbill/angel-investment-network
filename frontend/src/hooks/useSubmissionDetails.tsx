@@ -140,7 +140,7 @@ const useSubmissionDetails = () => {
     const submitData = () => {
         // console.log(submissionDetails)
         return cloudinaryUpload(submissionDetails.logoFile, "", "").then(logoResult => {
-            console.log(logoResult)
+            // console.log(logoResult)
             return cloudinaryUpload(submissionDetails.pitchDeckFile, "", "").then(pitchResult => {
                 return cloudinaryUpload(submissionDetails.financialsFile, "", "").then(financialsResult => {
                     return airtableApi.post(``, {
@@ -187,8 +187,8 @@ const useSubmissionDetails = () => {
         })
     }
 
-    let unixFoundedDate = submissionDetails.foundedDate ? Math.round(submissionDetails.foundedDate!.getTime() / 1000) : null
-    let unixStartOfFinancialYear = submissionDetails.startOfFinancialYear ? Math.round(submissionDetails.startOfFinancialYear!.getTime() / 1000) : null
+    let unixFoundedDate = submissionDetails.foundedDate ? Math.round(new Date(submissionDetails.foundedDate!).getTime() / 1000) : null
+    let unixStartOfFinancialYear = submissionDetails.startOfFinancialYear ? Math.round(new Date(submissionDetails.startOfFinancialYear!).getTime() / 1000) : null
 
     let stage = 0
     let industry = 0
@@ -334,7 +334,8 @@ const useSubmissionDetails = () => {
                 body: formData
             })
                 .then(response => {
-                    console.log(response)
+                    // console.log(response)
+                    return response
                 })
                 .catch(err => {
                     console.log(err)
