@@ -7,7 +7,7 @@ import RiskDetails from './RiskDetails'
 import ForecastDetails from './ForecastDetails'
 import ExtrasDetails from './ExtrasDetails'
 import Uploads from './Uploads'
-import useFetch from '../../hooks/useFetch'
+// import useFetch from '../../hooks/useFetch'
 import useSubmissionDetails from '../../hooks/useSubmissionDetails'
 
 
@@ -17,7 +17,7 @@ const Submission = () => {
 
     const { submissionDetails, setSubmissionDetails, prepopulateValues, clearValues, submitData } = useSubmissionDetails()
     const totalSteps = 8
-    const airtableApi = useFetch("submissions")
+    // const airtableApi = useFetch("submissions")
 
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
