@@ -253,7 +253,7 @@ const useSubmissionDetails = () => {
     const submitDataToAinApi = () => {
         const formData = new FormData();
             formData.append("user_id", '406773');
-            formData.append("project_name", 'developer_test_project');
+            formData.append("project_name", String(submissionDetails.companyName));
             formData.append("valuation", String(submissionDetails.preMoneyValuation));
             formData.append("tax_relief", String(submissionDetails.taxBenefits));
             formData.append("raising", String(submissionDetails.amountRaising));
