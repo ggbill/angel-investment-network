@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useFetch from './useFetch'
 
+
 const useSubmissionDetails = () => {
 
     const [submissionDetails, setSubmissionDetails] = useState<App.SubmissionDetails>({
