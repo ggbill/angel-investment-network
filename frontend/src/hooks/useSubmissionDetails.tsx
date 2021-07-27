@@ -43,7 +43,8 @@ const useSubmissionDetails = () => {
         isMissionDriven: null,
         logoFile: {} as File,
         pitchDeckFile: {} as File,
-        financialsFile: {} as File
+        financialsFile: {} as File,
+        owner: ""
     })
 
     const airtableApi = useFetch("submissions")
@@ -90,6 +91,7 @@ const useSubmissionDetails = () => {
             logoFile: null,
             pitchDeckFile: null,
             financialsFile: null,
+            owner: ""
         })
     }
     const clearValues = () => {
@@ -133,12 +135,13 @@ const useSubmissionDetails = () => {
             isMissionDriven: null,
             logoFile: {} as File,
             pitchDeckFile: {} as File,
-            financialsFile: {} as File
+            financialsFile: {} as File,
+            owner: ""
         })
     }
 
     const submitData = () => {
-        // console.log(submissionDetails)
+        console.log(submissionDetails)
         return cloudinaryUpload(submissionDetails.logoFile, "", "").then(logoResult => {
             // console.log(logoResult)
             return cloudinaryUpload(submissionDetails.pitchDeckFile, "", "").then(pitchResult => {
@@ -170,6 +173,7 @@ const useSubmissionDetails = () => {
                         if (result.error){
                             return { isSuccess: false, error: result.message }
                         }else{
+                            // console.log(result)
                             submitDataToAinApi()
                             return { isSuccess: true }
                         }  

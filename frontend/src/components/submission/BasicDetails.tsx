@@ -8,6 +8,8 @@ import {
 import MomentUtils from '@date-io/moment';
 import { FormControl, FormHelperText, InputLabel, ListItem, Select } from '@material-ui/core';
 
+
+
 interface InputProps {
     stepNumber: number,
     totalSteps: number,
@@ -151,6 +153,7 @@ const BasicDetails = (props: InputProps) => {
             <div className="title-wrapper">
                 <span className="step-counter">(Step {props.stepNumber} / {props.totalSteps - 1}) </span>
                 <span className="title">The basics. 💻</span>
+                {/* <span className="title">Owner: {JSON.stringify(owner)}</span> */}
             </div>
 
             <div className="intro-text">

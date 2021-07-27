@@ -8,8 +8,6 @@ var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appn4fdN
 
 router.post('/', async (request: Request, response: Response) => {
 
-    // console.log(request.body.logoFile)
-
     base('Submission Data').create([
         {
           "fields": {
@@ -46,8 +44,13 @@ router.post('/', async (request: Request, response: Response) => {
               "isMissionDriven": request.body.isMissionDriven === "true" ? true : false,
               "logo": request.body.logoFile,
               "pitchDeck": request.body.pitchDeckFile,
-              "financials": request.body.financialsFile
-
+              "financials": request.body.financialsFile,
+              "teamExperience": request.body.teamExperience,
+              "isPreviousExits": request.body.isPreviousExits === "true" ? true : false,
+              "monthsOfCashLeft": request.body.monthsOfCashLeft,
+              "monthlyBurnRate": request.body.monthlyBurnRate,
+              "companyDebt": request.body.companyDebt,
+              "submissionOwner": request.body.owner
           }
         }
       ], function(err, records) {

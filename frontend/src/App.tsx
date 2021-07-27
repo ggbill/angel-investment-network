@@ -2,10 +2,11 @@ import React from 'react'
 import { Router, Route, Switch } from "react-router-dom"
 import './App.scss'
 import HttpsRedirect from 'react-https-redirect'
-import Home from './components/home/Home'
+// import Home from './components/home/Home'
 import Footer from './components/shared/Footer'
 import { createBrowserHistory } from 'history'
 import Submission from './components/submission/Submission'
+
 
 const history = createBrowserHistory();
 

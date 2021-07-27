@@ -40,6 +40,7 @@ declare module App {
         logoFile: any,
         pitchDeckFile: any,
         financialsFile: any,
+        owner: string | null
     }
 
     interface ValidationObject {

@@ -1,5 +1,5 @@
 import './submission.scss'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BasicDetails from './BasicDetails'
 import FundingDetails from './FundingDetails'
 import TeamDetails from './TeamDetails'
@@ -9,6 +9,8 @@ import ExtrasDetails from './ExtrasDetails'
 import Uploads from './Uploads'
 // import useFetch from '../../hooks/useFetch'
 import useSubmissionDetails from '../../hooks/useSubmissionDetails'
+import { useLocation } from 'react-router-dom'
+import queryString from 'query-string'
 
 
 const Submission = () => {
@@ -18,6 +20,9 @@ const Submission = () => {
     const { submissionDetails, setSubmissionDetails, prepopulateValues, clearValues, submitData } = useSubmissionDetails()
     const totalSteps = 8
     // const airtableApi = useFetch("submissions")
+
+    const { search } = useLocation();
+    const { owner } = queryString.parse(search)
 
     const increaseStepNumber = () => {
         setStepNumber(stepNumber + 1)
@@ -34,6 +39,12 @@ const Submission = () => {
             behavior: 'smooth'
         })
     }
+
+    useEffect(() => {
+        console.log(owner)
+        setSubmissionDetails({ ...submissionDetails, owner: owner })
+        // eslint-disable-next-line react-hooks/exhaustive-deps  
+    }, []);
 
     return (
         <div className="submission-page">
