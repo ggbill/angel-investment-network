@@ -30,57 +30,57 @@ const Uploads = (props: InputProps) => {
     const pitchDeckFile: any = useRef(null)
     const financialsFile: any = useRef(null)
 
-    const handleBlur = (event) => {
-        const { name, value } = event.target
-        let tempValidationObject = [...validationObject]
-        if (value) {
-            tempValidationObject.forEach(element => {
-                if (name === element.name) {
-                    element.isValid = true
-                    element.helperText = ""
-                }
-            });
-        } else {
-            console.log("blur no value")
-            tempValidationObject.forEach(element => {
-                if (name === element.name) {
-                    element.isValid = false
-                    element.helperText = "Please fill me in!"
-                }
-            });
-        }
-        setValidationObject(tempValidationObject)
-        props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
-    }
-
-    const handleFoundedDateChange = (date) => {
-        props.setSubmissionDetails({ ...props.submissionDetails, foundedDate: date })
-    };
-
-    const checkValuesComplete = (): boolean => {
-        if (isNeedPitchDeck) {
-            return (true)
-        } else {
-            if (!props.submissionDetails.pitchDeckFile ||
-                !props.submissionDetails.pitchDeckFile.name
-            ) {
-                return (false)
-            } else {
-                return (true)
-            }
-        }
-    }
-    // const checkValuesComplete = (): boolean => {
-    //     if (!props.submissionDetails.pitchDeckFile ||
-    //         !props.submissionDetails.pitchDeckFile.name
-    //         // !props.submissionDetails.financialsFile ||
-    //         // !props.submissionDetails.financialsFile.name
-    //         ) {
-    //         return (false)
+    // const handleBlur = (event) => {
+    //     const { name, value } = event.target
+    //     let tempValidationObject = [...validationObject]
+    //     if (value) {
+    //         tempValidationObject.forEach(element => {
+    //             if (name === element.name) {
+    //                 element.isValid = true
+    //                 element.helperText = ""
+    //             }
+    //         });
     //     } else {
+    //         console.log("blur no value")
+    //         tempValidationObject.forEach(element => {
+    //             if (name === element.name) {
+    //                 element.isValid = false
+    //                 element.helperText = "Please fill me in!"
+    //             }
+    //         });
+    //     }
+    //     setValidationObject(tempValidationObject)
+    //     props.setSubmissionDetails({ ...props.submissionDetails, [name]: value })
+    // }
+
+    // const handleFoundedDateChange = (date) => {
+    //     props.setSubmissionDetails({ ...props.submissionDetails, foundedDate: date })
+    // };
+
+    // const checkValuesComplete = (): boolean => {
+    //     if (isNeedPitchDeck) {
     //         return (true)
+    //     } else {
+    //         if (!props.submissionDetails.pitchDeckFile ||
+    //             !props.submissionDetails.pitchDeckFile.name
+    //         ) {
+    //             return (false)
+    //         } else {
+    //             return (true)
+    //         }
     //     }
     // }
+    const checkValuesComplete = (): boolean => {
+        if (!props.submissionDetails.pitchDeckFile ||
+            !props.submissionDetails.pitchDeckFile.name
+            // !props.submissionDetails.financialsFile ||
+            // !props.submissionDetails.financialsFile.name
+            ) {
+            return (false)
+        } else {
+            return (true)
+        }
+    }
 
     const goToNextStep = () => {
         props.increaseStepNumber()
@@ -127,10 +127,10 @@ const Uploads = (props: InputProps) => {
                             error={!validationObject[0].isValid}
                             helperText={validationObject[0].helperText}
                         />
-                        <FormControlLabel
+                        {/* <FormControlLabel
                             control={<Checkbox checked={isNeedPitchDeck} onChange={() => setIsNeedPitchDeck(!isNeedPitchDeck)} name="checkedA" />}
                             label="I don’t have a pitch deck yet"
-                        />
+                        /> */}
                     </div>
 
                     <div className="help-icon-wrapper"></div>
