@@ -143,7 +143,7 @@ const useSubmissionDetails = () => {
     const submitData = () => {
         console.log(submissionDetails)
         return cloudinaryUpload(submissionDetails.logoFile, "", "").then(logoResult => {
-            // console.log(logoResult)
+            console.log(`logoResult: ${logoResult}`)
             return cloudinaryUpload(submissionDetails.pitchDeckFile, "", "").then(pitchResult => {
                 return cloudinaryUpload(submissionDetails.financialsFile, "", "").then(financialsResult => {
                     return airtableApi.post(``, {
@@ -171,9 +171,10 @@ const useSubmissionDetails = () => {
                         financialsFile: financialsResult ? [{ "url": financialsResult.secure_url }] : null
                     }).then((result) => {
                         if (result.error){
+                            console.log(result.error)
                             return { isSuccess: false, error: result.message }
                         }else{
-                            // console.log(result)
+                            console.log(result)
                             submitDataToAinApi()
                             return { isSuccess: true }
                         }  
@@ -196,6 +197,7 @@ const useSubmissionDetails = () => {
 
     let stage = 0
     let industry = 0
+    let addressableMarketSize = 0
 
     if (submissionDetails.stage === "Pre-Startup/MVP"){
         stage = 0
@@ -209,6 +211,24 @@ const useSubmissionDetails = () => {
         stage = 4
     }else if (submissionDetails.stage === "Other"){
         stage = 5
+    }
+
+    if (submissionDetails.marketSize === "£10 - £25m"){
+        addressableMarketSize = 0
+    }else if (submissionDetails.marketSize === "£25 - £50m"){
+        addressableMarketSize = 1
+    }else if (submissionDetails.marketSize === "£50m - £100m"){
+        addressableMarketSize = 2
+    }else if (submissionDetails.marketSize === "£100m - £250m"){
+        addressableMarketSize = 3
+    }else if (submissionDetails.marketSize === "£250m - £500m"){
+        addressableMarketSize = 4
+    }else if (submissionDetails.marketSize === "£500m - £1bn"){
+        addressableMarketSize = 5
+    }else if (submissionDetails.marketSize === "£1bn - £5bn"){
+        addressableMarketSize = 6
+    }else if (submissionDetails.marketSize === "£5bn+"){
+        addressableMarketSize = 7
     }
 
     if (submissionDetails.sector === "Agriculture"){
@@ -271,7 +291,7 @@ const useSubmissionDetails = () => {
             formData.append("company_setup_date", String(unixFoundedDate));
             formData.append("office_postcode", String(submissionDetails.officePostCode));
             formData.append("business_type", String(submissionDetails.businessType));
-            formData.append("addressable_market_size", String(submissionDetails.marketSize));
+            formData.append("addressable_market_size", String(addressableMarketSize));
             formData.append("raised_previous_round", String(submissionDetails.previousRoundRaise));
             formData.append("previous_valuation", String(submissionDetails.previousValuation));
             formData.append("company_debt", String(submissionDetails.companyDebt));

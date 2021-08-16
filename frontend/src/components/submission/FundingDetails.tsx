@@ -199,7 +199,7 @@ const FundingDetails = (props: InputProps) => {
                         >
                             <ListItem value="£1 - £10m">£1 - £10m</ListItem>
                             <ListItem value="£10 - £25m">£10 - £25m</ListItem>
-                            <ListItem value="£25 - £50m3">£25 - £50m</ListItem>
+                            <ListItem value="£25 - £50m">£25 - £50m</ListItem>
                             <ListItem value="£50m - £100m">£50m - £100m</ListItem>
                             <ListItem value="£100m - £250m">£100m - £250m</ListItem>
                             <ListItem value="£250m - £500m">£250m - £500m</ListItem>
