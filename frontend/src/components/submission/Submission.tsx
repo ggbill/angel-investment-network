@@ -41,7 +41,7 @@ const Submission = () => {
     }
 
     useEffect(() => {
-        console.log(owner)
+        // console.log(owner)
         setSubmissionDetails({ ...submissionDetails, owner: owner })
         // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, []);
