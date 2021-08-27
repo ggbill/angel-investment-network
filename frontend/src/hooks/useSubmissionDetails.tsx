@@ -198,6 +198,7 @@ const useSubmissionDetails = () => {
     let stage = 0
     let industry = 0
     let addressableMarketSize = 0
+    let teamExperience = 0
 
     if (submissionDetails.stage === "Pre-Startup/MVP") {
         stage = 0
@@ -213,64 +214,76 @@ const useSubmissionDetails = () => {
         stage = 5
     }
 
-    if (submissionDetails.marketSize === "£10 - £25m") {
-        addressableMarketSize = 0
-    } else if (submissionDetails.marketSize === "£25 - £50m") {
+    if (submissionDetails.teamExperience === "1-5 years") {
+        teamExperience = 1
+    } else if (submissionDetails.teamExperience === "5-10 years") {
+        teamExperience = 2
+    } else if (submissionDetails.teamExperience === "10-15 years") {
+        teamExperience = 3
+    } else if (submissionDetails.teamExperience === "15+ years") {
+        teamExperience = 4
+    } 
+
+    if (submissionDetails.marketSize === "£1 - £10m") {
         addressableMarketSize = 1
-    } else if (submissionDetails.marketSize === "£50m - £100m") {
+    } else if (submissionDetails.marketSize === "£10 - £25m") {
         addressableMarketSize = 2
-    } else if (submissionDetails.marketSize === "£100m - £250m") {
+    } else if (submissionDetails.marketSize === "£25 - £50m") {
         addressableMarketSize = 3
-    } else if (submissionDetails.marketSize === "£250m - £500m") {
+    } else if (submissionDetails.marketSize === "£50m - £100m") {
         addressableMarketSize = 4
-    } else if (submissionDetails.marketSize === "£500m - £1bn") {
+    } else if (submissionDetails.marketSize === "£100m - £250m") {
         addressableMarketSize = 5
-    } else if (submissionDetails.marketSize === "£1bn - £5bn") {
+    } else if (submissionDetails.marketSize === "£250m - £500m") {
         addressableMarketSize = 6
-    } else if (submissionDetails.marketSize === "£5bn+") {
+    } else if (submissionDetails.marketSize === "£500m - £1bn") {
         addressableMarketSize = 7
+    } else if (submissionDetails.marketSize === "£1bn - £5bn") {
+        addressableMarketSize = 8
+    } else if (submissionDetails.marketSize === "£5bn+") {
+        addressableMarketSize = 9
     }
 
     if (submissionDetails.sector === "Agriculture") {
-        industry = 0
-    } else if (submissionDetails.sector === "Business Services") {
-        industry = 1
-    } else if (submissionDetails.sector === "Education & Training") {
-        industry = 2
-    } else if (submissionDetails.sector === "Energy & Natural Resources") {
-        industry = 3
-    } else if (submissionDetails.sector === "Entertainment & Leisure") {
-        industry = 4
-    } else if (submissionDetails.sector === "Fashion & Beauty") {
         industry = 5
-    } else if (submissionDetails.sector === "Finance") {
-        industry = 6
-    } else if (submissionDetails.sector === "Food & Beverage") {
-        industry = 7
-    } else if (submissionDetails.sector === "Hospitality, Restaurants & Bars") {
-        industry = 8
-    } else if (submissionDetails.sector === "Manufacturing & Engineering") {
-        industry = 9
-    } else if (submissionDetails.sector === "Media") {
-        industry = 10
-    } else if (submissionDetails.sector === "Medical & Sciences") {
-        industry = 11
-    } else if (submissionDetails.sector === "Personal Services") {
+    } else if (submissionDetails.sector === "Business Services") {
         industry = 12
-    } else if (submissionDetails.sector === "Products & Inventions") {
-        industry = 13
-    } else if (submissionDetails.sector === "Property") {
-        industry = 14
-    } else if (submissionDetails.sector === "Retail") {
+    } else if (submissionDetails.sector === "Education & Training") {
+        industry = 1
+    } else if (submissionDetails.sector === "Energy & Natural Resources") {
         industry = 15
-    } else if (submissionDetails.sector === "Sales & Marketing") {
-        industry = 16
-    } else if (submissionDetails.sector === "Software") {
+    } else if (submissionDetails.sector === "Entertainment & Leisure") {
+        industry = 28
+    } else if (submissionDetails.sector === "Fashion & Beauty") {
+        industry = 21
+    } else if (submissionDetails.sector === "Finance") {
+        industry = 13
+    } else if (submissionDetails.sector === "Food & Beverage") {
+        industry = 23
+    } else if (submissionDetails.sector === "Hospitality, Restaurants & Bars") {
         industry = 17
-    } else if (submissionDetails.sector === "Technology") {
+    } else if (submissionDetails.sector === "Manufacturing & Engineering") {
+        industry = 14
+    } else if (submissionDetails.sector === "Media") {
+        industry = 11
+    } else if (submissionDetails.sector === "Medical & Sciences") {
+        industry = 2
+    } else if (submissionDetails.sector === "Personal Services") {
+        industry = 29
+    } else if (submissionDetails.sector === "Products & Inventions") {
         industry = 18
-    } else if (submissionDetails.sector === "Transportation") {
+    } else if (submissionDetails.sector === "Property") {
+        industry = 16
+    } else if (submissionDetails.sector === "Retail") {
         industry = 19
+    } else if (submissionDetails.sector === "Sales & Marketing") {
+        industry = 20
+    } else if (submissionDetails.sector === "Software") {
+        industry = 8
+    } else if (submissionDetails.sector === "Technology") {
+        industry = 22
+    } else if (submissionDetails.sector === "Transportation") {
+        industry = 4
     }
 
     const submitDataToAinApi = () => {
@@ -294,12 +307,12 @@ const useSubmissionDetails = () => {
         formData.append("raised_previous_round", String(submissionDetails.previousRoundRaise));
         formData.append("previous_valuation", String(submissionDetails.previousValuation));
         formData.append("company_debt", String(submissionDetails.companyDebt));
-        formData.append("team_experience", String(submissionDetails.teamExperience));
+        formData.append("team_experience", String(teamExperience));
         formData.append("previous_exit", String(submissionDetails.isPreviousExits));
         formData.append("no_of_founder", String(submissionDetails.foundersCount));
         formData.append("no_of_employee", String(submissionDetails.employeesCount));
         formData.append("salary_forecast", String(submissionDetails.twelveMonthSalaryForecast));
-        formData.append("planned_hires", String(submissionDetails.twelveMonthHiresForecast));
+        formData.append("increase_in_headcount", String(submissionDetails.twelveMonthHiresForecast));
         formData.append("financial_year_start", String(unixStartOfFinancialYear));
         formData.append("revenue_month_1", String(submissionDetails.monthlyRevenue));
         formData.append("revenue_month_12", String(submissionDetails.twelveMonthProjectedRevenue));
@@ -308,6 +321,8 @@ const useSubmissionDetails = () => {
         formData.append("looking_for_chairman", String(submissionDetails.isLookingForChairman));
         formData.append("additional_info", String(submissionDetails.extraHelp));
         formData.append("mission_driven_comp", String(submissionDetails.isMissionDriven));
+        formData.append("top_three_salaries", String(submissionDetails.foundersAverageSalary));
+        formData.append("anticipated_rounds", String(submissionDetails.currentCommitments));
 
         return fetch("https://www.angelinvestmentnetwork.co.uk/rest/mobile/api/brokingsubmission/broking_step_submission", {
             method: "POST",
