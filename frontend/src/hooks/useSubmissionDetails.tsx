@@ -286,6 +286,7 @@ const useSubmissionDetails = () => {
         industry = 4
     }
 
+    
     const submitDataToAinApi = () => {
         const formData = new FormData();
         formData.append("user_id", '406773');
@@ -314,7 +315,7 @@ const useSubmissionDetails = () => {
         formData.append("salary_forecast", String(submissionDetails.twelveMonthSalaryForecast));
         formData.append("increase_in_headcount", String(submissionDetails.twelveMonthHiresForecast));
         formData.append("financial_year_start", String(unixStartOfFinancialYear));
-        formData.append("revenue_month_1", String(submissionDetails.monthlyRevenue));
+        formData.append("current_monthly_revenue", String(submissionDetails.monthlyRevenue));
         formData.append("revenue_month_12", String(submissionDetails.twelveMonthProjectedRevenue));
         formData.append("moving_office_next_12_months", String(submissionDetails.isMovingOffice));
         formData.append("lawyer_or_termsheet_in_place", String(submissionDetails.isLawyerInPlace));
@@ -323,6 +324,7 @@ const useSubmissionDetails = () => {
         formData.append("mission_driven_comp", String(submissionDetails.isMissionDriven));
         formData.append("top_three_salaries", String(submissionDetails.foundersAverageSalary));
         formData.append("anticipated_rounds", String(submissionDetails.currentCommitments));
+        formData.append("planned_hires", String(submissionDetails.keyPositionsToHire));
 
         return fetch("https://www.angelinvestmentnetwork.co.uk/rest/mobile/api/brokingsubmission/broking_step_submission", {
             method: "POST",
